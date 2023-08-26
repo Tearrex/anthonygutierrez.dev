@@ -1,0 +1,116 @@
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+import PageHead from './components/PageHead.vue'
+</script>
+
+<template>
+  <header>
+    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
+
+    <div class="wrapper">
+      <PageHead msg="> Hello" />
+
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/experience">Experience</RouterLink>
+        <a href="mailto:anthonyg2803@protonmail.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <RouterView />
+
+  <!-- <footer>
+    <h3>Let's network!
+    </h3>
+  </footer> -->
+</template>
+
+<style>
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.typinganim {
+  animation: fade 0.6s linear infinite;
+}
+</style>
+<style scoped>
+footer {
+  background-color: aquamarine;
+  color: #fff;
+}
+
+header {
+  line-height: 1.5;
+  max-height: 100vh;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+nav a.router-link-exact-active {
+  color: var(--color-text);
+}
+
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
+}
+
+nav a:first-of-type {
+  border: 0;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    text-align: left;
+    margin-left: -1rem;
+    font-size: 1rem;
+
+    padding: 1rem 0;
+    margin-top: 1rem;
+  }
+}
+</style>
