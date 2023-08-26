@@ -47,9 +47,11 @@ export default {
 
   <h1 style="margin-top: 4rem; color: #0f0;">Like what you see?<span class="typinganim">_</span></h1>
   <h3>Let's get in touch to discuss project ideas, lingering feedback or business proposals.</h3>
-  <button id="mail">
-    <IconMail /> Send Message
-  </button>
+    <a href="mailto:anthonyg2803@protonmail.com">
+      <button id="mail">
+        <IconMail /> Send Message
+      </button>
+  </a>
 </template>
 
 <style>
