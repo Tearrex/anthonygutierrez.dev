@@ -10,9 +10,10 @@ import PageHead from './components/PageHead.vue'
     <div class="wrapper">
       <PageHead msg="> Hello" />
 
-      <nav>
+      <nav style="text-align: center;">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/experience">Experience</RouterLink>
+        <!-- <RouterLink to="/blog">Blog</RouterLink> -->
         <a href="mailto:anthonyg2803@protonmail.com">Contact</a>
       </nav>
     </div>
@@ -92,6 +93,9 @@ nav a:first-of-type {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
+
+    position: sticky !important;
+    top: 0;
   }
 
   .logo {
@@ -106,11 +110,11 @@ nav a:first-of-type {
 
   nav {
     text-align: left;
-    margin-left: -1rem;
     font-size: 1rem;
 
     padding: 1rem 0;
     margin-top: 1rem;
+    margin-bottom: 0;
   }
 }
 </style>

@@ -16,13 +16,16 @@ export default {
 }
 </script>
 <template>
-  <h2>Introduction</h2>
-  <p id="bio">My passion for computers has flourished from boredom and
-    curiosity during my childhood. I toyed with website builders in highschool and progressively got more hands-on with
-    HTML/CSS/JS. Since then, I have been nurturing my webdev niche by exploring JavaScript frameworks and
-    acquiring
-    industry experience designing customer-facing apps for a business as well as provisioning the underlying
-    infrastructure involved.</p>
+  <div class="flexy">
+    <h2>Introduction</h2>
+    <p id="bio">My passion for computers has flourished from boredom and
+      curiosity during my childhood. I toyed with website builders in highschool and progressively got more hands-on with
+      HTML/CSS/JS. Since then, I have been nurturing my webdev niche by exploring JavaScript frameworks and
+      acquiring
+      industry experience designing customer-facing apps for a business as well as provisioning the underlying
+      infrastructure involved.</p>
+    <a href="#projects" style="margin-top: 1.2rem;">Jump to Projects</a>
+  </div>
 
   <h2 id="projects">My Projects</h2>
   <div class="projnest">
@@ -41,16 +44,19 @@ export default {
       description="Webserver for Raspberry Pi used to monitor tank parameters and control lights remotely."
       image-name="/aqua.jpg" video="https://www.youtube.com/watch?v=Ijvt4syre6s"
       github="https://github.com/Tearrex/AquaControl" :stack="aqua" />
-    <ProjectItem title="MP3 Ninja 🎵" description="Python program with purpose of streaming MP3 files to bluetooth speakers from a Raspberry Pi Zero W.
+    <ProjectItem title="MP3 Ninja" description="Python program with purpose of streaming MP3 files to bluetooth speakers from a Raspberry Pi Zero W.
     For stealthy music jamming." image-name="/music.jpg" :stack="mp3" />
   </div>
 
   <h1 style="margin-top: 4rem; color: #0f0;">Like what you see?<span class="typinganim">_</span></h1>
-  <h3>Let's get in touch to discuss project ideas, lingering feedback or business proposals.</h3>
-    <a href="mailto:anthonyg2803@protonmail.com">
-      <button id="mail">
-        <IconMail /> Send Message
-      </button>
+  <h3>Let's get
+    in touch to discuss project ideas, lingering feedback or business proposals.
+  </h3>
+  <a href="mailto:anthonyg2803@protonmai
+l.com">
+    <button id="mail" style="margin-bottom: 5rem;">
+      <IconMail /> Send Message
+    </button>
   </a>
 </template>
 
@@ -62,6 +68,7 @@ export default {
 #projects {
   margin-top: 2rem;
   margin-bottom: 1.2rem;
+  scroll-margin-top: 2rem;
 }
 
 #mail {
@@ -92,6 +99,19 @@ export default {
   fill: #0f0;
 }
 
+.flexy {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .flexy {
+    height: 100vh;
+  }
+}
+
 .projnest {
   display: flex;
   flex-flow: column;
@@ -112,6 +132,6 @@ export default {
 }
 
 .projnest>.nest:nth-child(even) img {
-  box-shadow: 10px 15px #1e1e1e !important;
+  box-shadow: 10px 15px #eeeeee !important;
 }
 </style>

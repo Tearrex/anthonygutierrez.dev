@@ -48,11 +48,11 @@ import IconYoutube from './icons/IconYoutube.vue';
 }
 
 .socials svg {
-  filter: invert(1) !important;
   height: 100%;
   aspect-ratio: 1/1;
   /* does not apply from inner scope*/
 }
+
 
 h1 {
   font-weight: 500;
@@ -66,7 +66,12 @@ h3 {
 }
 
 h3>span {
-  color: #fff;
+  color: #000;
+}
+
+.greetings {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .greetings h1,
