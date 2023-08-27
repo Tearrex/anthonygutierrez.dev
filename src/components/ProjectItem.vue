@@ -22,7 +22,7 @@ import IconYoutube from './icons/IconYoutube.vue';
                     <IconJumpLink />
                 </a>
             </h3>
-            <p>{{ description }}</p>
+            <p class="desc">{{ description }}</p>
             <ul v-if="stack">
                 <li v-for="item in stack" :key="item">
                     {{ item }}
@@ -46,7 +46,11 @@ import IconYoutube from './icons/IconYoutube.vue';
 
 <style scoped>
 h3 {
-    color: #fff;
+    color: var(--color-heading);
+}
+
+.desc {
+    color: var(--color-text);
 }
 
 .nest {
@@ -60,8 +64,8 @@ h3 {
 .nest>img {
     object-fit: cover;
     flex: 50%;
-    max-width: 50%;
+    max-width: clamp(100px, 50%, 420px);
     border-radius: 10%;
-    box-shadow: -10px 15px;
+    box-shadow: -10px 15px #eeeeee;
 }
 </style>

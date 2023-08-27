@@ -19,13 +19,18 @@ defineProps({
 
 <style scoped>
 button {
-    width: 40px;
+    width: 45px;
     aspect-ratio: 1/1;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     outline: none;
     border: 2px solid #0f0;
-    background: none;
+    background: #0f0;
     padding: 7px;
+    transition: background 0.4s ease-out;
+}
+
+button:hover {
+    background: rgba(0, 0, 0, 0);
 }
 
 img {
