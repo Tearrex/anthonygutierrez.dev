@@ -1,4 +1,14 @@
 <script setup>
+const techstacks = {
+    React: "/stacks/react.png",
+    Firebase: "/stacks/firebase.png",
+    Python: "/stacks/python.png",
+    RaspberryPi: "/stacks/raspberry.png",
+    NodeJS: "/stacks/node.png",
+    HTML: "/stacks/html.png",
+    CSS: "/stacks/css.png",
+    JavaScript: "/stacks/javascript.png"
+}
 defineProps({
     imageName: String,
     title: String,
@@ -23,11 +33,14 @@ import IconYoutube from './icons/IconYoutube.vue';
                 </a>
             </h3>
             <p class="desc">{{ description }}</p>
-            <ul v-if="stack">
+            <!-- <ul v-if="stack">
                 <li v-for="item in stack" :key="item">
                     {{ item }}
                 </li>
-            </ul>
+            </ul> -->
+            <div class="techstack">
+                <img v-for="item in stack" :key="item" :src="techstacks[item]" />
+            </div>
             <div class="link-tree" v-if="video || github">
                 <a v-if="github" :href="github" target="_blank" rel="noreferrer">
                     <button>
@@ -45,6 +58,22 @@ import IconYoutube from './icons/IconYoutube.vue';
 </template>
 
 <style scoped>
+.techstack {
+    display: flex;
+    flex-flow: row;
+    gap: 0.8rem;
+    margin: 1rem 0;
+    width: 100%;
+    flex-grow: 0;
+}
+
+.techstack img {
+    width: 20%;
+    max-width: 50px;
+    flex-shrink: 2;
+    object-fit: contain;
+}
+
 h3 {
     color: var(--color-heading);
 }

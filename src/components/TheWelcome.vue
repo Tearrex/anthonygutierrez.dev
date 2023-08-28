@@ -6,11 +6,11 @@ import IconMail from './icons/IconMail.vue';
 export default {
   data() {
     return {
-      chattea: ["React", "Firebase"],
-      gonz9: ["React", "Express.js", "JWT Auth"],
-      hero: ["JavaScript", "Code.org Code Studio"],
-      aqua: ["HTML/CSS/JS", "Python/Flask", "Raspberry Pi"],
-      mp3: ["Python", "PulseAudio", "Raspberry Pi", "Altoids tin"]
+      chattea: ["NodeJS", "React", "Firebase"],
+      gonz9: ["NodeJS", "React"],
+      hero: ["JavaScript"],
+      aqua: ["HTML", "CSS", "JavaScript", "Python", "RaspberryPi"],
+      mp3: ["Python", "RaspberryPi"]
     }
   }
 }
@@ -19,8 +19,9 @@ export default {
   <div class="flexy">
     <h2>Introduction</h2>
     <p id="bio">My passion for computers has flourished from boredom and
-      curiosity during my childhood. I toyed with website builders in highschool and progressively got more hands-on with
-      HTML/CSS/JS. Since then, I have been nurturing my webdev niche by exploring JavaScript frameworks and
+      curiosity during childhood. I toyed with website builders in highschool and progressed to
+      HTML/CSS/JS—craving more creative control. Since then, I have been nurturing my webdev niche by exploring JavaScript
+      frameworks and
       acquiring
       industry experience designing customer-facing apps for a business as well as provisioning the underlying
       infrastructure involved.</p>
@@ -33,7 +34,7 @@ export default {
   in a public feed hosted in the cloud." image-name="/chattea.jpg" url="https://chattea.me/" :stack="chattea"
       github="https://github.com/Tearrex/Chattea" />
     <ProjectItem title="Gonz9Training"
-      description="Freelance project for a professional fitness trainer to coordinate sessions with client prospects."
+      description="Freelance website for a professional fitness trainer to coordinate sessions with client prospects."
       image-name="/gonz9.jpg" url="https://gonz9training.com/" github="https://github.com/Tearrex/G9training"
       :stack="gonz9" />
     <ProjectItem title="Hero Simulator"
@@ -44,16 +45,15 @@ export default {
       description="Webserver for Raspberry Pi used to monitor tank parameters and control lights remotely."
       image-name="/aqua.jpg" video="https://www.youtube.com/watch?v=Ijvt4syre6s"
       github="https://github.com/Tearrex/AquaControl" :stack="aqua" />
-    <ProjectItem title="MP3 Ninja" description="Python program with purpose of streaming MP3 files to bluetooth speakers from a Raspberry Pi Zero W.
-    For stealthy music jamming." image-name="/music.jpg" :stack="mp3" />
+    <ProjectItem title="MP3 Ninja" description="Inclusive device for streaming MP3 files via bluetooth from a Raspberry Pi Zero W.
+    For stealthy music jams." image-name="/music.jpg" :stack="mp3" />
   </div>
 
   <h1 style="margin-top: 4rem; color: #0f0;">Like what you see?<span class="typinganim">_</span></h1>
   <h3>Let's get
     in touch to discuss project ideas, lingering feedback or business proposals.
   </h3>
-  <a href="mailto:anthonyg2803@protonmai
-l.com">
+  <a href="mailto:anthonyg2803@protonmail.com">
     <button id="mail" style="margin-bottom: 5rem;">
       <IconMail /> Send Message
     </button>
@@ -122,6 +122,10 @@ l.com">
   text-align: right !important;
 }
 
+.projnest>.nest:nth-child(odd) .techstack {
+  justify-content: right;
+}
+
 .projnest>.nest:nth-child(odd) p {
   text-align: right !important;
 }
@@ -131,7 +135,7 @@ l.com">
   text-align: left;
 }
 
-.projnest>.nest:nth-child(even) img {
+.projnest>.nest:nth-child(even)>img {
   box-shadow: 10px 15px #eeeeee !important;
 }
 </style>
