@@ -43,14 +43,10 @@ import IconYoutube from './icons/IconYoutube.vue';
             </div>
             <div class="link-tree" v-if="video || github">
                 <a v-if="github" :href="github" target="_blank" rel="noreferrer">
-                    <button>
-                        <IconGitHub /> View Repo
-                    </button>
+                    <IconGitHub /> See Code
                 </a>
                 <a v-if="video" :href="video" target="_blank" rel="noreferrer">
-                    <button>
-                        <IconYoutube /> Video Demo
-                    </button>
+                    <IconYoutube /> Watch Video
                 </a>
             </div>
         </div>
@@ -58,6 +54,13 @@ import IconYoutube from './icons/IconYoutube.vue';
 </template>
 
 <style scoped>
+.link-tree {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
 .techstack {
     display: flex;
     flex-flow: row;
