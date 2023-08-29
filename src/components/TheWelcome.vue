@@ -19,11 +19,11 @@ export default {
   <div class="flexy">
     <h2>Introduction</h2>
     <p id="bio">My passion for computers has flourished from boredom and
-      curiosity during childhood. I toyed with website builders in highschool and progressed to
+      curiosity over the years. During my childhood, I toyed with website builders and progressed to
       HTML/CSS/JS—craving more creative control. Since then, I have been nurturing my webdev niche by exploring JavaScript
       frameworks and
       acquiring
-      industry experience designing customer-facing apps for a business as well as provisioning the underlying
+      industry experience designing customer-facing apps as well as provisioning the underlying
       infrastructure involved.</p>
     <a href="#projects" style="margin-top: 1.2rem;">Jump to Projects</a>
   </div>
@@ -34,7 +34,7 @@ export default {
   in a public feed hosted in the cloud." image-name="/chattea.jpg" url="https://chattea.me/" :stack="chattea"
       github="https://github.com/Tearrex/Chattea" />
     <ProjectItem title="Gonz9Training"
-      description="Freelance website for a professional fitness trainer to coordinate sessions with client prospects."
+      description="Freelance website for a professional fitness trainer to coordinate sessions with athletes and client prospects."
       image-name="/gonz9.jpg" url="https://gonz9training.com/" github="https://github.com/Tearrex/G9training"
       :stack="gonz9" />
     <ProjectItem title="Hero Simulator"
