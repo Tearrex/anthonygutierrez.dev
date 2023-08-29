@@ -30,7 +30,7 @@ export default {
 
   <h2 id="projects">My Projects</h2>
   <div class="projnest">
-    <ProjectItem title="Chattea.me" description="A social media inspired webapp that allows users to post & interact
+    <ProjectItem title="Chattea" description="A social media inspired webapp that allows users to post & interact
   in a public feed hosted in the cloud." image-name="/chattea.jpg" url="https://chattea.me/" :stack="chattea"
       github="https://github.com/Tearrex/Chattea" />
     <ProjectItem title="Gonz9Training"
@@ -42,7 +42,7 @@ export default {
       image-name="/codeorg.jpg" url="https://studio.code.org/projects/applab/JPY35RLxDwdC4hMaXjvqN50qAB3Zqw8nGr_w4rcW2Tg"
       :stack="hero" />
     <ProjectItem title="AquaControl"
-      description="Webserver for Raspberry Pi used to monitor tank parameters and control lights remotely."
+      description="Webserver for Raspberry Pi to monitor water parameters and control aquarium lights remotely."
       image-name="/aqua.jpg" video="https://www.youtube.com/watch?v=Ijvt4syre6s"
       github="https://github.com/Tearrex/AquaControl" :stack="aqua" />
     <ProjectItem title="MP3 Ninja" description="Inclusive device for streaming MP3 files via bluetooth from a Raspberry Pi Zero W.
