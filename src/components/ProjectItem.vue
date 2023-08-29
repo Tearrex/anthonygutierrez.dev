@@ -39,7 +39,10 @@ import IconYoutube from './icons/IconYoutube.vue';
                 </li>
             </ul> -->
             <div class="techstack">
-                <img v-for="item in stack" :key="item" :src="techstacks[item]" />
+                <div class="tooltip" v-for="item in stack" :key="item">
+                    <img :src="techstacks[item]" />
+                    <span class="tooltext top center">{{ item }}</span>
+                </div>
             </div>
             <div class="link-tree" v-if="video || github">
                 <a v-if="github" :href="github" target="_blank" rel="noreferrer">
@@ -69,13 +72,27 @@ import IconYoutube from './icons/IconYoutube.vue';
     width: 100%;
     flex-grow: 0;
     flex-wrap: wrap;
+    align-items: center;
 }
 
-.techstack img {
+.techstack .tooltip {
     width: 20%;
     max-width: 50px;
     flex-shrink: 2;
     object-fit: contain;
+}
+
+
+.techstack .tooltip>img {
+    transition: transform 0.2s ease-in;
+}
+
+.techstack .tooltip:hover>img {
+    transform: scale(0.9);
+}
+
+.techstack .tooltip>img {
+    width: 100%;
 }
 
 h3 {

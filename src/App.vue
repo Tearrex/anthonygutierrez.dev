@@ -45,6 +45,39 @@ import PageHead from './components/PageHead.vue'
 .typinganim {
   animation: fade 0.6s linear infinite;
 }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip>.tooltext {
+  visibility: hidden;
+  /* width: 120px; */
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 15px;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltext.top {
+  bottom: 105%;
+}
+
+.tooltext.center {
+  left: 50%;
+  transform: translateX(-50%)
+}
+
+.tooltip:hover span.tooltext {
+  visibility: visible !important;
+}
 </style>
 <style scoped>
 footer {
