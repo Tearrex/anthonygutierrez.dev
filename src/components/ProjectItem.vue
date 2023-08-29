@@ -72,6 +72,7 @@ import IconYoutube from './icons/IconYoutube.vue';
     max-width: 50px;
     flex-shrink: 2;
     object-fit: contain;
+    flex-wrap: wrap;
 }
 
 h3 {
