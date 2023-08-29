@@ -65,6 +65,7 @@ import IconYoutube from './icons/IconYoutube.vue';
     margin: 1rem 0;
     width: 100%;
     flex-grow: 0;
+    flex-wrap: wrap;
 }
 
 .techstack img {
@@ -72,7 +73,6 @@ import IconYoutube from './icons/IconYoutube.vue';
     max-width: 50px;
     flex-shrink: 2;
     object-fit: contain;
-    flex-wrap: wrap;
 }
 
 h3 {
