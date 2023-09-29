@@ -7,7 +7,8 @@ const techstacks = {
     NodeJS: "/stacks/node.png",
     HTML: "/stacks/html.png",
     CSS: "/stacks/css.png",
-    JavaScript: "/stacks/javascript.png"
+    JavaScript: "/stacks/javascript.png",
+    MongoDB: "/stacks/mongo.png",
 }
 defineProps({
     imageName: String,
