@@ -1,22 +1,41 @@
 <script setup>
+import IconDown from './icons/IconDown.vue';
 defineProps({
     employer: String,
     jobTitle: String,
     image: String,
     start: String,
-    end: String
+    end: String,
+    default: Boolean = false
 })
 </script>
-
+<script>
+export default {
+    data() {
+        return {
+            open: this.default == "true"
+        }
+    }
+}
+</script>
 <template>
-    <div class="nest">
-        <img :src="image" />
-        <div class="text">
-            <h2>{{ employer }}</h2>
-            <h4>{{ jobTitle }}</h4>
-            <!-- <small>{{ start }} to {{ end }}</small> -->
+    <div>
+        <div class="nest" v-on:click="open = !open">
+            <img :src="image" />
+            <div class="text">
+                <h2>{{ employer }}</h2>
+                <h4>{{ jobTitle }}</h4>
+            </div>
+            <span :class="{ expand: true, flipped: open }">
+                <IconDown />
+            </span>
         </div>
-        <!-- <button class="expand">+</button> -->
+        <div v-bind:class="{ expandable: true, open: open }" :style="{ maxHeight: open ? '100%' : '0' }">
+            <div class="content">
+                <!-- <small>{{ start }} to {{ end }}</small> -->
+                <slot name="content"></slot>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -28,6 +47,28 @@ defineProps({
     background-color: var(--color-border);
     padding: 10px;
     position: relative;
+}
+
+.nest:hover {
+    cursor: pointer;
+}
+
+.flipped {
+    transform: translateY(-50%) scaleY(-1) !important;
+}
+
+.expandable {
+    background-color: #f2f2f2;
+    height: 0;
+    overflow: hidden;
+}
+
+.content {
+    padding: 15px;
+}
+
+.expandable.open {
+    height: 100%;
 }
 
 .expand {
