@@ -10,7 +10,9 @@ export default {
       gonz9: ["NodeJS", "React"],
       hero: ["JavaScript"],
       aqua: ["HTML", "CSS", "JavaScript", "Python", "RaspberryPi"],
-      mp3: ["Python", "RaspberryPi"]
+      mp3: ["Python", "RaspberryPi"],
+      filters: ["Websites", "Embedded", "Other"],
+      currentFilter: "Websites"
     }
   }
 }
@@ -29,29 +31,31 @@ export default {
   </div>
 
   <h2 id="projects">My Projects</h2>
+  <div class="switchNest">
+    <button v-for="i in filters" v-on:click="currentFilter = i" :class="{ active: currentFilter == i }">{{ i }}</button>
+  </div>
   <div class="projnest">
     <ProjectItem title="Chattea" description="A social media inspired webapp that allows users to post & interact
   in a public feed hosted in the cloud." image-name="/chattea.jpg" url="https://chattea.me/" :stack="chattea"
-      github="https://github.com/Tearrex/Chattea" />
+      github="https://github.com/Tearrex/Chattea" v-if="currentFilter == 'Websites'" />
     <ProjectItem title="Gonz9Training"
       description="Freelance website for a professional fitness trainer to coordinate sessions with athletes and client prospects."
       image-name="/gonz9.jpg" url="https://gonz9training.com/" github="https://github.com/Tearrex/G9training"
-      :stack="gonz9" />
+      :stack="gonz9" v-if="currentFilter == 'Websites'" />
     <ProjectItem title="Hero Simulator"
       description="Point and click browser game with goal to protect tanks from rounds of bomb strikes. Try it out!"
       image-name="/codeorg.jpg" url="https://studio.code.org/projects/applab/JPY35RLxDwdC4hMaXjvqN50qAB3Zqw8nGr_w4rcW2Tg"
-      :stack="hero" />
+      :stack="hero" v-if="currentFilter == 'Other'" />
     <ProjectItem title="AquaControl"
       description="Webserver for Raspberry Pi to monitor water parameters and control aquarium lights remotely."
       image-name="/aqua.jpg" video="https://www.youtube.com/watch?v=Ijvt4syre6s"
-      github="https://github.com/Tearrex/AquaControl" :stack="aqua" />
+      github="https://github.com/Tearrex/AquaControl" :stack="aqua" v-if="currentFilter == 'Embedded'" />
     <ProjectItem title="MP3 Ninja" description="Inclusive device for streaming MP3 files via bluetooth from a Raspberry Pi Zero W.
-    For stealthy music jams." image-name="/music.jpg" :stack="mp3" />
+    For stealthy music jams." image-name="/music.jpg" :stack="mp3" v-if="currentFilter == 'Embedded'" />
   </div>
 
   <h1 style="margin-top: 4rem; color: #0f0;">Like what you see?<span class="typinganim">_</span></h1>
-  <h3>Let's get
-    in touch to discuss project ideas, lingering feedback or business proposals.
+  <h3>I'd be happy to talk shop or share more about my projects
   </h3>
   <a href="mailto:anthonyg2803@protonmail.com">
     <button id="mail" style="margin-bottom: 5rem;">
