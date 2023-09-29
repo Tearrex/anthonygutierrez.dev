@@ -25,10 +25,14 @@ import IconYoutube from './icons/IconYoutube.vue';
 
 <template>
     <div class="nest">
-        <img :src="imageName">
-        <div>
+        <a :href="url" target="_blank" v-if="url" rel="noreferrer" class="preview">
+            <img :src="imageName">
+        </a>
+        <img :src="imageName" v-else class="preview">
+        <div class="content">
             <h3>{{ title }}
                 <a :href="url" v-if="url" target="_blank" rel="noreferrer">
+                    Visit
                     <IconJumpLink />
                 </a>
             </h3>
@@ -80,15 +84,16 @@ import IconYoutube from './icons/IconYoutube.vue';
     max-width: 50px;
     flex-shrink: 2;
     object-fit: contain;
+    line-height: 0;
+}
+
+.techstack .tooltip .tooltext {
+    line-height: normal;
 }
 
 
 .techstack .tooltip>img {
     transition: transform 0.2s ease-in;
-}
-
-.techstack .tooltip:hover>img {
-    transform: scale(0.9);
 }
 
 .techstack .tooltip>img {
@@ -111,11 +116,22 @@ h3 {
     gap: 5px;
 }
 
-.nest>img {
-    object-fit: cover;
+.nest .preview {
     flex: 50%;
     max-width: clamp(100px, 50%, 420px);
-    border-radius: 10%;
-    box-shadow: -10px 15px #eeeeee;
+    overflow: hidden;
+}
+
+.nest .content {
+    flex: 50%;
+}
+
+.nest .preview {
+    line-height: 0;
+}
+
+.nest img:not(.preview) {
+    object-fit: cover;
+    width: 100%;
 }
 </style>
