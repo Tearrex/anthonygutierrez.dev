@@ -78,6 +78,10 @@ import PageHead from './components/PageHead.vue'
 .tooltip:hover span.tooltext {
   visibility: visible !important;
 }
+
+.no-highlight:hover {
+  background: none !important;
+}
 </style>
 <style scoped>
 footer {
