@@ -97,10 +97,30 @@ export default {
 
 #mail:hover {
   background: none;
+.switchNest {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 1rem;
 }
 
-#mail:hover svg path {
-  fill: #0f0;
+.switchNest>button {
+  padding: 10px 15px;
+  flex: 100%;
+  border: none;
+  background-color: #eeeeee;
+}
+
+.switchNest>button.active {
+  background-color: #0f0;
+  color: #fff;
+}
+
+.switchNest>button:first-of-type {
+  border-radius: 100vmin 0 0 100vmin;
+}
+
+.switchNest>button:last-of-type {
+  border-radius: 0 100vmin 100vmin 0;
 }
 
 .flexy {
@@ -137,9 +157,5 @@ export default {
 .projnest>.nest:nth-child(even) {
   flex-flow: row-reverse;
   text-align: left;
-}
-
-.projnest>.nest:nth-child(even)>img {
-  box-shadow: 10px 15px #eeeeee !important;
 }
 </style>
