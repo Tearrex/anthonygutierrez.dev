@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       chattea: ["NodeJS", "React", "Firebase"],
-      gonz9: ["NodeJS", "React", "MongoDB"],
+      gonz9: ["NodeJS", "React"],
       hero: ["JavaScript"],
       aqua: ["HTML", "CSS", "JavaScript", "Python", "RaspberryPi"],
       mp3: ["Python", "RaspberryPi"],
@@ -65,8 +65,9 @@ function projects() {
         description="Flask webserver that monitors water probe parameters and controls aquarium lights remotely."
         image-name="/aqua.jpg" video="https://www.youtube.com/watch?v=Ijvt4syre6s"
         github="https://github.com/Tearrex/AquaControl" :stack="aqua" v-if="currentFilter == 'Embedded'" />
-      <ProjectItem title="MP3 Ninja" description="Inclusive device for streaming MP3 files via bluetooth from a Raspberry Pi Zero W.
-    For stealthy music jams." image-name="/music.jpg" :stack="mp3" v-if="currentFilter == 'Embedded'" />
+      <ProjectItem title="PiMusicTin"
+        description="Low-profile device for streaming MP3 files via bluetooth from a Raspberry Pi Zero W with a display HAT for menu controls."
+        image-name="/music.jpg" :stack="mp3" v-if="currentFilter == 'Embedded'" />
     </div>
   </section>
   <hr />
