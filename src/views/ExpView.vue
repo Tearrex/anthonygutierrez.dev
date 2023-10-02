@@ -16,6 +16,11 @@ import Employer from '../components/Employer.vue';
           <p>I started April 2022 with basic helpdesk tasks and jumped to higher levels of disciplines within months.
             <br /> Throughout my time there I have helped raise their quality assurance standards by creating in-house
             software solutions with a small group of developers for digital tracking purposes.<br />
+            I also improved the software development practices of a two-man IT operation by implementing version control
+            and
+            <b>deployment pipelines</b> for a major part of the company's internal infrastructure. This allowed us to
+            collaborate and expand the team while progressively deploying changes through <b>code reviews and pull
+              requests</b>.<br />
             I left the company in August 2023 due to corporate discrepancies.
           </p>
         </template>
