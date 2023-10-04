@@ -16,7 +16,7 @@ export default {
       chattea: ["NodeJS", "React", "Firebase"],
       gonz9: ["NodeJS", "React"],
       hero: ["JavaScript"],
-      aqua: ["HTML", "CSS", "JavaScript", "Python", "RaspberryPi"],
+      aqua: ["HTML", "CSS", "JavaScript", "Python", "SQLite", "RaspberryPi"],
       mp3: ["Python", "RaspberryPi"],
       filters: ["Websites", "Embedded", "Other"],
       currentFilter: "Websites"
