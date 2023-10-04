@@ -18,6 +18,7 @@ export default {
       hero: ["JavaScript"],
       aqua: ["HTML", "CSS", "JavaScript", "Python", "Flask", "SQLite", "RaspberryPi"],
       mp3: ["Python", "RaspberryPi"],
+      san: ["iSCSI", "DRBD", "Heartbeat"],
       filters: ["Websites", "Embedded", "Other"],
       currentFilter: "Websites"
     }
@@ -58,7 +59,7 @@ function projects() {
         :stack="gonz9" v-if="currentFilter == 'Websites'" />
       <ProjectItem title="Storage Area Network"
         description="I documented my SAN solution for the datacenter migration of a previous employer."
-        blog-url="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad" image-name="/san.jpg"
+        blog-url="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad" image-name="/san.jpg" :stack="san"
         v-if="currentFilter == 'Other'" />
       <ProjectItem title="School Project"
         description="Point and click browser game with goal to protect tanks from rounds of bomb strikes. Try it out!"
