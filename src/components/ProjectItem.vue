@@ -15,6 +15,7 @@ defineProps({
     title: String,
     description: String,
     url: String,
+    blogUrl: String,
     stack: Array,
     video: String,
     github: String
@@ -22,6 +23,7 @@ defineProps({
 import IconJumpLink from './icons/IconJumpLink.vue';
 import IconGitHub from './icons/IconGitHub.vue';
 import IconYoutube from './icons/IconYoutube.vue';
+import IconBlog from './icons/IconBlog.vue';
 </script>
 
 <template>
@@ -49,12 +51,15 @@ import IconYoutube from './icons/IconYoutube.vue';
                     <span class="tooltext top center">{{ item }}</span>
                 </div>
             </div>
-            <div class="link-tree" v-if="video || github">
+            <div class="link-tree" v-if="video || github || blogUrl">
                 <a v-if="github" :href="github" target="_blank" rel="noreferrer">
                     <IconGitHub /> See Code
                 </a>
                 <a v-if="video" :href="video" target="_blank" rel="noreferrer">
                     <IconYoutube /> Watch Video
+                </a>
+                <a v-if="blogUrl" :href="blogUrl" target="_blank" rel="noreferrer">
+                    <IconBlog /> Read Blog
                 </a>
             </div>
         </div>
