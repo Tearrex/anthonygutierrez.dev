@@ -34,7 +34,7 @@ export default {
         <div v-bind:class="{ expandable: true, open: open }" :style="{ maxHeight: open ? '100%' : '0' }">
             <div class="content">
                 <div class="roles" v-if="roles">
-                    Honed skills: <span v-for="i in roles" :key="i">{{ i }}</span>
+                    Skills: <span v-for="i in roles" :key="i">{{ i }}</span>
                 </div>
                 <slot name="content"></slot>
             </div>

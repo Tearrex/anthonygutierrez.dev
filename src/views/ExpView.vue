@@ -23,14 +23,20 @@ export default {
           <p>GSA is a manufacturer of electrical
             wire harnesses for the automobile industry based in Fremont, CA.</p>
           <p>I started April 2022 with basic helpdesk tasks and jumped to higher levels of disciplines within months.
-            <br /> Throughout my time there I have helped raise their QA standards by creating in-house
-            software solutions with a small group of developers for digital tracking purposes.<br />
-            I also improved the software development practices of a two-man IT operation by implementing version control
+            <br /> Throughout my time there I have worked with different departments
+            in order to understand the current suite of software applications and tailor to different business
+            needs.<br />
+
+            I improved the development practices of a small IT operation by implementing version control
             and
-            <b>deployment pipelines</b> for a major part of the company's internal infrastructure. This allowed us to
+            <b>deployment pipelines</b>. This allowed us to
             collaborate and expand the team while iteratively deploying changes through <b>code reviews and pull
-              requests</b>.<br />
-            I left the company in August 2023 due to corporate discrepancies.
+              requests</b>.<br /><br />
+            My latest achievement was implementing a <b>storage area network</b> for the needs of their
+            fileservers.
+            <a href="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad" target="_blank">Read my blog</a>
+            sharing
+            what I learned in the process.
           </p>
         </template>
       </Employer>
