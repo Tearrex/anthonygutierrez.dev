@@ -10,6 +10,7 @@ import SocialButton from './SocialButton.vue';
 import IconGitHub from './icons/IconGitHub.vue';
 import IconLinkedIn from './icons/IconLinkedIn.vue';
 import IconYoutube from './icons/IconYoutube.vue';
+import IconMail from './icons/IconMail.vue';
 </script>
 
 <template>
@@ -32,6 +33,11 @@ import IconYoutube from './icons/IconYoutube.vue';
       <SocialButton social-link="https://www.youtube.com/@ant-dev">
         <template #icon>
           <IconYoutube />
+        </template>
+      </SocialButton>
+      <SocialButton social-link="mailto:anthonyg2803@protonmail.com">
+        <template #icon>
+          <IconMail />
         </template>
       </SocialButton>
     </div>
