@@ -55,6 +55,7 @@ export default {
     padding: 5px 10px;
     color: #025902;
     border-radius: 100vh;
+    border: 1px solid #025902;
 }
 
 .nest {
