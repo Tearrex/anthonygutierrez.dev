@@ -13,8 +13,7 @@ import PageHead from './components/PageHead.vue'
       <nav style="text-align: center;">
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/experience">Experience</RouterLink>
-        <!-- <RouterLink to="/blog">Blog</RouterLink> -->
-        <a href="mailto:anthonyg2803@protonmail.com">Contact</a>
+        <a href="https://medium.com/@anthonydev" target="_blank" rel="noreferrer">Blog</a>
       </nav>
     </div>
   </header>
