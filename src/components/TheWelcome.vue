@@ -13,10 +13,10 @@ import IconDown from './icons/IconDown.vue';
 export default {
   data() {
     return {
-      chattea: ["NodeJS", "React", "Firebase"],
-      gonz9: ["NodeJS", "React"],
+      chattea: ["React", "Firebase"],
+      gonz9: ["React"],
       hero: ["JavaScript"],
-      aqua: ["HTML", "CSS", "JavaScript", "Python", "SQLite", "RaspberryPi"],
+      aqua: ["HTML", "CSS", "JavaScript", "Python", "Flask", "SQLite", "RaspberryPi"],
       mp3: ["Python", "RaspberryPi"],
       filters: ["Websites", "Embedded", "Other"],
       currentFilter: "Websites"
@@ -231,6 +231,10 @@ footer button:hover svg path {
 }
 
 .projnest>.nest:nth-child(odd) .techstack {
+  justify-content: right;
+}
+
+.projnest>.nest:nth-child(odd) .roles {
   justify-content: right;
 }
 

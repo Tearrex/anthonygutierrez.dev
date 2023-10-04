@@ -46,12 +46,15 @@ import IconBlog from './icons/IconBlog.vue';
                     {{ item }}
                 </li>
             </ul> -->
-            <div class="techstack">
+            <div class="roles" v-if="stack">
+                <span v-for="i in stack" :key="i">{{ i }}</span>
+            </div>
+            <!-- <div class="techstack">
                 <div class="tooltip" v-for="item in stack" :key="item">
                     <img :src="techstacks[item]" />
                     <span class="tooltext top center">{{ item }}</span>
                 </div>
-            </div>
+            </div> -->
             <div class="link-tree" v-if="video || github || blogUrl">
                 <a v-if="github" :href="github" target="_blank" rel="noreferrer">
                     <IconGitHub /> See Code
@@ -68,6 +71,22 @@ import IconBlog from './icons/IconBlog.vue';
 </template>
 
 <style scoped>
+.roles {
+    display: flex;
+    flex-flow: row;
+    gap: 0.3rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.roles>span {
+    background-color: #aee9a9;
+    padding: 5px 10px;
+    color: #025902;
+    border-radius: 100vh;
+    border: 1px solid #025902;
+}
+
 .link-tree {
     display: flex;
     flex-flow: column;
