@@ -118,7 +118,7 @@ function projects() {
     </a>
     <RouterLink to="/experience" class="no-highlight">
       <button>
-        <IconCase /> CV
+        <IconCase /> Resume/CV
       </button>
     </RouterLink>
   </footer>

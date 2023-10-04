@@ -3,6 +3,7 @@ import IconDown from './icons/IconDown.vue';
 defineProps({
     employer: String,
     jobTitle: String,
+    roles: Object,
     image: String,
     start: String,
     end: String,
@@ -32,7 +33,9 @@ export default {
         </div>
         <div v-bind:class="{ expandable: true, open: open }" :style="{ maxHeight: open ? '100%' : '0' }">
             <div class="content">
-                <!-- <small>{{ start }} to {{ end }}</small> -->
+                <div class="roles" v-if="roles">
+                    Honed skills: <span v-for="i in roles" :key="i">{{ i }}</span>
+                </div>
                 <slot name="content"></slot>
             </div>
         </div>
@@ -40,6 +43,20 @@ export default {
 </template>
 
 <style scoped>
+.roles {
+    display: flex;
+    flex-flow: row;
+    gap: 0.3rem;
+    align-items: center;
+}
+
+.roles>span {
+    background-color: #aee9a9;
+    padding: 5px 10px;
+    color: #025902;
+    border-radius: 100vh;
+}
+
 .nest {
     display: flex;
     flex-flow: row;
