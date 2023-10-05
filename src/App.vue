@@ -12,7 +12,7 @@ import PageHead from './components/PageHead.vue'
 
       <nav style="text-align: center;">
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/experience">Experience</RouterLink>
+        <a href="#experience">Experience</a>
         <a href="https://medium.com/@anthonydev" target="_blank" rel="noreferrer">Blog</a>
       </nav>
     </div>
@@ -125,14 +125,14 @@ nav a:first-of-type {
 }
 
 @media (min-width: 1024px) {
-  header {
+  /* header {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
 
     position: sticky !important;
     top: 0;
-  }
+  } */
 
   .logo {
     margin: 0 2rem 0 0;

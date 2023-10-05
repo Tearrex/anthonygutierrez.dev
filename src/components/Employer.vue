@@ -20,12 +20,15 @@ export default {
 }
 </script>
 <template>
-    <div>
+    <div class="employer">
         <div class="nest" v-on:click="open = !open">
             <img :src="image" />
             <div class="text">
                 <h2>{{ employer }}</h2>
-                <h4>{{ jobTitle }}</h4>
+                <h4>{{ jobTitle }} • {{ start }} to {{ end }}</h4>
+                <!-- <div class="roles" v-if="roles">
+                    <span v-for="i in roles" :key="i">{{ i }}</span>
+                </div> -->
             </div>
             <span :class="{ expand: true, flipped: open }">
                 <IconDown />
@@ -33,10 +36,10 @@ export default {
         </div>
         <div v-bind:class="{ expandable: true, open: open }" :style="{ maxHeight: open ? '100%' : '0' }">
             <div class="content">
-                <div class="roles" v-if="roles">
-                    Skills: <span v-for="i in roles" :key="i">{{ i }}</span>
-                </div>
                 <slot name="content"></slot>
+                <div class="roles" v-if="roles" style="margin-top: 2rem;">
+                    Learned <span v-for="i in roles" :key="i">{{ i }}</span>
+                </div>
             </div>
         </div>
     </div>
@@ -51,11 +54,15 @@ export default {
 }
 
 .roles>span {
-    background-color: #aee9a9;
+    background-color: #a9c8e9;
     padding: 5px 10px;
-    color: #025902;
+    color: #022c59;
     border-radius: 100vh;
-    border: 1px solid #025902;
+    border: 1px solid #022c59;
+}
+
+.employer {
+    max-width: 600px;
 }
 
 .nest {
@@ -96,13 +103,17 @@ export default {
     transform: translateY(-50%);
 }
 
+.expand path {
+    fill: #fff;
+}
+
 img {
     max-height: 70px;
     aspect-ratio: 1/1;
 }
 
 h2 {
-    color: var(--color-heading);
+    color: #fff;
 }
 
 h2 small {
@@ -113,5 +124,11 @@ h2 small {
     display: flex;
     flex-flow: column;
     gap: 5px;
+    color: #fff;
+}
+
+.text h4 {
+    font-weight: normal;
+    opacity: 0.8;
 }
 </style>

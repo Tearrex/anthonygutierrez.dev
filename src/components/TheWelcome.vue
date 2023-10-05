@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router';
 import ProjectItem from './ProjectItem.vue';
+import Employer from './Employer.vue';
 import IconMail from './icons/IconMail.vue';
 import IconCloud from './icons/IconCloud.vue';
 import IconCode from './icons/IconCode.vue';
@@ -29,15 +30,17 @@ function projects() {
 }
 </script>
 <template>
-  <section class="flexy">
+  <section>
     <h2>Introduction</h2>
     <p id="bio">My passion for computers has flourished from boredom and
       curiosity over the years. During my childhood, I toyed with website builders and progressed to
-      HTML/CSS/JS—craving more creative control. Since then, I have been nurturing my webdev niche by exploring JavaScript
-      frameworks and
-      acquiring
-      industry experience designing customer-facing apps as well as provisioning the underlying
-      infrastructure involved.</p>
+      HTML/CSS/JS—craving more creative control. Since then, I have been nurturing my webdev niche by <a
+        href="#projectView">exploring JavaScript
+        frameworks</a> and
+      <a href="#experience">acquiring
+        industry experience</a> designing customer-facing apps as well as provisioning the underlying
+      infrastructure involved.
+    </p>
     <button style="margin-top: 1.2rem;font-size: 1.2rem;" v-on:click="projects()" class="fancy">
       <IconDown /> Jump to Projects
     </button>
@@ -75,12 +78,110 @@ function projects() {
         image-name="/music.jpg" :stack="mp3" v-if="currentFilter == 'Embedded'" />
     </div>
   </section>
-  <hr />
+  <div style="background-color: #295a8f; position: relative;">
+    <div class="wavy block"></div>
+  </div>
+  <section class="expsec" id="experience">
+    <h1 style="margin-bottom: 2rem;">Professional Experience</h1>
+    <div class="expnest">
+      <Employer employer="Golden State Assembly" job-title="IT Support Specialist" image="/gsa.jpg" start="April 2022"
+        end="August 2023" :roles='["Helpdesk", "DevOps", "PHP", "React"]'>
+        <template #content>
+          <!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
+            https://gsassembly.com/website/#about-us
+          </a> -->
+          <p>GSA is a manufacturer of electrical
+            wire harnesses for the automobile industry based in Fremont, CA.</p>
+          <p>I started April 2022 working with different departments
+            to understand the suite of software apps I was supporting and how to tailor them to different business
+            needs.<br />
+
+            Jumping from helpdesk to system administration, I quickly improved the development practices of a small IT
+            operation
+            by implementing version control
+            and
+            <b>deployment pipelines</b> for existing codebases. This allowed us to
+            collaborate and expand the team while iteratively deploying changes through <b>code reviews and pull
+              requests</b>.<br /><br />
+            My latest achievement was implementing a <b>storage area network</b> for the needs of their
+            fileservers.
+            <a href="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad" target="_blank">Read my blog</a>
+            about it.
+          </p>
+        </template>
+      </Employer>
+    </div>
+  </section>
+  <div style="background-color: #295a8f; position: relative;">
+    <div class="wavy"></div>
+  </div>
   <section>
-    <h2>Career Aspirations</h2>
-    <p style="margin-bottom: 1rem;">I have a breadth of knowledge across these tech domains that I have applied as a
-      hobbyist and as a business professional.
-    </p>
+    <h2 style="margin-bottom: 0.5rem;">My Toolset</h2>
+    <p style="margin-bottom: 1rem;">I have working knowledge of the following</p>
+    <div class="skillnest">
+
+      <div class="tooltip">
+        <img src="/stacks/html.png" />
+        <span class="tooltext top center">HTML</span>
+      </div>
+      <div class="tooltip">
+        <img src="/stacks/css.png" />
+        <span class="tooltext top center">CSS</span>
+      </div>
+      <div class="tooltip">
+        <img src="/stacks/javascript.png" />
+        <span class="tooltext top center">JavaScript</span>
+      </div>
+      <div class="tooltip">
+        <img src="/stacks/typescript.png" />
+        <span class="tooltext top center">TypeScript</span>
+      </div>
+      <div class="tooltip">
+        <img src="/stacks/react.png" />
+        <span class="tooltext top center">React</span>
+      </div>
+      <div class="tooltip">
+        <img src="/stacks/vue.png" />
+        <span class="tooltext top center">Vue.js</span>
+      </div>
+      <div class="tooltip">
+        <img src="/stacks/python.png" />
+        <span class="tooltext top center">Python</span>
+      </div>
+      <div class="tooltip">
+        <img src="/stacks/php.png" />
+        <span class="tooltext top center">PHP</span>
+      </div>
+      <div class="tooltip">
+        <img src="/stacks/mysql.png" />
+        <span class="tooltext top center">MySQL</span>
+      </div>
+      <div class="tooltip">
+        <img src="/stacks/mongo.png" />
+        <span class="tooltext top center">MongoDB</span>
+      </div>
+      <div class="tooltip">
+        <img src="/stacks/firebase.png" />
+        <span class="tooltext top center">Firebase</span>
+      </div>
+      <div class="tooltip">
+        <img src="/stacks/docker.png" />
+        <span class="tooltext top center">Docker</span>
+      </div>
+      <div class="tooltip">
+        <img src="/stacks/ubuntu.png" />
+        <span class="tooltext top center">Ubuntu</span>
+      </div>
+      <div class="tooltip">
+        <img src="/stacks/aws.png" />
+        <span class="tooltext top center">AWS</span>
+      </div>
+    </div>
+    <p style="margin-bottom: 1rem;">I'm always learning & eager to take on new challenges.</p>
+    <h2>My Career Goals</h2>
+    <p style="margin-bottom: 1rem;">I would like to explore these tech domains in the future to expand my scope of
+      knowledge as a business
+      professional.</p>
     <h3>
       <IconGlobe /> Networking
     </h3>
@@ -108,23 +209,93 @@ function projects() {
       <li>Prototyping and delivering products.</li>
     </ul>
   </section>
+  <div style="overflow: hidden;">
+    <div style="background-color: #121212; position: relative;">
+      <div class="wavy"></div>
+    </div>
   <footer>
-    <h1 style="margin-top: 4rem; color: #0f0;">Open to work</h1>
-    <h3>I'd be happy to talk shop or share more about my projects
+      <img src="/monitors.png" class="desk" />
+      <div class="lamp">
+        <img src="/lamp.png" />
+      </div>
+      <h1 style="margin-top: 6rem; color: #5dade2;">Open to work</h1>
+      <h3>I'd be happy to talk shop or share more about my projects!
     </h3>
     <a href="mailto:anthonyg2803@protonmail.com" class="no-highlight" style="margin-right: 5px;">
       <button id="mail" style="margin-bottom: 5rem;">
-        <IconMail /> Send Email
+          <IconMail /> Email Me
       </button>
     </a>
-    <RouterLink to="/experience" class="no-highlight">
+      <a href="/Resume.pdf" target="_blank" rel="noreferrer" class="no-highlight">
       <button>
         <IconCase /> Resume/CV
       </button>
-    </RouterLink>
+      </a>
   </footer>
+  </div>
 </template>
 
+<style scoped>
+.expsec {
+  background-color: #295a8f;
+  padding: 2rem;
+}
+
+.expnest {
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.expsec h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.expsec+div .wavy {
+  transform: scaleY(-1);
+  position: initial;
+}
+
+.wavy {
+  width: 100%;
+  height: 100px;
+  background-color: #cecece;
+  background: url("/wave.svg");
+  position: absolute;
+  z-index: 2;
+}
+
+.wavy.block {
+  position: initial;
+}
+
+section {
+  padding: 0 2rem;
+}
+
+.skillnest {
+  display: flex;
+  flex-flow: row;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skillnest .tooltip {
+  flex: 20%;
+  max-width: 50px;
+}
+
+.skillnest img {
+  width: 100%;
+}
+</style>
 <style>
 hr {
   margin-top: 4rem;
