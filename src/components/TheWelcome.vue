@@ -9,6 +9,10 @@ import IconGlobe from './icons/IconGlobe.vue';
 import IconServer from './icons/IconServer.vue';
 import IconCase from './icons/IconCase.vue';
 import IconDown from './icons/IconDown.vue';
+import SocialButton from './SocialButton.vue';
+import IconLinkedIn from './icons/IconLinkedIn.vue';
+import IconYoutube from './icons/IconYoutube.vue';
+import IconGitHub from './icons/IconGitHub.vue';
 </script>
 <script>
 export default {
@@ -231,6 +235,23 @@ function projects() {
           <IconCase /> Resume/CV
         </button>
       </a>
+      <div class="socials" style="justify-content: left;">
+        <SocialButton social-link="https://www.linkedin.com/in/anthony-gutierrez-854600225/">
+          <template #icon>
+            <IconLinkedIn />
+          </template>
+        </SocialButton>
+        <SocialButton social-link="https://github.com/Tearrex">
+          <template #icon>
+            <IconGitHub />
+          </template>
+        </SocialButton>
+        <SocialButton social-link="https://www.youtube.com/@ant-dev">
+          <template #icon>
+            <IconYoutube />
+          </template>
+        </SocialButton>
+      </div>
     </footer>
   </div>
 </template>
