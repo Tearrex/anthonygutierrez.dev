@@ -46,20 +46,6 @@ import IconMail from './icons/IconMail.vue';
 </template>
 
 <style scoped>
-.socials {
-  display: flex;
-  gap: 5px;
-  justify-content: center;
-  margin-top: 1.5rem;
-}
-
-.socials svg {
-  height: 100%;
-  aspect-ratio: 1/1;
-  /* does not apply from inner scope*/
-}
-
-
 h1 {
   font-weight: 500;
   font-size: 2.6rem;

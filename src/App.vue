@@ -27,6 +27,19 @@ import PageHead from './components/PageHead.vue'
 </template>
 
 <style>
+.socials {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.socials svg {
+  height: 100%;
+  aspect-ratio: 1/1;
+  /* does not apply from inner scope*/
+}
+
 @keyframes fade {
   0% {
     opacity: 0;
