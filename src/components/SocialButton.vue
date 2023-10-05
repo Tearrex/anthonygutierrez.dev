@@ -30,11 +30,12 @@ button {
     border: none;
     background: none;
     padding: 7px;
-    transition: background 0.4s ease-out;
+    transition: background 0.4s ease-out, transform 0.2s ease-in;
+    -webkit-backface-visibility: hidden;
 }
 
-button:hover {
-    background: #0f0;
+a:hover button {
+    transform: scale(0.9);
 }
 
 img {
