@@ -213,25 +213,25 @@ function projects() {
     <div style="background-color: #121212; position: relative;">
       <div class="wavy"></div>
     </div>
-  <footer>
+    <footer>
       <img src="/monitors.png" class="desk" />
       <div class="lamp">
         <img src="/lamp.png" />
       </div>
       <h1 style="margin-top: 6rem; color: #5dade2;">Open to work</h1>
       <h3>I'd be happy to talk shop or share more about my projects!
-    </h3>
-    <a href="mailto:anthonyg2803@protonmail.com" class="no-highlight" style="margin-right: 5px;">
-      <button id="mail" style="margin-bottom: 5rem;">
+      </h3>
+      <a href="mailto:anthonyg2803@protonmail.com" class="no-highlight" style="margin-right: 5px;">
+        <button id="mail" style="margin-bottom: 5rem;">
           <IconMail /> Email Me
-      </button>
-    </a>
-      <a href="/Resume.pdf" target="_blank" rel="noreferrer" class="no-highlight">
-      <button>
-        <IconCase /> Resume/CV
-      </button>
+        </button>
       </a>
-  </footer>
+      <a href="/Resume.pdf" target="_blank" rel="noreferrer" class="no-highlight">
+        <button>
+          <IconCase /> Resume/CV
+        </button>
+      </a>
+    </footer>
   </div>
 </template>
 
@@ -315,6 +315,86 @@ hr {
 
 .fancy svg path {
   fill: #fff;
+}
+
+footer {
+  position: relative;
+  background-color: #295a8f;
+  padding: 2rem;
+  z-index: 1;
+  /* background: url("/pattern.jpg"); */
+  /* overflow: hidden; */
+}
+
+footer h3 {
+  color: #eee;
+  font-weight: normal;
+}
+
+footer .desk {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  width: 30%;
+  min-width: 200px;
+}
+
+footer .lamp {
+  position: absolute;
+  right: 15%;
+  top: 30%;
+  width: 5%;
+  min-width: 40px;
+  z-index: 2;
+}
+
+.lamp img {
+  width: 100%;
+}
+
+footer .lamp::before {
+  content: '';
+  width: 10px;
+  height: 100%;
+  padding-top: 100vh;
+  background-color: #404040;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 100%;
+  /* attach to ceiling */
+}
+
+@keyframes warm {
+  0% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 0.6;
+  }
+
+  /* 70% {
+    opacity: 0.8;
+  } */
+
+  100% {
+    opacity: 1;
+  }
+}
+
+footer .lamp::after {
+  content: '';
+  position: absolute;
+  background: linear-gradient(rgba(245, 228, 157, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+  aspect-ratio: 1/2;
+  width: 300%;
+  /* top: 50%; */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  clip-path: polygon(50% 0, 0% 80%, 100% 80%);
+  animation: warm 3s ease infinite;
 }
 
 footer button,
