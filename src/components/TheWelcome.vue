@@ -333,6 +333,8 @@ footer button,
 
 footer button {
   opacity: 0.8;
+  border: none;
+  background: none;
 }
 
 footer button>* {
@@ -345,11 +347,12 @@ footer button svg path {
 }
 
 footer button:hover {
-  color: #0f0;
+  color: #3498db;
+  opacity: 1;
 }
 
 footer button:hover svg path {
-  fill: #0f0;
+  fill: #3498db;
 }
 
 .switchNest {
@@ -367,7 +370,7 @@ footer button:hover svg path {
 }
 
 .switchNest>button.active {
-  background-color: #0f0;
+  background-color: #2980b9;
   color: #fff;
 }
 
@@ -386,11 +389,11 @@ footer button:hover svg path {
   justify-content: center;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .flexy {
     height: 100vh;
   }
-}
+} */
 
 .projnest {
   display: flex;

@@ -35,10 +35,6 @@ import IconBlog from './icons/IconBlog.vue';
         <img :src="imageName" v-else class="preview">
         <div class="content">
             <h3>{{ title }}
-                <a :href="url" v-if="url" target="_blank" rel="noreferrer">
-                    Visit
-                    <IconJumpLink />
-                </a>
             </h3>
             <p class="desc">{{ description }}</p>
             <!-- <ul v-if="stack">
@@ -55,7 +51,11 @@ import IconBlog from './icons/IconBlog.vue';
                     <span class="tooltext top center">{{ item }}</span>
                 </div>
             </div> -->
-            <div class="link-tree" v-if="video || github || blogUrl">
+            <div class="link-tree" v-if="video || github || blogUrl || url">
+                <a :href="url" v-if="url" target="_blank" rel="noreferrer">
+                    Visit
+                    <IconJumpLink />
+                </a>
                 <a v-if="github" :href="github" target="_blank" rel="noreferrer">
                     <IconGitHub /> See Code
                 </a>
@@ -80,11 +80,11 @@ import IconBlog from './icons/IconBlog.vue';
 }
 
 .roles>span {
-    background-color: #aee9a9;
+    background-color: #a9c8e9;
     padding: 5px 10px;
-    color: #025902;
+    color: #022c59;
     border-radius: 100vh;
-    border: 1px solid #025902;
+    border: 1px solid #022c59;
 }
 
 .link-tree {
