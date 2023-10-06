@@ -25,7 +25,7 @@ export default {
             <img :src="image" />
             <div class="text">
                 <h2>{{ employer }}</h2>
-                <h4>{{ jobTitle }} • {{ start }} to {{ end }}</h4>
+                <h4>{{ jobTitle }} • {{ start }} - {{ end }}</h4>
                 <!-- <div class="roles" v-if="roles">
                     <span v-for="i in roles" :key="i">{{ i }}</span>
                 </div> -->
@@ -37,8 +37,9 @@ export default {
         <div v-bind:class="{ expandable: true, open: open }" :style="{ maxHeight: open ? '100%' : '0' }">
             <div class="content">
                 <slot name="content"></slot>
-                <div class="roles" v-if="roles" style="margin-top: 2rem;">
-                    Learned <span v-for="i in roles" :key="i">{{ i }}</span>
+                <h4 style="margin-top: 2rem; font-size: 1.5rem;">Honed Skills</h4>
+                <div class="roles" v-if="roles">
+                    <span v-for="i in roles" :key="i">{{ i }}</span>
                 </div>
             </div>
         </div>
@@ -51,6 +52,7 @@ export default {
     flex-flow: row;
     gap: 0.3rem;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .roles>span {
