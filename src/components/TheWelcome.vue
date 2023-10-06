@@ -209,8 +209,8 @@ function projects(delay = false) {
         <IconDown />
       </button>
       <p v-if="currentGoal == 0">
-        I took an AP Computer Science course in highschool that covered the history of the Internet and the
-        computer networking we have now. The knowledge I gained about <b>TCP/IP</b> protocols has stuck with me and
+        I took an AP Computer Science course in highschool covering the history of the Internet and the
+        networking we have now. The knowledge I gained about <b>TCP/IP</b> protocols has stuck with me and
         has been paramount to the success of my early IT career.
       </p>
       <p v-if="currentGoal == 1">I am currently studying for the <b>AWS Solutions Architect Associate</b> certification.
