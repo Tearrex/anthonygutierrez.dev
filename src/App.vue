@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import PageHead from './components/PageHead.vue'
 </script>
 
@@ -9,12 +9,6 @@ import PageHead from './components/PageHead.vue'
 
     <div class="wrapper">
       <PageHead msg="> Hello" />
-
-      <nav style="text-align: center;">
-        <RouterLink to="/">Home</RouterLink>
-        <a href="#experience">Experience</a>
-        <a href="https://medium.com/@anthonydev" target="_blank" rel="noreferrer">Blog</a>
-      </nav>
     </div>
   </header>
 
