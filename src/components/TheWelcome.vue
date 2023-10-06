@@ -5,7 +5,6 @@ import Employer from './Employer.vue';
 import IconMail from './icons/IconMail.vue';
 import IconCloud from './icons/IconCloud.vue';
 import IconCode from './icons/IconCode.vue';
-import IconGlobe from './icons/IconGlobe.vue';
 import IconServer from './icons/IconServer.vue';
 import IconCase from './icons/IconCase.vue';
 import IconDown from './icons/IconDown.vue';
@@ -13,6 +12,9 @@ import SocialButton from './SocialButton.vue';
 import IconLinkedIn from './icons/IconLinkedIn.vue';
 import IconYoutube from './icons/IconYoutube.vue';
 import IconGitHub from './icons/IconGitHub.vue';
+import IconGraph from './icons/IconGraph.vue';
+import IconGears from './icons/IconGears.vue';
+import IconGlobe from './icons/IconGlobe.vue';
 </script>
 <script>
 export default {
@@ -25,7 +27,8 @@ export default {
       mp3: ["Python", "RaspberryPi"],
       san: ["iSCSI", "DRBD", "Heartbeat"],
       filters: ["Websites", "Embedded", "Other"],
-      currentFilter: "Websites"
+      currentFilter: "Websites",
+      currentGoal: 2
     }
   }
 }
@@ -195,35 +198,64 @@ function projects() {
     </div>
     <p style="margin-bottom: 1rem;">I'm always learning & eager to take on new challenges.</p>
     <h2>My Career Goals</h2>
-    <p style="margin-bottom: 1rem;">I would like to explore these tech domains in the future to expand my scope of
-      knowledge as a business
-      professional.</p>
-    <h3>
+    <div class="slides">
+      <button @click="currentGoal--" v-if="currentGoal > 0" class="last">
+        <IconDown />
+      </button>
+      <p v-if="currentGoal == 0">
+        I took an AP Computer Science course in highschool that covered the history of the Internet and the
+        computer networking we have now. The knowledge I gained about <b>TCP/IP</b> protocols has stuck with me and
+        has been paramount to the early success of my IT career.
+      </p>
+      <p v-if="currentGoal == 1">I am currently studying for the <b>AWS Solutions Architect Associate</b> certification.
+        I'm tentatively looking into serverless functions for future cloud projects.</p>
+      <p v-if="currentGoal == 2">With my toolset above I can assist in driving products and visions forward.
+        I strive to be a quick & savvy liaison between business problems and the many facets of technology.</p>
+      <p v-if="currentGoal == 3">Making sense of data has been the most pleasurable duty of mine.
+        Specifically, working with frontend libraries like <a href="https://www.chartjs.org/" target="_blank">Chart.js</a>
+        to
+        filter and sort large datasets for the user experience. I have also used <a href="https://pandas.pydata.org/"
+          target="_blank">pandas</a> for Python to manipulate data into
+        digestible excel sheets for a business website.</p>
+      <p v-if="currentGoal == 4">
+        Saving time has never felt better before learning Python. I began by automating my Zoom client with PyAutoGUI
+        to join class meetings for me during the pandemic. Later on, I tried webscraping with Selenium and
+        BeautifulSoup
+        to get around API costs. Eventually I took it to a <a href="#experience">professional capacity</a> by implementing
+        <b>CI/CD</b> pipelines.
+      </p>
+      <button @click="currentGoal++" v-if="currentGoal < 4" class="next">
+        <IconDown />
+      </button>
+    </div>
+    <div class="goalnest">
+      <div class="goal" @click="currentGoal = 0" :class="{ active: currentGoal == 0 }">
+        <h2>
       <IconGlobe /> Networking
-    </h3>
-    <ul>
-      <li>Planned CCNA exam (Nov 2023)</li>
-    </ul>
-    <h3>
-      <IconServer /> System Administration
-    </h3>
-    <ul>
-      <li>Hypervisors</li>
-      <li>Storage Configs</li>
-    </ul>
-    <h3>
+        </h2>
+      </div>
+      <div class="goal" @click="currentGoal = 1" :class="{ active: currentGoal == 1 }">
+        <h2>
       <IconCloud /> Cloud Compute
-    </h3>
-    <ul>
-      <li>Studying for AWS Solutions Architect Associate (Oct 2023)</li>
-    </ul>
-    <h3>
+        </h2>
+      </div>
+      <div class="goal" style="grid-column: 1/-1;" @click="currentGoal = 2" :class="{ active: currentGoal == 2 }">
+        <h2>
       <IconCode /> Software Development
-    </h3>
-    <ul>
-      <li>Deployment automation</li>
-      <li>Prototyping and delivering products.</li>
-    </ul>
+        </h2>
+      </div>
+      <div class="goal" @click="currentGoal = 3" :class="{ active: currentGoal == 3 }">
+        <h2>
+          <IconGraph /> Data Analysis
+        </h2>
+      </div>
+      <div class="goal" @click="currentGoal = 4" :class="{ active: currentGoal == 4 }">
+        <h2>
+          <IconGears /> Script Automation
+        </h2>
+      </div>
+
+    </div>
   </section>
   <div style="overflow: hidden;">
     <div style="background-color: #121212; position: relative;">
@@ -269,6 +301,68 @@ function projects() {
 </template>
 
 <style scoped>
+.slides {
+  display: flex;
+  flex-flow: row;
+}
+
+.slides p {
+  flex: 90%;
+}
+
+.slides button {
+  background: none;
+  border: none;
+  padding: 0 1rem;
+}
+
+.slides .last svg {
+  transform: rotate(90deg);
+}
+
+.slides .next svg {
+  transform: rotate(-90deg);
+}
+
+.goalnest {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin-top: 1rem;
+}
+
+.goalnest .goal {
+  flex: 50%;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #39a4ea;
+  transition: color 0.2s ease-in;
+  border-radius: 100vh;
+}
+
+.goal h2 {
+  transition: opacity 0.2s ease-in;
+}
+
+.goalnest:hover .goal h2 {
+  opacity: 0.5;
+}
+
+.goal:hover h2,
+.goal.active h2 {
+  color: #fff;
+  fill: #fff;
+  opacity: 1 !important;
+}
+
+@media screen and (max-width: 700px) {
+  .goalnest {
+    grid-template-columns: 1fr;
+  }
+}
+
 nav {
   width: 100%;
   font-size: 12px;
