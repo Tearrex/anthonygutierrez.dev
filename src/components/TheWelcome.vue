@@ -34,18 +34,24 @@ function projects() {
 }
 </script>
 <template>
-  <section>
+  <section class="intro" id="intro">
+
     <h2>Introduction</h2>
-    <p id="bio">My passion for computers has flourished from boredom and
-      curiosity over the years. During my childhood, I toyed with website builders and progressed to
-      HTML/CSS/JS—craving more creative control. Since then, I have been nurturing my webdev niche by <a
-        href="#projectView">exploring JavaScript
+    <div class="bgfade" />
+    <p id="bio" class="sprout">My passion for computers has flourished from boredom and
+      curiosity over the years. I began with website builders and grew to enjoy creativity with
+      HTML/CSS/JS at an early age.</p>
+    <p class="stack">I became fascinated with the inner workings of applications and video games I once took for granted.
+      This lead in my decision to major in Computer Science and pursue a career in tech using the latest of
+      technologies.
+    </p>
+    <p class="code">Since then, I have been nurturing my webdev niche by <a href="#projectView">exploring JavaScript
         frameworks</a> and
       <a href="#experience">acquiring
-        industry experience</a> designing customer-facing apps as well as provisioning the underlying
-      infrastructure involved.
+        industry experience</a> designing customer-facing apps and provisioning the underlying server
+      infrastructure.
     </p>
-    <button style="margin-top: 1.2rem;font-size: 1.2rem;" v-on:click="projects()" class="fancy">
+    <button style="margin-top: 3rem;font-size: 1.2rem;" v-on:click="projects()" class="fancy">
       <IconDown /> Jump to Projects
     </button>
   </section>
@@ -257,6 +263,111 @@ function projects() {
 </template>
 
 <style scoped>
+.intro {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background: url("/shapes.png");
+  padding: 2rem;
+  position: relative;
+}
+
+.intro .bgfade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 7%,
+      rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.7) 70%, rgba(255, 255, 255, 1) 95%);
+}
+
+
+.intro h2 {
+  color: #fff;
+  mix-blend-mode: difference;
+  font-size: 3.5rem;
+}
+
+@media screen and (min-width: 600px) {
+  .intro h2 {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .intro h2 {
+    font-size: 3rem !important;
+  }
+}
+
+.intro p {
+  padding: 0 2.5rem;
+  max-width: 500px;
+  background-color: #fff;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 100vh;
+  z-index: 2;
+}
+
+.intro p:last-of-type {
+  margin-bottom: 0;
+}
+
+.sprout,
+.code,
+.stack {
+  position: relative;
+}
+
+.sprout::before {
+  position: absolute;
+  bottom: -15%;
+  left: -5%;
+  content: '';
+  width: 20%;
+  max-width: 70px;
+  aspect-ratio: 1/1;
+  background-image: url("/leaf.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 0;
+}
+
+.stack::before {
+  position: absolute;
+  bottom: -15%;
+  left: 0;
+  content: '';
+  width: 20%;
+  max-width: 70px;
+  aspect-ratio: 1/1;
+  background-image: url("/stack.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 0;
+}
+
+.code::before {
+  position: absolute;
+  bottom: -12%;
+  left: -2%;
+  content: '';
+  width: 20%;
+  max-width: 70px;
+  aspect-ratio: 1/1;
+  background-image: url("/code.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  /* transform: rotateZ(20deg); */
+  z-index: 0;
+}
 .expsec {
   background-color: #295a8f;
   padding: 2rem;
