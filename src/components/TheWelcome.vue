@@ -34,6 +34,12 @@ function projects() {
 }
 </script>
 <template>
+  <nav style="text-align: center;">
+    <a href="#intro">Intro</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <!-- <a href="https://medium.com/@anthonydev" target="_blank" rel="noreferrer">Blog</a> -->
+  </nav>
   <section class="intro" id="intro">
 
     <h2>Introduction</h2>
@@ -263,6 +269,35 @@ function projects() {
 </template>
 
 <style scoped>
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 0rem;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 5;
+}
+
+nav a.router-link-exact-active {
+  color: var(--color-text);
+}
+
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
+}
+
+nav a {
+  display: inline-block;
+  padding: 1rem;
+  border-left: 1px solid var(--color-border);
+}
+
+nav a:first-of-type {
+  border: 0;
+}
+
 .intro {
   text-align: center;
   display: flex;
