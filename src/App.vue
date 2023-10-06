@@ -100,6 +100,15 @@ header {
   max-height: 100vh;
 }
 
+header .wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  /* height: 30vh; */
+  min-height: 300px;
+  padding: 2rem;
+}
+
 .logo {
   display: block;
   margin: 0 auto 2rem;
@@ -119,11 +128,6 @@ header {
     margin: 0 2rem 0 0;
   }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
 
   nav {
     text-align: left;
