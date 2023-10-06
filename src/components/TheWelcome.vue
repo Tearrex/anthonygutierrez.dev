@@ -32,8 +32,13 @@ export default {
     }
   }
 }
-function projects() {
-  document.getElementById("projectView").scrollIntoView({ behavior: "smooth" });
+function projects(delay = false) {
+  if (!delay) document.getElementById("projectView").scrollIntoView({ behavior: "smooth" });
+  else {
+    setTimeout(() => {
+      document.getElementById("projectView").scrollIntoView({ behavior: "smooth" });
+    }, 400);
+  }
 }
 </script>
 <template>
@@ -66,10 +71,14 @@ function projects() {
   </section>
 
   <section class="flexy" id="projectView">
-    <h2 id="projects">My Projects</h2>
-    <p>Below are highlights of personal work I've put together.</p>
-    <div class="switchNest">
-      <button v-for="i in filters" v-on:click="currentFilter = i" :class="{ active: currentFilter == i }">{{ i }}</button>
+    <div>
+      <h2 id="projects">My Projects</h2>
+      <p>Below are highlights of personal work I've put together.</p>
+      <div class="switchNest">
+        <button v-for="i in filters" v-on:click="currentFilter = i; projects(true);"
+          :class="{ active: currentFilter == i }">{{ i
+          }}</button>
+      </div>
     </div>
     <div class="projnest">
       <ProjectItem title="Chattea" description="A social media inspired webapp that allows users to post & interact
@@ -79,51 +88,48 @@ function projects() {
         description="Freelance website for a professional fitness trainer to coordinate sessions with athletes and client prospects."
         image-name="/gonz9.jpg" url="https://gonz9training.com/" github="https://github.com/Tearrex/G9training"
         :stack="gonz9" v-if="currentFilter == 'Websites'" />
-      <ProjectItem title="Storage Area Network"
-        description="I documented my SAN solution for the datacenter migration of a previous employer."
-        blog-url="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad" image-name="/san.jpg" :stack="san"
-        v-if="currentFilter == 'Other'" />
       <ProjectItem title="School Project"
         description="Point and click browser game with goal to protect tanks from rounds of bomb strikes. Try it out!"
         image-name="/codeorg.jpg"
         url="https://studio.code.org/projects/applab/JPY35RLxDwdC4hMaXjvqN50qAB3Zqw8nGr_w4rcW2Tg" :stack="hero"
         v-if="currentFilter == 'Other'" />
-      <ProjectItem title="AquaControl"
-        description="Flask webserver that monitors water probe parameters and controls aquarium lights remotely."
+      <ProjectItem title="Smart Aquarium"
+        description="Webserver that monitors water probe parameters and controls aquarium lights remotely."
         image-name="/aqua.jpg" video="https://www.youtube.com/watch?v=Ijvt4syre6s"
         github="https://github.com/Tearrex/AquaControl" :stack="aqua" v-if="currentFilter == 'Embedded'" />
-      <ProjectItem title="PiMusicTin"
-        description="Low-profile device for streaming MP3 files via bluetooth from a Raspberry Pi Zero W with a display HAT for menu controls."
+      <ProjectItem title="Mini MP3 Player"
+        description="Low-profile Bluetooth controller for music streaming with a display HAT for menu controls."
         image-name="/music.jpg" :stack="mp3" v-if="currentFilter == 'Embedded'" />
     </div>
   </section>
-  <div style="background-color: #295a8f; position: relative;">
+  <div style="position: relative;" class="ocean" id="experience">
     <div class="wavy block"></div>
   </div>
-  <section class="expsec" id="experience">
+  <section class="expsec ocean">
     <h1 style="margin-bottom: 2rem;">Professional Experience</h1>
     <div class="expnest">
       <Employer employer="Golden State Assembly" job-title="IT Support Specialist" image="/gsa.jpg" start="April 2022"
-        end="August 2023" :roles='["Helpdesk", "DevOps", "PHP", "React"]'>
+        end="August 2023" :roles='["Helpdesk", "Azure DevOps", "PHP", "React"]'>
         <template #content>
           <!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
             https://gsassembly.com/website/#about-us
           </a> -->
           <p>GSA is a manufacturer of electrical
             wire harnesses for the automobile industry based in Fremont, CA.</p>
-          <p>I started April 2022 working with different departments
-            to understand the suite of software apps I was supporting and how to tailor them to different business
-            needs.<br />
+          <p>I started tending to support tickets
+            for network issues and basic Office365 administration tasks.<br />
 
-            Jumping from helpdesk to system administration, I quickly improved the development practices of a small IT
-            operation
-            by implementing version control
-            and
-            <b>deployment pipelines</b> for existing codebases. This allowed us to
-            collaborate and expand the team while iteratively deploying changes through <b>code reviews and pull
+            In short months I jumped to aid the development practices of a small IT
+            operation after proclaiming my webdev knowledge.
+            I configured and maintained
+            <b>deployment pipelines</b> for existing codebases. This promise saved time and allowed us to expand the
+            devteam while
+            iteratively
+            deploying changes through <b>code reviews and pull
               requests</b>.<br /><br />
-            My latest achievement was implementing a <b>storage area network</b> for the needs of their
-            fileservers.
+            My latest achievement was migrating their old data servers to a <b>storage area network</b> for performance
+            gains
+            and redundancy measures.
             <a href="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad" target="_blank">Read my blog</a>
             about it.
           </p>
@@ -131,12 +137,12 @@ function projects() {
       </Employer>
     </div>
   </section>
-  <div style="background-color: #295a8f; position: relative;">
+  <div style="position: relative;" class="ocean" id="skills">
     <div class="wavy"></div>
   </div>
   <section>
-    <h2 style="margin-bottom: 0.5rem;">My Toolset</h2>
-    <p style="margin-bottom: 1rem;">I have working knowledge of the following</p>
+    <h2 style="margin-bottom: 0.5rem; text-align: center;">My Toolset</h2>
+    <p style="margin-bottom: 1rem; text-align: center;">I have working knowledge of the following</p>
     <div class="skillnest">
 
       <div class="tooltip">
@@ -231,17 +237,17 @@ function projects() {
     <div class="goalnest">
       <div class="goal" @click="currentGoal = 0" :class="{ active: currentGoal == 0 }">
         <h2>
-      <IconGlobe /> Networking
+          <IconGlobe /> Networking
         </h2>
       </div>
       <div class="goal" @click="currentGoal = 1" :class="{ active: currentGoal == 1 }">
         <h2>
-      <IconCloud /> Cloud Compute
+          <IconCloud /> Cloud Compute
         </h2>
       </div>
       <div class="goal" style="grid-column: 1/-1;" @click="currentGoal = 2" :class="{ active: currentGoal == 2 }">
         <h2>
-      <IconCode /> Software Development
+          <IconCode /> Software Development
         </h2>
       </div>
       <div class="goal" @click="currentGoal = 3" :class="{ active: currentGoal == 3 }">
@@ -259,7 +265,8 @@ function projects() {
   </section>
   <div style="overflow: hidden;">
     <div style="background-color: #121212; position: relative;">
-      <div class="wavy"></div>
+      <div class="wavy">
+      </div>
     </div>
     <footer>
       <img src="/monitors.png" class="desk" />
@@ -270,7 +277,7 @@ function projects() {
       <h3>I'd be happy to talk shop or share more about my projects!
       </h3>
       <a href="mailto:anthonyg2803@protonmail.com" class="no-highlight" style="margin-right: 5px;">
-        <button id="mail" style="margin-bottom: 5rem;">
+        <button id="mail" style="margin-bottom: 4rem;">
           <IconMail /> Email Me
         </button>
       </a>
@@ -279,7 +286,7 @@ function projects() {
           <IconCase /> Resume/CV
         </button>
       </a>
-      <div class="socials" style="justify-content: left;">
+      <div class="socials" style="justify-content: left; margin: 0;">
         <SocialButton social-link="https://www.linkedin.com/in/anthony-gutierrez-854600225/">
           <template #icon>
             <IconLinkedIn />
@@ -497,6 +504,11 @@ nav a:first-of-type {
   /* transform: rotateZ(20deg); */
   z-index: 0;
 }
+
+#projectView {
+  scroll-margin-top: 2rem;
+}
+
 .expsec {
   background-color: #295a8f;
   padding: 2rem;
@@ -518,7 +530,7 @@ nav a:first-of-type {
 }
 
 .expsec+div .wavy {
-  transform: scaleY(-1);
+  transform: scaleY(-1.01);
   position: initial;
 }
 
@@ -537,6 +549,11 @@ nav a:first-of-type {
 
 section {
   padding: 0 2rem;
+}
+
+.ocean {
+  background-color: #295a8f;
+  /* background: linear-gradient(to right, #154360 0%, #1f618d 50%, #154360 100%) !important; */
 }
 
 .skillnest {
@@ -562,10 +579,6 @@ hr {
   margin-top: 4rem;
   margin-bottom: 1rem;
   opacity: 0.2;
-}
-
-#bio {
-  padding: 0 2.5rem;
 }
 
 #projects {
@@ -615,7 +628,7 @@ footer .lamp {
 
 footer .lamp::before {
   content: '';
-  width: 10px;
+  width: 7px;
   height: 100%;
   padding-top: 100vh;
   background-color: #404040;
@@ -670,6 +683,7 @@ footer button,
   margin-top: 1rem;
   border-radius: 100vh;
   transition: all 0.3s ease-in;
+  z-index: 1;
 }
 
 footer button {
@@ -711,7 +725,7 @@ footer button:hover svg path {
 }
 
 .switchNest>button.active {
-  background-color: #2980b9;
+  background-color: #39a4ea;
   color: #fff;
 }
 
