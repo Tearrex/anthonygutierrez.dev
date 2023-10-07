@@ -586,6 +586,10 @@ section {
 .skillnest .tooltip {
   flex: 20%;
   max-width: 50px;
+  filter: grayscale(1)
+}
+.skillnest .tooltip:hover {
+  filter: grayscale(0) !important;
 }
 
 .skillnest img {
