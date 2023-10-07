@@ -40,6 +40,25 @@ function projects(delay = false) {
     }, 400);
   }
 }
+function distance(a, b) {
+  return -(a - b);
+}
+const sensitivity = 0.2; // limit the free movement of mouse hover effect
+function mousemove(e) {
+  // console.log([e.clientX, e.clientY]);
+  let matrix = document.getElementById("intro");
+  let x = e.clientX, y = e.clientY;
+
+  let middleX = window.innerWidth / 2;
+  let middleY = window.innerHeight / 2;
+
+  x = distance(middleX, x) * sensitivity;
+  y =distance(middleY, y) * sensitivity;
+
+  console.log([x, y]);
+  matrix.style.backgroundPosition = `${x}px ${y}px`;
+}
+// document.addEventListener("mousemove", mousemove)
 </script>
 <template>
   <nav style="text-align: center;">
@@ -48,22 +67,20 @@ function projects(delay = false) {
     <a href="#skills">Skills</a>
     <!-- <a href="https://medium.com/@anthonydev" target="_blank" rel="noreferrer">Blog</a> -->
   </nav>
-  <section class="intro" id="intro">
+  <section class="intro" id="intro" @mousemove="mousemove" style="background-position: 0 0;">
 
     <h2>Introduction</h2>
     <div class="bgfade" />
     <p id="bio" class="sprout">My passion for computers has flourished from boredom and
-      curiosity over the years. I began with website builders and grew to enjoy creativity with
-      HTML/CSS/JS at an early age.</p>
-    <p class="stack">I became fascinated with the inner workings of applications and video games I once took for granted.
-      This lead in my decision to major in Computer Science and pursue a career in tech using the latest of
-      technologies.
+      curiosity over the years. I began with website builders and grew to enjoy creating my own webspaces with
+      HTML/CSS/JS.</p>
+    <p class="stack">I became fascinated with the inner workings of apps & games I once took for granted.
+      This lead in my decision to study Computer Science and pursue a career in tech.
     </p>
     <p class="code">Since then, I have been nurturing my webdev niche by <a href="#projectView">exploring JavaScript
         frameworks</a> and
       <a href="#experience">acquiring
-        industry experience</a> designing customer-facing apps and provisioning the underlying server
-      infrastructure.
+        industry experience</a> designing customer-facing apps among other IT specialties.
     </p>
     <button style="margin-top: 3rem;font-size: 1.2rem;" v-on:click="projects()" class="fancy">
       <IconDown /> Jump to Projects
@@ -209,8 +226,7 @@ function projects(delay = false) {
         <IconDown />
       </button>
       <p v-if="currentGoal == 0">
-        I took an AP Computer Science course in highschool covering the history of the Internet and the
-        networking we have now. The knowledge I gained about <b>TCP/IP</b> protocols has stuck with me and
+        I took an AP Computer Science course in highschool covering the history of the Internet. The knowledge I gained about <b>TCP/IP</b> protocols has stuck with me and
         has been paramount to the success of my early IT career.
       </p>
       <p v-if="currentGoal == 1">I am currently studying for the <b>AWS Solutions Architect Associate</b> certification.
@@ -408,6 +424,8 @@ nav a:first-of-type {
   background: url("/shapes.png");
   padding: 2rem;
   position: relative;
+  min-height: 100vh;
+  transition: background-position 0.8s ease-out;
 }
 
 .intro .bgfade {
