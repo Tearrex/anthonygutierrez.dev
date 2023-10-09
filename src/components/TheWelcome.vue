@@ -23,7 +23,7 @@ export default {
       chattea: ["React", "Firebase"],
       gonz9: ["React"],
       hero: ["JavaScript"],
-      aqua: ["HTML", "CSS", "JavaScript", "Python", "Flask", "SQLite", "RaspberryPi"],
+      aqua: ["HTML/CSS/JS", "Python", "Flask", "SQLite", "RaspberryPi"],
       mp3: ["Python", "RaspberryPi"],
       san: ["iSCSI", "DRBD", "Heartbeat"],
       filters: ["Websites", "Embedded", "Other"],
@@ -53,7 +53,7 @@ function mousemove(e) {
   let middleY = window.innerHeight / 2;
 
   x = distance(middleX, x) * sensitivity;
-  y =distance(middleY, y) * sensitivity;
+  y = distance(middleY, y) * sensitivity;
 
   console.log([x, y]);
   matrix.style.backgroundPosition = `${x}px ${y}px`;
@@ -62,30 +62,38 @@ function mousemove(e) {
 </script>
 <template>
   <nav style="text-align: center;">
-    <a href="#intro">Intro</a>
+    <a href="#introline">Intro</a>
     <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
     <!-- <a href="https://medium.com/@anthonydev" target="_blank" rel="noreferrer">Blog</a> -->
   </nav>
-  <section class="intro" id="intro" @mousemove="mousemove" style="background-position: 0 0;">
+  <hr id="introline" />
+  <div class="introtop" />
+  <section class="intro" @mousemove="mousemove" style="background-position: 0 0;">
+    <div class="introbg" id="intro">
+      <h2>Introduction</h2>
+      <div class="content">
 
-    <h2>Introduction</h2>
-    <div class="bgfade" />
-    <p id="bio" class="sprout">My passion for computers has flourished from boredom and
-      curiosity over the years. I began with website builders and grew to enjoy creating my own webspaces with
-      HTML/CSS/JS.</p>
-    <p class="stack">I became fascinated with the inner workings of apps & games I once took for granted.
-      This lead in my decision to study Computer Science and pursue a career in tech.
-    </p>
-    <p class="code">Since then, I have been nurturing my webdev niche by <a href="#projectView">exploring JavaScript
-        frameworks</a> and
-      <a href="#experience">acquiring
-        industry experience</a> designing customer-facing apps among other IT specialties.
-    </p>
-    <button style="margin-top: 3rem;font-size: 1.2rem;" v-on:click="projects()" class="fancy">
-      <IconDown /> Jump to Projects
-    </button>
+        <div class="lorem">
+          <p id="bio" class="sprout">My passion for computers has flourished from boredom and
+            curiosity over the years. I began with website builders and grew to enjoy creating my own webspaces with
+            HTML/CSS/JS.</p>
+          <p class="stack">I became fascinated with the inner workings of apps & games I once took for granted.
+            This lead in my decision to study Computer Science and pursue a career in tech.
+          </p>
+          <p class="code">Since then, I have been nurturing my webdev niche by <a href="#projectView">exploring JavaScript
+              frameworks</a> and
+            <a href="#experience">acquiring
+              industry experience</a> designing customer-facing apps among other IT specialties.
+          </p>
+        </div>
+        <button style="margin-top: 3rem;font-size: 1.2rem;position: relative;z-index: 555;" v-on:click="projects()" class="fancy">
+          <IconDown /> Jump to Projects
+        </button>
+      </div>
+    </div>
   </section>
+  <div class="introbottom" />
 
   <section class="flexy" id="projectView">
     <div>
@@ -99,7 +107,7 @@ function mousemove(e) {
     </div>
     <div class="projnest">
       <ProjectItem title="Chattea" description="A social media inspired webapp that allows users to post & interact
-  in a public feed hosted in the cloud." image-name="/chattea.jpg" url="https://chattea.me/" :stack="chattea"
+  in a public feed." image-name="/chattea.jpg" url="https://chattea.me/" :stack="chattea"
         github="https://github.com/Tearrex/Chattea" v-if="currentFilter == 'Websites'" />
       <ProjectItem title="Gonz9Training"
         description="Freelance website for a professional fitness trainer to coordinate sessions with athletes and client prospects."
@@ -131,13 +139,13 @@ function mousemove(e) {
           <!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
             https://gsassembly.com/website/#about-us
           </a> -->
-          <p>GSA is a manufacturer of electrical
+          <p><span style="text-decoration: underline;">GSA is a manufacturer</span> of electrical
             wire harnesses for the automobile industry based in Fremont, CA.</p>
           <p>I started tending to support tickets
-            for network issues and basic Office365 administration tasks.<br />
+            for network issues and basic Office365 administration.<br />
 
             In short months I jumped to aid the development practices of a small IT
-            operation after proclaiming my webdev knowledge.
+            operation.
             I configured and maintained
             <b>deployment pipelines</b> for existing codebases. This promise saved time and allowed us to expand the
             devteam while
@@ -219,14 +227,16 @@ function mousemove(e) {
         <span class="tooltext top center">AWS</span>
       </div>
     </div>
-    <p style="margin-bottom: 1rem;">I'm always learning & eager to take on new challenges.</p>
-    <h2>My Career Goals</h2>
+    <!-- <p style="margin-bottom: 1rem;">I'm always learning & eager to take on new challenges.</p> -->
+    <hr style="margin: 2rem 0;" />
+    <h2>Career Goals</h2>
     <div class="slides">
       <button @click="currentGoal--" v-if="currentGoal > 0" class="last">
         <IconDown />
       </button>
       <p v-if="currentGoal == 0">
-        I took an AP Computer Science course in highschool covering the history of the Internet. The knowledge I gained about <b>TCP/IP</b> protocols has stuck with me and
+        I took an AP Computer Science course in highschool covering the history of the Internet. The knowledge I gained
+        about <b>TCP/IP</b> protocols has stuck with me and
         has been paramount to the success of my early IT career.
       </p>
       <p v-if="currentGoal == 1">I am currently studying for the <b>AWS Solutions Architect Associate</b> certification.
@@ -241,7 +251,7 @@ function mousemove(e) {
         digestible excel sheets for a business website.</p>
       <p v-if="currentGoal == 4">
         Saving time has never felt better before learning Python. I began by automating my Zoom client with PyAutoGUI
-        to join class meetings for me during the pandemic. Later on, I tried webscraping with Selenium and
+        to join class meetings during the pandemic. Later I tried <b>webscraping</b> with Selenium and
         BeautifulSoup
         to get around API costs. Eventually I took it to a <a href="#experience">professional capacity</a> by implementing
         <b>CI/CD</b> pipelines.
@@ -324,6 +334,12 @@ function mousemove(e) {
 </template>
 
 <style scoped>
+section:not(.intro) {
+  position: relative;
+  /* z-index: 2; */
+  background-color: #fff;
+}
+
 .slides {
   display: flex;
   flex-flow: row;
@@ -415,27 +431,93 @@ nav a:first-of-type {
   border: 0;
 }
 
+#introline {
+  margin: 0;
+  line-height: 0;
+  opacity: 0;
+}
+
+.introtop,
+.introbottom {
+  width: 100%;
+  position: relative;
+}
+
+.introbg::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: clamp(200px, 20vh, 500px);
+  background: linear-gradient(to bottom, #fff 25%, rgba(255, 255, 255, 0) 100%);
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.introbottom::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: clamp(200px, 20vh, 500px);
+  background: linear-gradient(to top, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  bottom: 100%;
+  left: 0;
+  z-index: 2;
+}
+
 .intro {
   text-align: center;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  background: url("/shapes.png");
   padding: 2rem;
-  position: relative;
+  position: sticky;
+  top: 0;
   min-height: 100vh;
-  transition: background-position 0.8s ease-out;
+  background-color: #fff;
 }
 
-.intro .bgfade {
+.intro .content {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+  /* height: 100%; */
+}
+@media screen and (max-height: 500px) {
+  .intro {
+    height: 50%;
+  }
+
+  .intro .content {
+    overflow-y: scroll;
+    height: 50%;
+  }
+
+  .intro h2 {
+    display: none;
+  }
+
+  .introbottom::before {
+    display: none;
+  }
+}
+.introbg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 7%,
-      rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.7) 70%, rgba(255, 255, 255, 1) 95%);
+  background: url("/shapes.png");
+  transition: background-position 0.8s ease-out;
+  /* background: linear-gradient(rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 7%,
+      rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.7) 70%, rgba(255, 255, 255, 1) 95%); */
 }
 
 
@@ -570,7 +652,7 @@ section {
 }
 
 .ocean {
-  background-color: #295a8f;
+  background-color: #295a8f !important;
   /* background: linear-gradient(to right, #154360 0%, #1f618d 50%, #154360 100%) !important; */
 }
 
@@ -585,9 +667,10 @@ section {
 
 .skillnest .tooltip {
   flex: 20%;
-  max-width: 50px;
+  max-width: 40px;
   filter: grayscale(1)
 }
+
 .skillnest .tooltip:hover {
   filter: grayscale(0) !important;
 }
@@ -797,5 +880,4 @@ footer button:hover svg path {
 .projnest>.nest:nth-child(even) {
   flex-flow: row-reverse;
   text-align: left;
-}
-</style>
+}</style>
