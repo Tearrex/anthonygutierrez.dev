@@ -68,28 +68,32 @@ function mousemove(e) {
     <!-- <a href="https://medium.com/@anthonydev" target="_blank" rel="noreferrer">Blog</a> -->
   </nav>
   <hr id="introline" />
-  <div class="introtop" />
+  <!-- <div class="introtop" /> -->
   <section class="intro" @mousemove="mousemove" style="background-position: 0 0;">
-    <div class="introbg" id="intro">
-      <h2>Introduction</h2>
-      <div class="content">
+    <div id="intro" class="introbg">
+      <div class="body">
+        <h2>Introduction</h2>
+        <div class="content">
 
-        <div class="lorem">
-          <p id="bio" class="sprout">My passion for computers has flourished from boredom and
-            curiosity over the years. I began with website builders and grew to enjoy creating my own webspaces with
-            HTML/CSS/JS.</p>
-          <p class="stack">I became fascinated with the inner workings of apps & games I once took for granted.
-            This lead in my decision to study Computer Science and pursue a career in tech.
-          </p>
-          <p class="code">Since then, I have been nurturing my webdev niche by <a href="#projectView">exploring JavaScript
-              frameworks</a> and
-            <a href="#experience">acquiring
-              industry experience</a> designing customer-facing apps among other IT specialties.
-          </p>
+          <div class="lorem">
+            <p id="bio" class="sprout">My passion for computers has flourished from boredom and
+              curiosity over the years. I began with website builders and grew to enjoy creating my own webspaces with
+              HTML/CSS/JS.</p>
+            <p class="stack">I became fascinated with the inner workings of apps & games I once took for granted.
+              This lead in my decision to study Computer Science and pursue a career in tech.
+            </p>
+            <p class="code">Since then, I have been nurturing my webdev niche by <a href="#projectView">exploring
+                JavaScript
+                frameworks</a> and
+              <a href="#experience">acquiring
+                industry experience</a> designing customer-facing apps among other IT specialties.
+            </p>
+          </div>
+          <button style="margin-top: 3rem;font-size: 1.2rem;position: relative;z-index: 555;" v-on:click="projects()"
+            class="fancy">
+            <IconDown /> Jump to Projects
+          </button>
         </div>
-        <button style="margin-top: 3rem;font-size: 1.2rem;position: relative;z-index: 555;" v-on:click="projects()" class="fancy">
-          <IconDown /> Jump to Projects
-        </button>
       </div>
     </div>
   </section>
@@ -481,8 +485,9 @@ nav a:first-of-type {
 .intro .content {
   top: 50%;
   left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
+  /* position: absolute; */
+  width: 100%;
+  /* transform: translate(-50%, -50%); */
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
@@ -490,8 +495,9 @@ nav a:first-of-type {
   padding: 2rem;
   /* height: 100%; */
 }
+
 @media screen and (max-height: 500px) {
-  .intro {
+  /* .intro {
     height: 50%;
   }
 
@@ -502,18 +508,19 @@ nav a:first-of-type {
 
   .intro h2 {
     display: none;
-  }
+  } */
 
   .introbottom::before {
     display: none;
   }
 }
+
 .introbg {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  min-height: 100vh;
   background: url("/shapes.png");
   transition: background-position 0.8s ease-out;
   /* background: linear-gradient(rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 7%,
