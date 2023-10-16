@@ -1,20 +1,20 @@
 <script setup>
-import { RouterLink } from 'vue-router';
-import ProjectItem from './ProjectItem.vue';
-import Employer from './Employer.vue';
-import IconMail from './icons/IconMail.vue';
-import IconCloud from './icons/IconCloud.vue';
-import IconCode from './icons/IconCode.vue';
-import IconServer from './icons/IconServer.vue';
-import IconCase from './icons/IconCase.vue';
-import IconDown from './icons/IconDown.vue';
-import SocialButton from './SocialButton.vue';
-import IconLinkedIn from './icons/IconLinkedIn.vue';
-import IconYoutube from './icons/IconYoutube.vue';
-import IconGitHub from './icons/IconGitHub.vue';
-import IconGraph from './icons/IconGraph.vue';
-import IconGears from './icons/IconGears.vue';
-import IconGlobe from './icons/IconGlobe.vue';
+import { RouterLink } from "vue-router";
+import ProjectItem from "./ProjectItem.vue";
+import Employer from "./Employer.vue";
+import IconMail from "./icons/IconMail.vue";
+import IconCloud from "./icons/IconCloud.vue";
+import IconCode from "./icons/IconCode.vue";
+import IconServer from "./icons/IconServer.vue";
+import IconCase from "./icons/IconCase.vue";
+import IconDown from "./icons/IconDown.vue";
+import SocialButton from "./SocialButton.vue";
+import IconLinkedIn from "./icons/IconLinkedIn.vue";
+import IconYoutube from "./icons/IconYoutube.vue";
+import IconGitHub from "./icons/IconGitHub.vue";
+import IconGraph from "./icons/IconGraph.vue";
+import IconGears from "./icons/IconGears.vue";
+import IconGlobe from "./icons/IconGlobe.vue";
 </script>
 <script>
 export default {
@@ -28,15 +28,20 @@ export default {
       san: ["iSCSI", "DRBD", "Heartbeat"],
       filters: ["Websites", "Embedded", "Other"],
       currentFilter: "Websites",
-      currentGoal: 2
-    }
-  }
-}
+      currentGoal: 2,
+    };
+  },
+};
 function projects(delay = false) {
-  if (!delay) document.getElementById("projectView").scrollIntoView({ behavior: "smooth" });
+  if (!delay)
+    document
+      .getElementById("projectView")
+      .scrollIntoView({ behavior: "smooth" });
   else {
     setTimeout(() => {
-      document.getElementById("projectView").scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById("projectView")
+        .scrollIntoView({ behavior: "smooth" });
     }, 400);
   }
 }
@@ -47,7 +52,8 @@ const sensitivity = 0.2; // limit the free movement of mouse hover effect
 function mousemove(e) {
   // console.log([e.clientX, e.clientY]);
   let matrix = document.getElementById("intro");
-  let x = e.clientX, y = e.clientY;
+  let x = e.clientX,
+    y = e.clientY;
 
   let middleX = window.innerWidth / 2;
   let middleY = window.innerHeight / 2;
@@ -61,7 +67,7 @@ function mousemove(e) {
 // document.addEventListener("mousemove", mousemove)
 </script>
 <template>
-  <nav style="text-align: center;">
+  <nav style="text-align: center">
     <a href="#introline">Intro</a>
     <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
@@ -69,44 +75,50 @@ function mousemove(e) {
   </nav>
   <hr id="introline" />
   <!-- <div class="introtop" /> -->
-  <section class="intro" @mousemove="mousemove" style="background-position: 0 0;">
+  <section class="intro" @mousemove="mousemove" style="background-position: 0 0">
     <div id="intro" class="introbg">
       <div class="body">
-        <h2 style="color: #000;">Introduction</h2>
+        <h2 style="color: #000">Introduction</h2>
         <div class="content">
-
           <div class="lorem">
-            <p id="bio" class="sprout">My passion for computers has flourished from boredom and
-              curiosity over the years. I began with website builders and grew to enjoy creating my own webspaces with
-              HTML/CSS/JS.</p>
-            <p class="stack">I became fascinated with the inner workings of apps & games I once took for granted.
-              This lead in my decision to study Computer Science and pursue a career in tech.
+            <p id="bio" class="sprout">
+              My passion for computers has flourished from boredom and curiosity
+              over the years. I began with website builders and grew to enjoy
+              creating my own webspaces with HTML/CSS/JS.
             </p>
-            <p class="code">Since then, I have been nurturing my webdev niche by <a href="#projectView">exploring
-                JavaScript
-                frameworks</a> and
-              <a href="#experience">acquiring
-                industry experience</a> designing customer-facing apps among other IT specialties.
+            <p class="stack">
+              I became fascinated with the inner workings of apps & games I once
+              took for granted. This lead in my decision to study Computer
+              Science and pursue a career in tech.
+            </p>
+            <p class="code">
+              Since then, I have been nurturing my webdev niche by
+              <a href="#projectView">exploring JavaScript frameworks</a> and
+              <a href="#experience">acquiring industry experience</a> designing
+              customer-facing apps among other IT specialties.
             </p>
           </div>
-          <button style="margin-top: 3rem;font-size: 1.2rem;position: relative;z-index: 555;" v-on:click="projects()"
-            class="fancy">
-            <IconDown /> Jump to Projects
-          </button>
         </div>
       </div>
     </div>
   </section>
-  <div class="introbottom" />
+  <div class="introbottom">
+    <button v-on:click="projects()" class="fancy">
+      <IconDown /> Jump to Projects
+    </button>
+  </div>
 
   <section class="flexy" id="projectView">
     <div>
       <h2 id="projects">My Projects</h2>
       <p>Below are highlights of personal work I've put together.</p>
       <div class="switchNest">
-        <button v-for="i in filters" v-on:click="currentFilter = i; projects(true);"
-          :class="{ active: currentFilter == i }">{{ i
-          }}</button>
+        <button v-for="i in filters" v-on:click="
+          currentFilter = i;
+        projects(true);
+        " :class="{ active: currentFilter == i }">
+          {{ i }}
+        </button>
       </div>
     </div>
     <div class="projnest">
@@ -123,43 +135,45 @@ function mousemove(e) {
         image-name="/codeorg.jpg"
         url="https://studio.code.org/projects/applab/JPY35RLxDwdC4hMaXjvqN50qAB3Zqw8nGr_w4rcW2Tg" :stack="hero"
         v-if="currentFilter == 'Other'" />
+      <ProjectItem title="⭐ MP3 Player"
+        description="Low-profile Bluetooth controller for music streaming. Includes a display HAT with object-oriented menu controls."
+        image-name="/music.jpg" :stack="mp3" v-if="currentFilter == 'Embedded'" />
       <ProjectItem title="Smart Aquarium"
         description="Webserver that monitors water probe parameters and controls aquarium lights remotely."
         image-name="/aqua.jpg" video="https://www.youtube.com/watch?v=Ijvt4syre6s"
         github="https://github.com/Tearrex/AquaControl" :stack="aqua" v-if="currentFilter == 'Embedded'" />
-      <ProjectItem title="Mini MP3 Player"
-        description="Low-profile Bluetooth controller for music streaming with a display HAT for menu controls."
-        image-name="/music.jpg" :stack="mp3" v-if="currentFilter == 'Embedded'" />
     </div>
   </section>
-  <div style="position: relative;" class="ocean" id="experience">
+  <div style="position: relative" class="ocean" id="experience">
     <div class="wavy block"></div>
   </div>
   <section class="expsec ocean">
-    <h1 style="margin-bottom: 2rem;">Professional Experience</h1>
+    <h1 style="margin-bottom: 2rem">Professional Experience</h1>
     <div class="expnest">
       <Employer employer="Golden State Assembly" job-title="IT Support Specialist" image="/gsa.jpg" start="April 2022"
-        end="August 2023" :roles='["Helpdesk", "Azure DevOps", "PHP", "React"]'>
+        end="August 2023" :roles="['Helpdesk', 'Azure DevOps', 'PHP', 'React']">
         <template #content>
           <!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
             https://gsassembly.com/website/#about-us
           </a> -->
-          <p><span style="text-decoration: underline;">GSA is a manufacturer</span> of electrical
-            wire harnesses for the automobile industry based in Fremont, CA.</p>
-          <p>I started tending to support tickets
-            for network issues and basic Office365 administration.<br />
+          <p>
+            <span style="text-decoration: underline">GSA is a manufacturer</span>
+            of electrical wire harnesses for the automobile industry based in
+            Fremont, CA.
+          </p>
+          <p>
+            I started tending to support tickets for network issues and basic
+            Office365 administration.<br />
 
-            In short months I jumped to aid the development practices of a small IT
-            operation.
-            I configured and maintained
-            <b>deployment pipelines</b> for existing codebases. This automation saved time and allowed us to expand the
-            devteam while
-            iteratively
-            deploying changes through <b>code reviews and pull
-              requests</b>.<br /><br />
-            My latest achievement was migrating their old data servers to a <b>storage area network</b> for performance
-            gains
-            and redundancy measures.
+            In short months I jumped to aid the development practices of a small
+            IT operation. I configured and maintained
+            <b>deployment pipelines</b> for existing codebases. This automation
+            saved time and allowed us to expand the devteam while iteratively
+            deploying changes through
+            <b>code reviews and pull requests</b>.<br /><br />
+            My latest achievement was migrating their old data servers to a
+            <b>storage area network</b> for performance gains and redundancy
+            measures.
             <a href="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad" target="_blank">Read my blog</a>
             about it.
           </p>
@@ -167,14 +181,15 @@ function mousemove(e) {
       </Employer>
     </div>
   </section>
-  <div style="position: relative;" class="ocean" id="skills">
+  <div style="position: relative" class="ocean" id="skills">
     <div class="wavy"></div>
   </div>
   <section>
-    <h2 style="margin-bottom: 0.5rem; text-align: center;">My Toolset</h2>
-    <p style="margin-bottom: 1rem; text-align: center;">I have working knowledge of the following</p>
+    <h2 style="margin-bottom: 0.5rem; text-align: center">My Toolset</h2>
+    <p style="margin-bottom: 1rem; text-align: center">
+      I have working knowledge of the following
+    </p>
     <div class="skillnest">
-
       <div class="tooltip">
         <img src="/stacks/html.png" />
         <span class="tooltext top center">HTML</span>
@@ -233,32 +248,43 @@ function mousemove(e) {
       </div>
     </div>
     <!-- <p style="margin-bottom: 1rem;">I'm always learning & eager to take on new challenges.</p> -->
-    <hr style="margin: 2rem 0;" />
+    <hr style="margin: 2rem 0" />
     <h2>Career Goals</h2>
     <div class="slides">
       <button @click="currentGoal--" v-if="currentGoal > 0" class="last">
         <IconDown />
       </button>
       <p v-if="currentGoal == 0">
-        I took an AP Computer Science course in highschool covering the history of the Internet. The knowledge I gained
-        about <b>TCP/IP</b> protocols has stuck with me and
-        has been paramount to the success of my early IT career.
+        I took an AP Computer Science course in highschool covering the history
+        of the Internet. The knowledge I gained about <b>TCP/IP</b> protocols
+        has stuck with me and has been paramount to the success of my early IT
+        career.
       </p>
-      <p v-if="currentGoal == 1">I am currently studying for the <b>AWS Solutions Architect Associate</b> certification.
-        I'm tentatively looking into serverless functions for future cloud projects.</p>
-      <p v-if="currentGoal == 2">With my toolset above I can assist in driving products and visions forward.
-        I strive to be a quick & savvy liaison between business problems and the many facets of technology.</p>
-      <p v-if="currentGoal == 3">Making sense of data has been the most pleasurable duty of mine.
-        Specifically, working with frontend libraries like <a href="https://www.chartjs.org/" target="_blank">Chart.js</a>
-        to
-        filter and sort large datasets for the user experience. I have also used <a href="https://pandas.pydata.org/"
-          target="_blank">pandas</a> for Python to manipulate data into
-        digestible excel sheets for a business website.</p>
+      <p v-if="currentGoal == 1">
+        I am currently studying for the
+        <b>AWS Solutions Architect Associate</b> certification. I'm tentatively
+        looking into serverless functions for future cloud projects.
+      </p>
+      <p v-if="currentGoal == 2">
+        With my toolset above I can assist in driving products and visions
+        forward. I strive to be a quick & savvy liaison between business
+        problems and the many facets of technology.
+      </p>
+      <p v-if="currentGoal == 3">
+        Making sense of data has been the most pleasurable duty of mine.
+        Specifically, working with frontend libraries like
+        <a href="https://www.chartjs.org/" target="_blank">Chart.js</a> to
+        filter and sort large datasets for the user experience. I have also used
+        <a href="https://pandas.pydata.org/" target="_blank">pandas</a> for
+        Python to manipulate data into digestible excel sheets for a business
+        website.
+      </p>
       <p v-if="currentGoal == 4">
-        Saving time has never felt better before learning Python. I began by automating my Zoom client with PyAutoGUI
-        to join class meetings during the pandemic. Later I tried <b>webscraping</b> with Selenium and
-        BeautifulSoup
-        to get around API costs. Eventually I took it to a <a href="#experience">professional capacity</a> by implementing
+        Saving time has never felt better before learning Python. I began by
+        automating my Zoom classes with PyAutoGUI during
+        the pandemic, reading my schedules from CSV files. Later I tried <b>webscraping</b> with Selenium and
+        BeautifulSoup to get around API costs. Eventually I took it to a
+        <a href="#experience">professional capacity</a> by implementing
         <b>CI/CD</b> pipelines.
       </p>
       <button @click="currentGoal++" v-if="currentGoal < 4" class="next">
@@ -276,7 +302,7 @@ function mousemove(e) {
           <IconCloud /> Cloud Compute
         </h2>
       </div>
-      <div class="goal" style="grid-column: 1/-1;" @click="currentGoal = 2" :class="{ active: currentGoal == 2 }">
+      <div class="goal" style="grid-column: 1/-1" @click="currentGoal = 2" :class="{ active: currentGoal == 2 }">
         <h2>
           <IconCode /> Software Development
         </h2>
@@ -291,24 +317,21 @@ function mousemove(e) {
           <IconGears /> Script Automation
         </h2>
       </div>
-
     </div>
   </section>
-  <div style="overflow: hidden;">
-    <div style="background-color: #121212; position: relative;">
-      <div class="wavy">
-      </div>
+  <div style="overflow: hidden">
+    <div style="background-color: #121212; position: relative">
+      <div class="wavy"></div>
     </div>
     <footer>
       <img src="/monitors.png" class="desk" />
       <div class="lamp">
         <img src="/lamp.png" />
       </div>
-      <h1 style="margin-top: 6rem; color: #5dade2;">Open to work</h1>
-      <h3>I'd be happy to talk shop or share more about my projects!
-      </h3>
-      <a href="mailto:anthonyg2803@protonmail.com" class="no-highlight" style="margin-right: 5px;">
-        <button id="mail" style="margin-bottom: 4rem;">
+      <h1 style="margin-top: 6rem; color: #5dade2">Open to work</h1>
+      <h3>I'd be happy to talk shop or share more about my projects!</h3>
+      <a href="mailto:anthonyg2803@protonmail.com" class="no-highlight" style="margin-right: 5px">
+        <button id="mail" style="margin-bottom: 4rem">
           <IconMail /> Email Me
         </button>
       </a>
@@ -317,7 +340,7 @@ function mousemove(e) {
           <IconCase /> Resume/CV
         </button>
       </a>
-      <div class="socials" style="justify-content: left; margin: 0;">
+      <div class="socials" style="justify-content: left; margin: 0">
         <SocialButton social-link="https://www.linkedin.com/in/anthony-gutierrez-854600225/">
           <template #icon>
             <IconLinkedIn />
@@ -448,8 +471,17 @@ nav a:first-of-type {
   position: relative;
 }
 
+.introbottom button {
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
 .introbg::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: clamp(200px, 20vh, 500px);
@@ -460,7 +492,7 @@ nav a:first-of-type {
 }
 
 .introbottom::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: clamp(200px, 20vh, 500px);
@@ -476,10 +508,10 @@ nav a:first-of-type {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
   position: sticky;
   top: 0;
   min-height: 100vh;
+  padding: 0;
   background-color: #fff;
 }
 
@@ -493,7 +525,6 @@ nav a:first-of-type {
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 2rem;
   /* height: 100%; */
 }
 
@@ -527,7 +558,6 @@ nav a:first-of-type {
   /* background: linear-gradient(rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 7%,
       rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.7) 70%, rgba(255, 255, 255, 1) 95%); */
 }
-
 
 .intro h2 {
   color: #fff;
@@ -571,7 +601,7 @@ nav a:first-of-type {
   position: absolute;
   bottom: -15%;
   left: -5%;
-  content: '';
+  content: "";
   width: 20%;
   max-width: 70px;
   aspect-ratio: 1/1;
@@ -586,7 +616,7 @@ nav a:first-of-type {
   position: absolute;
   bottom: -15%;
   left: 0;
-  content: '';
+  content: "";
   width: 20%;
   max-width: 70px;
   aspect-ratio: 1/1;
@@ -601,7 +631,7 @@ nav a:first-of-type {
   position: absolute;
   bottom: -12%;
   left: -2%;
-  content: '';
+  content: "";
   width: 20%;
   max-width: 70px;
   aspect-ratio: 1/1;
@@ -676,7 +706,7 @@ section {
 .skillnest .tooltip {
   flex: 20%;
   max-width: 40px;
-  filter: grayscale(1)
+  filter: grayscale(1);
 }
 
 .skillnest .tooltip:hover {
@@ -740,7 +770,7 @@ footer .lamp {
 }
 
 footer .lamp::before {
-  content: '';
+  content: "";
   width: 7px;
   height: 100%;
   padding-top: 100vh;
@@ -771,9 +801,10 @@ footer .lamp::before {
 }
 
 footer .lamp::after {
-  content: '';
+  content: "";
   position: absolute;
-  background: linear-gradient(rgba(245, 228, 157, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+  background: linear-gradient(rgba(245, 228, 157, 0.5) 0%,
+      rgba(0, 0, 0, 0) 70%);
   aspect-ratio: 1/2;
   width: 300%;
   /* top: 50%; */
@@ -868,5 +899,4 @@ footer button:hover svg path {
   flex-flow: column;
   gap: 1.5rem;
 }
-
 </style>

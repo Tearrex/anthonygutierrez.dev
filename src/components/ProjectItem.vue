@@ -54,10 +54,6 @@ import IconBlog from './icons/IconBlog.vue';
                 </div>
             </div> -->
             <div class="link-tree" v-if="video || github || blogUrl || url">
-                <a :href="url" v-if="url" target="_blank" rel="noreferrer">
-                    Visit
-                    <IconJumpLink />
-                </a>
                 <a v-if="github" :href="github" target="_blank" rel="noreferrer">
                     <IconGitHub /> See Code
                 </a>
@@ -80,6 +76,7 @@ import IconBlog from './icons/IconBlog.vue';
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 1rem;
 }
 
 .roles>span {
