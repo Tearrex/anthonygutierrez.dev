@@ -34,8 +34,10 @@ import IconBlog from './icons/IconBlog.vue';
         </a>
         <img :src="imageName" v-else class="preview">
         <div class="content">
-            <h3>{{ title }}
-            </h3>
+            <h3 v-if="!url">{{ title }}</h3>
+            <a v-else :href="url" target="_blank" rel="noreferrer">
+                <h3>{{ title }}</h3>
+            </a>
             <p class="desc">{{ description }}</p>
             <!-- <ul v-if="stack">
                 <li v-for="item in stack" :key="item">
@@ -76,6 +78,7 @@ import IconBlog from './icons/IconBlog.vue';
     flex-flow: row;
     gap: 0.3rem;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -132,6 +135,7 @@ h3 {
 
 .desc {
     color: var(--color-text);
+    text-align: center;
 }
 
 .nest {
@@ -150,6 +154,14 @@ h3 {
 
 .nest .content {
     flex: 50%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.nest .content a {
+    text-decoration: underline;
+    display: inline-block;
 }
 
 .nest .preview {

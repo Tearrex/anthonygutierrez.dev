@@ -869,24 +869,4 @@ footer button:hover svg path {
   gap: 1.5rem;
 }
 
-.projnest>.nest:nth-child(odd) h3 {
-  text-align: right !important;
-}
-
-.projnest>.nest:nth-child(odd) .techstack {
-  justify-content: right;
-}
-
-.projnest>.nest:nth-child(odd) .roles {
-  justify-content: right;
-}
-
-.projnest>.nest:nth-child(odd) p {
-  text-align: right !important;
-}
-
-.projnest>.nest:nth-child(even) {
-  flex-flow: row-reverse;
-  text-align: left;
-}
 </style>
