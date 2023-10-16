@@ -20,7 +20,7 @@ import IconGlobe from './icons/IconGlobe.vue';
 export default {
   data() {
     return {
-      chattea: ["React", "Firebase"],
+      chattea: ["React", "Firebase", "Serverless"],
       gonz9: ["React"],
       hero: ["JavaScript"],
       aqua: ["HTML/CSS/JS", "Python", "Flask", "SQLite", "RaspberryPi"],
@@ -72,7 +72,7 @@ function mousemove(e) {
   <section class="intro" @mousemove="mousemove" style="background-position: 0 0;">
     <div id="intro" class="introbg">
       <div class="body">
-        <h2>Introduction</h2>
+        <h2 style="color: #000;">Introduction</h2>
         <div class="content">
 
           <div class="lorem">
@@ -110,10 +110,11 @@ function mousemove(e) {
       </div>
     </div>
     <div class="projnest">
-      <ProjectItem title="Chattea" description="A social media inspired webapp that allows users to post & interact
-  in a public feed." image-name="/chattea.jpg" url="https://chattea.me/" :stack="chattea"
-        github="https://github.com/Tearrex/Chattea" v-if="currentFilter == 'Websites'" />
-      <ProjectItem title="Gonz9Training"
+      <ProjectItem title="⭐ Chattea.me" description="A social media webapp that allows users to interact
+  in public and private feeds. Integrates Spotify's web API for sharing music. Offers guest view."
+        image-name="/chattea.png" url="https://chattea.me/" :stack="chattea" github="https://github.com/Tearrex/Chattea"
+        v-if="currentFilter == 'Websites'" />
+      <ProjectItem title="Gonz9Training.com"
         description="Freelance website for a professional fitness trainer to coordinate sessions with athletes and client prospects."
         image-name="/gonz9.jpg" url="https://gonz9training.com/" github="https://github.com/Tearrex/G9training"
         :stack="gonz9" v-if="currentFilter == 'Websites'" />
@@ -151,7 +152,7 @@ function mousemove(e) {
             In short months I jumped to aid the development practices of a small IT
             operation.
             I configured and maintained
-            <b>deployment pipelines</b> for existing codebases. This promise saved time and allowed us to expand the
+            <b>deployment pipelines</b> for existing codebases. This automation saved time and allowed us to expand the
             devteam while
             iteratively
             deploying changes through <b>code reviews and pull
@@ -482,12 +483,12 @@ nav a:first-of-type {
   background-color: #fff;
 }
 
-.intro .content {
+.intro .body {
   top: 50%;
   left: 50%;
-  /* position: absolute; */
+  position: absolute;
   width: 100%;
-  /* transform: translate(-50%, -50%); */
+  transform: translate(-50%, -50%);
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
@@ -887,4 +888,5 @@ footer button:hover svg path {
 .projnest>.nest:nth-child(even) {
   flex-flow: row-reverse;
   text-align: left;
-}</style>
+}
+</style>
