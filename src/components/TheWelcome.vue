@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       chattea: ["React", "Firebase", "Serverless"],
+      portal: ["React", "MongoDB", "MSSQL", "Python", "Flask", "pandas"],
       gonz9: ["React"],
       hero: ["JavaScript"],
       aqua: ["HTML/CSS/JS", "Python", "Flask", "SQLite", "RaspberryPi"],
@@ -111,7 +112,7 @@ function mousemove(e) {
   <section class="flexy" id="projectView">
     <div>
       <h2 id="projects">My Projects</h2>
-      <p>Below are highlights of personal work I've put together.</p>
+      <p>Below are highlights of work I've put together.</p>
       <div class="switchNest">
         <button v-for="i in filters" v-on:click="
           currentFilter = i;
@@ -130,6 +131,10 @@ function mousemove(e) {
         description="Freelance website for a professional fitness trainer to coordinate sessions with athletes and client prospects."
         image-name="/gonz9.jpg" url="https://gonz9training.com/" github="https://github.com/Tearrex/G9training"
         :stack="gonz9" v-if="currentFilter == 'Websites'" />
+      <ProjectItem title="Customer Portal"
+        description="SaaS product leveraging microservice architecture
+      to generate excel reports of procured wire harnesses for automotive customers, calculating associated labor hours and production costs."
+        image-name="/portal2.jpg" :stack="portal" v-if="currentFilter == 'Websites'" />
       <ProjectItem title="School Project"
         description="Point and click browser game with goal to protect tanks from rounds of bomb strikes. Try it out!"
         image-name="/codeorg.jpg"
@@ -167,8 +172,8 @@ function mousemove(e) {
 
             In short months I jumped to aid the development practices of a small
             IT operation. I configured and maintained
-            <b>deployment pipelines</b> for existing codebases. This automation
-            saved time and allowed us to expand the devteam while iteratively
+            <b>deployment pipelines</b> for existing codebases. These automations
+            saved tremendous time and allowed us to expand the devteam while iteratively
             deploying changes through
             <b>code reviews and pull requests</b>.<br /><br />
             My latest achievement was migrating their old data servers to a
