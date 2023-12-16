@@ -20,7 +20,7 @@ import IconGlobe from "./icons/IconGlobe.vue";
 export default {
   data() {
     return {
-      chattea: ["React", "Firebase", "Serverless"],
+      chattea: ["React", "Firebase", "BaaS", "FaaS"],
       portal: ["React", "MongoDB", "MSSQL", "Python", "Flask", "pandas"],
       gonz9: ["React"],
       hero: ["JavaScript"],
@@ -123,10 +123,10 @@ function mousemove(e) {
       </div>
     </div>
     <div class="projnest">
-      <ProjectItem title="⭐ Chattea.me" description="A social media webapp that allows users to interact
+      <ProjectItem title="⭐ Chattea" description="A social media webapp that allows users to interact
   in public and private feeds. Integrates Spotify's web API for sharing music. Offers guest view."
-        image-name="/chattea.png" url="https://chattea.me/" :stack="chattea" github="https://github.com/Tearrex/Chattea"
-        v-if="currentFilter == 'Websites'" />
+        image-name="/chattea.png" url="https://chattea.netlify.app/" :stack="chattea"
+        github="https://github.com/Tearrex/Chattea" v-if="currentFilter == 'Websites'" />
       <ProjectItem title="Gonz9Training.com"
         description="Freelance website for a professional fitness trainer to coordinate sessions with athletes and client prospects."
         image-name="/gonz9.jpg" url="https://gonz9training.com/" github="https://github.com/Tearrex/G9training"
