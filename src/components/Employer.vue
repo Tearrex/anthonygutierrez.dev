@@ -37,7 +37,7 @@ export default {
         <div v-bind:class="{ expandable: true, open: open }" :style="{ maxHeight: open ? '100%' : '0' }">
             <div class="content">
                 <slot name="content"></slot>
-                <h4 style="margin-top: 2rem; font-size: 1.5rem;">Honed Skills</h4>
+                <h4 style="margin-top: 2rem;">Honed Skills</h4>
                 <div class="roles" v-if="roles">
                     <span v-for="i in roles" :key="i">{{ i }}</span>
                 </div>
@@ -92,6 +92,9 @@ export default {
 
 .content {
     padding: 15px;
+}
+.content h4 {
+    font-size: 1.4rem;
 }
 
 .expandable.open {

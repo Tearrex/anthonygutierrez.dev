@@ -123,7 +123,7 @@ function mousemove(e) {
       </div>
     </div>
     <div class="projnest">
-      <ProjectItem title="⭐ Chattea" description="A social media webapp that allows users to interact
+      <ProjectItem title="⭐ Chattea" description="Social media webapp that allows interactions
   in public and private feeds. Integrates Spotify's web API for sharing music. Offers guest view."
         image-name="/chattea.png" url="https://chattea.netlify.app/" :stack="chattea"
         github="https://github.com/Tearrex/Chattea" v-if="currentFilter == 'Websites'" />
@@ -141,10 +141,10 @@ function mousemove(e) {
         url="https://studio.code.org/projects/applab/JPY35RLxDwdC4hMaXjvqN50qAB3Zqw8nGr_w4rcW2Tg" :stack="hero"
         v-if="currentFilter == 'Other'" />
       <ProjectItem title="⭐ MP3 Player"
-        description="Low-profile Bluetooth controller for music streaming. Includes a display HAT with object-oriented menu controls."
+        description="Low-profile Bluetooth controller for music streaming. Includes a HAT OLED display with object-oriented menu controls."
         image-name="/music.jpg" :stack="mp3" v-if="currentFilter == 'Embedded'" />
       <ProjectItem title="Smart Aquarium"
-        description="Webserver that monitors water probe parameters and controls aquarium lights remotely."
+        description="Webserver that monitors temperature probe parameters and controls aquarium lights remotely. Basic user authentication."
         image-name="/aqua.jpg" video="https://www.youtube.com/watch?v=Ijvt4syre6s"
         github="https://github.com/Tearrex/AquaControl" :stack="aqua" v-if="currentFilter == 'Embedded'" />
     </div>
@@ -155,32 +155,55 @@ function mousemove(e) {
   <section class="expsec ocean">
     <h1 style="margin-bottom: 2rem">Professional Experience</h1>
     <div class="expnest">
-      <Employer employer="Golden State Assembly" job-title="IT Support Specialist" image="/gsa.jpg" start="April 2022"
-        end="August 2023" :roles="['Helpdesk', 'Azure DevOps', 'PHP', 'React']">
+      <Employer employer="FedEx Ground" job-title="Package Handler" image="/fedex.jpg" start="April 2021"
+        end="December 2021" :roles="['Python', 'Object-Oriented Programming']">
         <template #content>
           <!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
             https://gsassembly.com/website/#about-us
           </a> -->
           <p>
-            <span style="text-decoration: underline">GSA is a manufacturer</span>
-            of electrical wire harnesses for the automobile industry based in
-            Fremont, CA.
+            My humble beginnings as a developer started outside of the tech field as a Package Handler at FedEx.
+          </p>
+          <p>The employee policies did not allow for phones or cameras to be brought into the facility for security reasons.
+              But they had bluetooth speakers scattered around the warehouse for the luxury of smart watch users. Frankly,
+              they had terrible taste in music.
+              <br/>
+              And so I took it upon myself to build my own tech gadget so I could link to the speakers without the need of paying
+              for a wristband with pricey gimmicks (ouch).
+              <br/>
+              <a href="#projectView" v-on:click="currentFilter = 'Embedded'">The tech gadget was a Raspberry Pi Zero microcontroller</a> with antenna technologies
+              and a USB stick for my music files. The best part? <i>It all fit snug inside of an Altoids tin.</i> So there was nothing
+              suspicious about me bringing in a pack of mints with a small pouch concealing a portable power bank for my contraption.
+              <br/>Perhaps I was still breaking the rules—But alas, it was a fun project that taught me a lot about myself, Raspbian, HAT devices and Python scripts. I rejoiced in the product of my persistent efforts towards innovating solutions
+              for personal gain, creatively and from scratch. I love it dearly and have it hung in my room as a monument to the career I'm unraveling.
+          </p>
+        </template>
+      </Employer>
+      <Employer employer="Golden State Assembly" job-title="IT Support Specialist" image="/gsa.jpg" start="April 2022"
+        end="August 2023" :roles="['Helpdesk', 'Azure DevOps', 'PHP', 'Python', 'React']">
+        <template #content>
+          <!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
+            https://gsassembly.com/website/#about-us
+          </a> -->
+          <p>
+            GSA is a manufacturer of electrical wire harnesses.
           </p>
           <p>
-            I started tending to support tickets for network issues and basic
-            Office365 administration.<br />
+            I began tending to Tier 1 support tickets for network and hardware issues throughout the warehouse
+            along with some basic Office365 administration.<br />
 
             In short months I jumped to aid the development practices of a small
-            IT operation. I configured and maintained
-            <b>deployment pipelines</b> for existing codebases. These automations
-            saved tremendous time and allowed us to expand the devteam while iteratively
-            deploying changes through
-            <b>code reviews and pull requests</b>.<br /><br />
+            IT operation. I configured <b>deployment pipelines</b> that the company had no prior
+            knowledge of how to implement and
+            thoroughly documented the procedures. These automations
+            saved tremendous time and allowed the devteam to expand while iteratively
+            pushing app changes through
+            <b>code reviews and pull requests</b> instead of manual file replacements...<br /><br />
             My latest achievement was migrating their old data servers to a
             <b>storage area network</b> for performance gains and redundancy
             measures.
-            <a href="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad" target="_blank">Read my blog</a>
-            about it.
+
+            <a href="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad" target="_blank">Read my blog about it.</a>
           </p>
         </template>
       </Employer>
@@ -267,8 +290,8 @@ function mousemove(e) {
       </p>
       <p v-if="currentGoal == 1">
         I am currently studying for the
-        <b>AWS Solutions Architect Associate</b> certification. I'm tentatively
-        looking into serverless functions for future cloud projects.
+        <b>AWS Solutions Architect Associate</b> certification. <a href="#projectView" v-on:click="currentFilter = 'Websites'">I've implemented serverless functions</a>
+        into my frontend projects for handling API secrets and server-side image processing.
       </p>
       <p v-if="currentGoal == 2">
         With my toolset above I can assist in driving products and visions
@@ -281,7 +304,7 @@ function mousemove(e) {
         <a href="https://www.chartjs.org/" target="_blank">Chart.js</a> to
         filter and sort large datasets for the user experience. I have also used
         <a href="https://pandas.pydata.org/" target="_blank">pandas</a> for
-        Python to manipulate data into digestible excel sheets for a business
+        Python to manipulate data into digestible excel sheets for an internal business
         website.
       </p>
       <p v-if="currentGoal == 4">
@@ -556,7 +579,7 @@ nav a:first-of-type {
   /* position: absolute; */
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   background: url("/shapes.png");
   transition: background-position 0.8s ease-out;

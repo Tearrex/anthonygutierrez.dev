@@ -30,11 +30,11 @@ import IconMail from './icons/IconMail.vue';
           <IconGitHub />
         </template>
       </SocialButton>
-      <SocialButton social-link="https://www.youtube.com/@ant-dev">
+      <!-- <SocialButton social-link="https://www.youtube.com/@ant-dev">
         <template #icon>
           <IconYoutube />
         </template>
-      </SocialButton>
+      </SocialButton> -->
       <SocialButton social-link="mailto:anthonyg2803@protonmail.com">
         <template #icon>
           <IconMail />
