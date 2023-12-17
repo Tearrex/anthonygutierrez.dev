@@ -105,7 +105,7 @@ function mousemove(e) {
   </section>
   <div class="introbottom">
     <button v-on:click="projects()" class="fancy">
-      <IconDown /> Jump to Projects
+      <IconDown /> Projects
     </button>
   </div>
 
@@ -168,14 +168,13 @@ function mousemove(e) {
               But they had bluetooth speakers scattered around the warehouse for the luxury of smart watch users. Frankly,
               they had terrible taste in music.
               <br/>
-              And so I took it upon myself to build my own tech gadget so I could link to the speakers without the need of paying
+              And so I took it upon myself to build my own tech gadget that could link to the speakers without the need of paying
               for a wristband with pricey gimmicks (ouch).
               <br/>
               <a href="#projectView" v-on:click="currentFilter = 'Embedded'">The tech gadget was a Raspberry Pi Zero microcontroller</a> with antenna technologies
               and a USB stick for my music files. The best part? <i>It all fit snug inside of an Altoids tin.</i> So there was nothing
               suspicious about me bringing in a pack of mints with a small pouch concealing a portable power bank for my contraption.
-              <br/>Perhaps I was still breaking the rules—But alas, it was a fun project that taught me a lot about myself, Raspbian, HAT devices and Python scripts. I rejoiced in the product of my persistent efforts towards innovating solutions
-              for personal gain, creatively and from scratch. I love it dearly and have it hung in my room as a monument to the career I'm unraveling.
+              <br/>Perhaps I was still breaking the rules—But alas, it was a fun project that taught me a lot about myself, Raspbian, HAT devices and Python scripts.
           </p>
         </template>
       </Employer>
