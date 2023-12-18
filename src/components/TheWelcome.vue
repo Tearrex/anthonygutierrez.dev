@@ -156,7 +156,7 @@ function mousemove(e) {
     <h1 style="margin-bottom: 2rem">Professional Experience</h1>
     <div class="expnest">
       <Employer employer="FedEx Ground" job-title="Package Handler" image="/fedex.jpg" start="April 2021"
-        end="December 2021" :roles="['Python', 'Object-Oriented Programming']">
+        end="December 2021" bg="#4e148c">
         <template #content>
           <!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
             https://gsassembly.com/website/#about-us
@@ -165,7 +165,7 @@ function mousemove(e) {
             My humble beginnings as a developer started outside of the tech field as a Package Handler at FedEx.
           </p>
           <p>The employee policies did not allow for phones or cameras to be brought into the facility for security reasons.
-              But they had bluetooth speakers scattered around the warehouse for the luxury of smart watch users. Frankly,
+              Yet they had speakers scattered around the warehouse for the luxury of smart watch users. Frankly,
               they had terrible taste in music.
               <br/>
               And so I took it upon myself to build my own tech gadget that could link to the speakers without the need of paying
@@ -174,12 +174,13 @@ function mousemove(e) {
               <a href="#projectView" v-on:click="currentFilter = 'Embedded'">The tech gadget was a Raspberry Pi Zero microcontroller</a> with antenna technologies
               and a USB stick for my music files. The best part? <i>It all fit snug inside of an Altoids tin.</i> So there was nothing
               suspicious about me bringing in a pack of mints with a small pouch concealing a portable power bank for my contraption.
-              <br/>Perhaps I was still breaking the rules—But alas, it was a fun project that taught me a lot about myself, Raspbian, HAT devices and Python scripts.
+              <br/>Perhaps I was still breaking the rules—But alas, it was a fun project that helped me learn a lot about myself, Raspbian OS, HAT devices and Python scripts.
+              While security was cheeky about my cleverness, the managers paid me my well deserved props :)
           </p>
         </template>
       </Employer>
-      <Employer employer="Golden State Assembly" job-title="IT Support Specialist" image="/gsa.jpg" start="April 2022"
-        end="August 2023" :roles="['Helpdesk', 'Azure DevOps', 'PHP', 'Python', 'React']">
+      <Employer employer="Golden State Assembly" job-title="IT System Administrator" image="/gsa.jpg" start="April 2022"
+        end="August 2023" :roles="['Helpdesk', 'Azure DevOps', 'PHP', 'Python', 'React']" bg="#26378f">
         <template #content>
           <!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
             https://gsassembly.com/website/#about-us
@@ -188,16 +189,16 @@ function mousemove(e) {
             GSA is a manufacturer of electrical wire harnesses.
           </p>
           <p>
-            I began tending to Tier 1 support tickets for network and hardware issues throughout the warehouse
-            along with some basic Office365 administration.<br />
+            <u>I began as a Tier 1 support technician</u> for network and hardware issues throughout the warehouse.
+            With my background, I soon pivoted to more sophisticated tasks involving the business infrastructure.<br />
 
-            In short months I jumped to aid the development practices of a small
-            IT operation. I configured <b>deployment pipelines</b> that the company had no prior
-            knowledge of how to implement and
-            thoroughly documented the procedures. These automations
-            saved tremendous time and allowed the devteam to expand while iteratively
-            pushing app changes through
-            <b>code reviews and pull requests</b> instead of manual file replacements...<br /><br />
+            In short months I jumped to aid the software development practices of a two-man
+            IT operation by uploading PHP source code to <b>Azure Repos</b> and configuring <b>Azure Pipelines</b> for
+            on-premises deployment automation.
+            I saved tremendous time for the lead developer to innovate and recruit more hands for collaboration through
+            <b>code reviews and pull requests</b> instead of manual, drag-and-drop file replacements...<br />
+            I also introduced <b>Docker</b> containerization to the devteam and trained them on
+            using microservice architecture in their apps for seamlessly spinning up instances.<br /><br />
             My latest achievement was migrating their old data servers to a
             <b>storage area network</b> for performance gains and redundancy
             measures.

@@ -7,6 +7,7 @@ defineProps({
     image: String,
     start: String,
     end: String,
+    bg: String,
     default: Boolean = false
 })
 </script>
@@ -21,7 +22,7 @@ export default {
 </script>
 <template>
     <div class="employer">
-        <div class="nest" v-on:click="open = !open">
+        <div class="nest" v-on:click="open = !open" :style="{backgroundColor: bg}">
             <img :src="image" />
             <div class="text">
                 <h2>{{ employer }}</h2>
@@ -37,7 +38,7 @@ export default {
         <div v-bind:class="{ expandable: true, open: open }" :style="{ maxHeight: open ? '100%' : '0' }">
             <div class="content">
                 <slot name="content"></slot>
-                <h4 style="margin-top: 2rem;">Honed Skills</h4>
+                <h4 style="margin-top: 2rem;" v-if="roles">Honed Skills</h4>
                 <div class="roles" v-if="roles">
                     <span v-for="i in roles" :key="i">{{ i }}</span>
                 </div>
