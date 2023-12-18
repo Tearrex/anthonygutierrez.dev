@@ -217,7 +217,7 @@ function mousemove(e) {
     <p style="margin-bottom: 1rem; text-align: center">
       I have working knowledge of the following
     </p>
-    <div class="skillnest">
+    <div class="skillnest" style="margin-bottom: 1rem;">
       <div class="tooltip">
         <img src="/stacks/html.png" />
         <span class="tooltext top center">HTML</span>
@@ -275,6 +275,11 @@ function mousemove(e) {
         <span class="tooltext top center">AWS</span>
       </div>
     </div>
+    <h2 style="margin-bottom: 0.5rem; text-align: center">My Certifications</h2>
+    <div style="text-align: center;">
+      <a href="https://www.credly.com/badges/733e9190-41c0-4328-86b9-b5eec9fd26b1/public_url" target="_blank"
+      rel="noreferrer" class="no-highlight"><img src="/awsclf.png" width="100" /></a>
+    </div>
     <!-- <p style="margin-bottom: 1rem;">I'm always learning & eager to take on new challenges.</p> -->
     <hr style="margin: 2rem 0" />
     <h2>Career Goals</h2>
@@ -289,8 +294,8 @@ function mousemove(e) {
         career.
       </p>
       <p v-if="currentGoal == 1">
-        I am currently studying for the
-        <b>AWS Solutions Architect Associate</b> certification. <a href="#projectView" v-on:click="currentFilter = 'Websites'">I've implemented serverless functions</a>
+        I am an
+        AWS Certified Cloud Practitioner, further studying for the SAA-C03 exam. <a href="#projectView" v-on:click="currentFilter = 'Websites'">I've implemented serverless functions</a>
         into my frontend projects for handling API secrets and server-side image processing.
       </p>
       <p v-if="currentGoal == 2">
