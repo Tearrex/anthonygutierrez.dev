@@ -201,7 +201,7 @@ function mousemove(e) {
             using microservice architecture in their apps for seamlessly spinning up instances.<br /><br />
             My latest achievement was migrating their old data servers to a
             <b>storage area network</b> for performance gains and redundancy
-            measures.
+            measures, consequently becoming the sole SAN administrator aswell.
 
             <a href="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad" target="_blank">Read my blog about it.</a>
           </p>
