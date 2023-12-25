@@ -83,7 +83,7 @@ function mousemove(e) {
 	>
 		<div id="intro" class="introbg">
 			<div class="body">
-				<h2 style="color: #000">Introduction</h2>
+				<!-- <h2 style="color: #000">Introduction</h2> -->
 				<div class="content">
 					<div class="lorem">
 						<p id="bio" class="sprout">
@@ -696,9 +696,14 @@ nav a:first-of-type {
 	}
 }
 
+.content .lorem {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
 .intro p {
 	padding: 0 2.5rem;
-	max-width: 500px;
+  width: clamp(200px, 80%, 500px);
 	background-color: #fff;
 	padding: 1.5rem;
 	margin-bottom: 2rem;
