@@ -18,551 +18,637 @@ import IconGlobe from "./icons/IconGlobe.vue";
 </script>
 <script>
 export default {
-  data() {
-    return {
-      chattea: ["React", "Firebase", "BaaS", "FaaS"],
-      portal: ["React", "MongoDB", "MSSQL", "Python", "Flask", "pandas"],
-      gonz9: ["React"],
-      hero: ["JavaScript"],
-      aqua: ["HTML/CSS/JS", "Python", "Flask", "SQLite", "RaspberryPi"],
-      mp3: ["Python", "RaspberryPi"],
-      san: ["iSCSI", "DRBD", "Heartbeat"],
-      filters: ["Websites", "Embedded", "Other"],
-      currentFilter: "Websites",
-      currentGoal: 2,
-    };
-  },
+	data() {
+		return {
+			chattea: ["React", "Firebase", "BaaS", "FaaS"],
+			portal: ["React", "MongoDB", "MSSQL", "Python", "Flask", "pandas"],
+			gonz9: ["React"],
+			hero: ["JavaScript"],
+			aqua: ["HTML/CSS/JS", "Python", "Flask", "SQLite", "RaspberryPi"],
+			mp3: ["Python", "RaspberryPi"],
+			san: ["iSCSI", "DRBD", "Heartbeat"],
+			filters: ["Websites", "Embedded", "Other"],
+			currentFilter: "Websites",
+			currentGoal: 2,
+		};
+	},
 };
 function projects(delay = false) {
-  if (!delay)
-    document
-      .getElementById("projectView")
-      .scrollIntoView({ behavior: "smooth" });
-  else {
-    setTimeout(() => {
-      document
-        .getElementById("projectView")
-        .scrollIntoView({ behavior: "smooth" });
-    }, 400);
-  }
+	if (!delay)
+		document
+			.getElementById("projectView")
+			.scrollIntoView({ behavior: "smooth" });
+	else {
+		setTimeout(() => {
+			document
+				.getElementById("projectView")
+				.scrollIntoView({ behavior: "smooth" });
+		}, 400);
+	}
 }
 function distance(a, b) {
-  return -(a - b);
+	return -(a - b);
 }
 const sensitivity = 0.2; // limit the free movement of mouse hover effect
 function mousemove(e) {
-  // console.log([e.clientX, e.clientY]);
-  let matrix = document.getElementById("intro");
-  let x = e.clientX,
-    y = e.clientY;
+	// console.log([e.clientX, e.clientY]);
+	let matrix = document.getElementById("intro");
+	let x = e.clientX,
+		y = e.clientY;
 
-  let middleX = window.innerWidth / 2;
-  let middleY = window.innerHeight / 2;
+	let middleX = window.innerWidth / 2;
+	let middleY = window.innerHeight / 2;
 
-  x = distance(middleX, x) * sensitivity;
-  y = distance(middleY, y) * sensitivity;
+	x = distance(middleX, x) * sensitivity;
+	y = distance(middleY, y) * sensitivity;
 
-  console.log([x, y]);
-  matrix.style.backgroundPosition = `${x}px ${y}px`;
+	console.log([x, y]);
+	matrix.style.backgroundPosition = `${x}px ${y}px`;
 }
 // document.addEventListener("mousemove", mousemove)
 </script>
 <template>
-  <nav style="text-align: center">
-    <a href="#introline">Intro</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <!-- <a href="https://medium.com/@anthonydev" target="_blank" rel="noreferrer">Blog</a> -->
-  </nav>
-  <hr id="introline" />
-  <!-- <div class="introtop" /> -->
-  <section class="intro" @mousemove="mousemove" style="background-position: 0 0">
-    <div id="intro" class="introbg">
-      <div class="body">
-        <h2 style="color: #000">Introduction</h2>
-        <div class="content">
-          <div class="lorem">
-            <p id="bio" class="sprout">
-              My passion for computers has flourished from boredom and curiosity
-              over the years. I began with website builders and grew to enjoy
-              creating my own webspaces with HTML/CSS/JS.
-            </p>
-            <p class="stack">
-              I became fascinated with the inner workings of apps & games I once
-              took for granted. This lead in my decision to study Computer
-              Science and pursue a career in tech.
-            </p>
-            <p class="code">
-              Since then, I have been nurturing my webdev niche by
-              <a href="#projectView">exploring JavaScript frameworks</a> and
-              <a href="#experience">acquiring industry experience</a> designing
-              customer-facing apps among other IT specialties.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <div class="introbottom">
-    <button v-on:click="projects()" class="fancy">
-      <IconDown /> Projects
-    </button>
-  </div>
+	<nav style="text-align: center">
+		<a href="#introline">Intro</a>
+		<a href="#experience">Experience</a>
+		<a href="#skills">Skills</a>
+		<!-- <a href="https://medium.com/@anthonydev" target="_blank" rel="noreferrer">Blog</a> -->
+	</nav>
+	<hr id="introline" />
+	<!-- <div class="introtop" /> -->
+	<section
+		class="intro"
+		@mousemove="mousemove"
+		style="background-position: 0 0"
+	>
+		<div id="intro" class="introbg">
+			<div class="body">
+				<h2 style="color: #000">Introduction</h2>
+				<div class="content">
+					<div class="lorem">
+						<p id="bio" class="sprout">
+							My passion for computers has flourished from boredom and curiosity
+							over the years. I began with website builders and grew to enjoy
+							creating my own webspaces with HTML/CSS/JS.
+						</p>
+						<p class="stack">
+							I became fascinated with the inner workings of apps & games I once
+							took for granted. This lead in my decision to study Computer
+							Science and pursue a career in tech.
+						</p>
+						<p class="code">
+							Since then, I have been nurturing my webdev niche by exploring
+							JavaScript frameworks and acquiring industry experience designing
+							customer-facing apps among other IT specialties.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="introbottom">
+		<button v-on:click="projects()" class="fancy"><IconDown /> Projects</button>
+	</div>
 
-  <section class="flexy" id="projectView">
-    <div>
-      <h2 id="projects">My Projects</h2>
-      <p>Below are highlights of work I've put together.</p>
-      <div class="switchNest">
-        <button v-for="i in filters" v-on:click="
-          currentFilter = i;
-        projects(true);
-        " :class="{ active: currentFilter == i }">
-          {{ i }}
-        </button>
-      </div>
-    </div>
-    <div class="projnest">
-      <ProjectItem title="⭐ Chattea" description="Social media webapp that allows interactions
+	<section class="flexy" id="projectView">
+		<div>
+			<h2 id="projects">My Projects</h2>
+			<p>Below are highlights of work I've put together.</p>
+			<div class="switchNest">
+				<button
+					v-for="i in filters"
+					v-on:click="
+						currentFilter = i;
+						projects(true);
+					"
+					:class="{ active: currentFilter == i }"
+				>
+					{{ i }}
+				</button>
+			</div>
+		</div>
+		<div class="projnest">
+			<ProjectItem
+				title="⭐ Chattea"
+				description="Social media webapp that allows interactions
   in public and private feeds. Integrates Spotify's web API for sharing music. Offers guest view."
-        image-name="/chattea.png" url="https://chattea.netlify.app/" :stack="chattea"
-        github="https://github.com/Tearrex/Chattea" v-if="currentFilter == 'Websites'" />
-      <ProjectItem title="Gonz9Training.com"
-        description="Freelance website for a professional fitness trainer to coordinate sessions with athletes and client prospects."
-        image-name="/gonz9.jpg" url="https://gonz9training.com/" github="https://github.com/Tearrex/G9training"
-        :stack="gonz9" v-if="currentFilter == 'Websites'" />
-      <ProjectItem title="Customer Portal"
-        description="SaaS product leveraging microservice architecture
+				image-name="/chattea.png"
+				url="https://chattea.netlify.app/"
+				:stack="chattea"
+				github="https://github.com/Tearrex/Chattea"
+				v-if="currentFilter == 'Websites'"
+			/>
+			<ProjectItem
+				title="Gonz9Training.com"
+				description="Freelance website for a professional fitness trainer to coordinate sessions with athletes and client prospects."
+				image-name="/gonz9.jpg"
+				url="https://gonz9training.com/"
+				github="https://github.com/Tearrex/G9training"
+				:stack="gonz9"
+				v-if="currentFilter == 'Websites'"
+			/>
+			<ProjectItem
+				title="Customer Portal"
+				description="SaaS product leveraging microservice architecture
       to generate excel reports of procured wire harnesses for automotive customers, calculating associated labor hours and production costs."
-        image-name="/portal2.jpg" :stack="portal" v-if="currentFilter == 'Websites'" />
-      <ProjectItem title="School Project"
-        description="Point and click browser game with goal to protect tanks from rounds of bomb strikes. Try it out!"
-        image-name="/codeorg.jpg"
-        url="https://studio.code.org/projects/applab/JPY35RLxDwdC4hMaXjvqN50qAB3Zqw8nGr_w4rcW2Tg" :stack="hero"
-        v-if="currentFilter == 'Other'" />
-      <ProjectItem title="⭐ MP3 Player"
-        description="Low-profile Bluetooth controller for music streaming. Includes a HAT OLED display with object-oriented menu controls."
-        image-name="/music.jpg" :stack="mp3" v-if="currentFilter == 'Embedded'" />
-      <ProjectItem title="Smart Aquarium"
-        description="Webserver that monitors temperature probe parameters and controls aquarium lights remotely. Basic user authentication."
-        image-name="/aqua.jpg" video="https://www.youtube.com/watch?v=Ijvt4syre6s"
-        github="https://github.com/Tearrex/AquaControl" :stack="aqua" v-if="currentFilter == 'Embedded'" />
-    </div>
-  </section>
-  <div style="position: relative" class="ocean" id="experience">
-    <div class="wavy block"></div>
-  </div>
-  <section class="expsec ocean">
-    <h1 style="margin-bottom: 2rem">Professional Experience</h1>
-    <div class="expnest">
-      <Employer employer="FedEx Ground" job-title="Package Handler" image="/fedex.jpg" start="April 2021"
-        end="December 2021" bg="#4e148c">
-        <template #content>
-          <!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
+				image-name="/portal2.jpg"
+				:stack="portal"
+				v-if="currentFilter == 'Websites'"
+			/>
+			<ProjectItem
+				title="School Project"
+				description="Point and click browser game with goal to protect tanks from rounds of bomb strikes. Try it out!"
+				image-name="/codeorg.jpg"
+				url="https://studio.code.org/projects/applab/JPY35RLxDwdC4hMaXjvqN50qAB3Zqw8nGr_w4rcW2Tg"
+				:stack="hero"
+				v-if="currentFilter == 'Other'"
+			/>
+			<ProjectItem
+				title="⭐ MP3 Player"
+				description="Low-profile Bluetooth controller for music streaming. Includes a HAT OLED display with object-oriented menu controls."
+				image-name="/music.jpg"
+				:stack="mp3"
+				v-if="currentFilter == 'Embedded'"
+			/>
+			<ProjectItem
+				title="Smart Aquarium"
+				description="Webserver that monitors temperature probe parameters and controls aquarium lights remotely. Basic user authentication."
+				image-name="/aqua.jpg"
+				video="https://www.youtube.com/watch?v=Ijvt4syre6s"
+				github="https://github.com/Tearrex/AquaControl"
+				:stack="aqua"
+				v-if="currentFilter == 'Embedded'"
+			/>
+		</div>
+	</section>
+	<div style="position: relative" class="ocean" id="experience">
+		<div class="wavy block"></div>
+	</div>
+	<section class="expsec ocean">
+		<h1 style="margin-bottom: 2rem">Professional Experience</h1>
+		<div class="expnest">
+			<Employer
+				employer="FedEx Ground"
+				job-title="Package Handler"
+				image="/fedex.jpg"
+				start="4/2021"
+				end="12/2021"
+				bg="#4e148c"
+			>
+				<template #content>
+					<!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
             https://gsassembly.com/website/#about-us
           </a> -->
-          <p>
-            My humble beginnings as a developer started outside of the tech field as a Package Handler at FedEx.
-          </p>
-          <p>The employee policies did not allow for phones or cameras to be brought into the facility for security reasons.
-              Yet they had speakers scattered around the warehouse for the luxury of smart watch users. Frankly,
-              they had terrible taste in music.
-              <br/>
-              And so I took it upon myself to build my own tech gadget that could link to the speakers without the need of paying
-              for a wristband with pricey gimmicks (ouch).
-              <br/>
-              <a href="#projectView" v-on:click="currentFilter = 'Embedded'">The tech gadget was a Raspberry Pi Zero microcontroller</a> with antenna technologies
-              and a USB stick for my music files. The best part? <i>It all fit snug inside of an Altoids tin.</i> So there was nothing
-              suspicious about me bringing in a pack of mints with a small pouch concealing a portable power bank for my contraption.
-              <br/>Perhaps I was still breaking the rules—But alas, it was a fun project that helped me learn a lot about myself, Raspbian OS, HAT devices and Python scripts.
-              While security was cheeky about my cleverness, the managers paid me my well deserved props :)
-          </p>
-        </template>
-      </Employer>
-      <Employer employer="Golden State Assembly" job-title="IT System Administrator" image="/gsa.jpg" start="April 2022"
-        end="August 2023" :roles="['Helpdesk', 'Azure DevOps', 'PHP', 'Python', 'React']" bg="#26378f">
-        <template #content>
-          <!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
+					<p>
+						My humble beginnings as a developer started outside of the tech
+						field as a Package Handler at FedEx.
+					</p>
+					<br />
+					<p>
+						No phones were allowed inside; Yet they had speakers around the
+						warehouse for the luxury of smart watch users. Frankly, they had
+						terrible taste in music—And so I took it upon myself to build my own
+						tech gadget that could pair to the speakers without paying for a
+						gimmicky wristband...
+						<br />
+						<a href="#projectView" v-on:click="currentFilter = 'Embedded'"
+							>The tech gadget was a Raspberry Pi Zero microcontroller with
+							on-board WiFi/Bluetooth and a memory stick for MP3 files.</a
+						>
+						The best part? It all fit snug inside of an Altoids tin. So security
+						had no suspicion of me bringing in a pack of mints and an
+						inconspicuous USB power bank. <br />Perhaps I was still
+						circumventing the rules—But alas, it was a fun project that helped
+						me learn a lot about myself, headless systems and Python scripts.
+					</p>
+				</template>
+			</Employer>
+			<Employer
+				employer="Golden State Assembly"
+				job-title="IT System Administrator"
+				image="/gsa.jpg"
+				start="4/2022"
+				end="8/2023"
+				:roles="['Helpdesk', 'Azure DevOps', 'PHP', 'Python', 'React']"
+				bg="#26378f"
+			>
+				<template #content>
+					<!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
             https://gsassembly.com/website/#about-us
           </a> -->
-          <p>
-            GSA is a manufacturer of electrical wire harnesses.
-          </p>
-          <p>
-            <u>I began as a Tier 1 support technician</u> for network and hardware issues throughout the warehouse.
-            With my background, I soon pivoted to more sophisticated tasks involving the business infrastructure.<br />
+					<p>GSA is a manufacturer of electrical wire harnesses.</p>
+          <br/>
+					<p>
+						<u>I began as a Tier 1 support technician</u> for IT-related issues
+						throughout the warehouse. Having a development background, I soon pivoted to more
+						sophisticated tasks involving the business infrastructure.<br />
 
-            In short months I jumped to aid the software development practices of a two-man
-            IT operation by uploading PHP source code to <b>Azure Repos</b> and configuring <b>Azure Pipelines</b> for
-            on-premises deployment automation.
-            I saved tremendous time for the lead developer to innovate and recruit more hands for collaboration through
-            <b>code reviews and pull requests</b> instead of manual, drag-and-drop file replacements...<br />
-            I also introduced <b>Docker</b> containerization to the devteam and trained them on
-            using microservice architecture in their apps for seamlessly spinning up instances.<br /><br />
-            My latest achievement was migrating their old data servers to a
-            <b>storage area network</b> for performance gains and redundancy
-            measures, consequently becoming the sole SAN administrator aswell.
+						In short months I jumped to aid the software development practices
+						of a two-man IT operation by uploading PHP source code to
+						<b>Azure Repos</b> and configuring <b>Azure Pipelines</b> for
+						on-premises deployment automation. I saved tremendous time for the
+						lead developer to innovate and recruit more hands for collaboration
+						through <b>code reviews and pull requests</b> instead of manual,
+						drag-and-drop file replacements...<br />
+						I also introduced <b>Docker</b> containerization to the devteam and
+						trained them on using microservice architecture in their apps for
+						seamlessly spinning up instances.<br /><br />
+						My latest achievement was migrating their old data servers to a
+						<b>storage area network</b> for performance gains and redundancy
+						measures.
 
-            <a href="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad" target="_blank">Read my blog about it.</a>
-          </p>
-        </template>
-      </Employer>
-    </div>
-  </section>
-  <div style="position: relative" class="ocean" id="skills">
-    <div class="wavy"></div>
-  </div>
-  <section>
-    <h2 style="margin-bottom: 0.5rem; text-align: center">My Toolset</h2>
-    <p style="margin-bottom: 1rem; text-align: center">
-      I have working knowledge of the following
-    </p>
-    <div class="skillnest" style="margin-bottom: 1rem;">
-      <div class="tooltip">
-        <img src="/stacks/html.png" />
-        <span class="tooltext top center">HTML</span>
-      </div>
-      <div class="tooltip">
-        <img src="/stacks/css.png" />
-        <span class="tooltext top center">CSS</span>
-      </div>
-      <div class="tooltip">
-        <img src="/stacks/javascript.png" />
-        <span class="tooltext top center">JavaScript</span>
-      </div>
-      <div class="tooltip">
-        <img src="/stacks/typescript.png" />
-        <span class="tooltext top center">TypeScript</span>
-      </div>
-      <div class="tooltip">
-        <img src="/stacks/react.png" />
-        <span class="tooltext top center">React</span>
-      </div>
-      <div class="tooltip">
-        <img src="/stacks/vue.png" />
-        <span class="tooltext top center">Vue.js</span>
-      </div>
-      <div class="tooltip">
-        <img src="/stacks/python.png" />
-        <span class="tooltext top center">Python</span>
-      </div>
-      <div class="tooltip">
-        <img src="/stacks/php.png" />
-        <span class="tooltext top center">PHP</span>
-      </div>
-      <div class="tooltip">
-        <img src="/stacks/mysql.png" />
-        <span class="tooltext top center">MySQL</span>
-      </div>
-      <div class="tooltip">
-        <img src="/stacks/mongo.png" />
-        <span class="tooltext top center">MongoDB</span>
-      </div>
-      <div class="tooltip">
-        <img src="/stacks/firebase.png" />
-        <span class="tooltext top center">Firebase</span>
-      </div>
-      <div class="tooltip">
-        <img src="/stacks/docker.png" />
-        <span class="tooltext top center">Docker</span>
-      </div>
-      <div class="tooltip">
-        <img src="/stacks/ubuntu.png" />
-        <span class="tooltext top center">Ubuntu</span>
-      </div>
-      <div class="tooltip">
-        <img src="/stacks/aws.png" />
-        <span class="tooltext top center">AWS</span>
-      </div>
-    </div>
-    <h2 style="margin-bottom: 0.5rem; text-align: center">My Certifications</h2>
-    <div style="text-align: center;">
-      <a href="https://www.credly.com/badges/733e9190-41c0-4328-86b9-b5eec9fd26b1/public_url" target="_blank"
-      rel="noreferrer" class="no-highlight"><img src="/awsclf.png" width="100" /></a>
-    </div>
-    <!-- <p style="margin-bottom: 1rem;">I'm always learning & eager to take on new challenges.</p> -->
-    <hr style="margin: 2rem 0" />
-    <h2>Career Goals</h2>
-    <div class="slides">
-      <button @click="currentGoal--" v-if="currentGoal > 0" class="last">
-        <IconDown />
-      </button>
-      <p v-if="currentGoal == 0">
-        I took an AP Computer Science course in highschool covering the history
-        of the Internet. The knowledge I gained about <b>TCP/IP</b> protocols
-        has stuck with me and has been paramount to the success of my early IT
-        career.
-      </p>
-      <p v-if="currentGoal == 1">
-        I am an
-        AWS Certified Cloud Practitioner, further studying for the SAA-C03 exam. <a href="#projectView" v-on:click="currentFilter = 'Websites'">I've implemented serverless functions</a>
-        into my frontend projects for handling API secrets and server-side image processing.
-      </p>
-      <p v-if="currentGoal == 2">
-        With my toolset above I can assist in driving products and visions
-        forward. I strive to be a quick & savvy liaison between business
-        problems and the many facets of technology.
-      </p>
-      <p v-if="currentGoal == 3">
-        Making sense of data has been the most pleasurable duty of mine.
-        Specifically, working with frontend libraries like
-        <a href="https://www.chartjs.org/" target="_blank">Chart.js</a> to
-        filter and sort large datasets for the user experience. I have also used
-        <a href="https://pandas.pydata.org/" target="_blank">pandas</a> for
-        Python to manipulate data into digestible excel sheets for an internal business
-        website.
-      </p>
-      <p v-if="currentGoal == 4">
-        Saving time has never felt better before learning Python. I began by
-        automating my Zoom classes with PyAutoGUI during
-        the pandemic, reading my schedules from CSV files. Later I tried <b>webscraping</b> with Selenium and
-        BeautifulSoup to get around API costs. Eventually I took it to a
-        <a href="#experience">professional capacity</a> by implementing
-        <b>CI/CD</b> pipelines.
-      </p>
-      <button @click="currentGoal++" v-if="currentGoal < 4" class="next">
-        <IconDown />
-      </button>
-    </div>
-    <div class="goalnest">
-      <div class="goal" @click="currentGoal = 0" :class="{ active: currentGoal == 0 }">
-        <h2>
-          <IconGlobe /> Networking
-        </h2>
-      </div>
-      <div class="goal" @click="currentGoal = 1" :class="{ active: currentGoal == 1 }">
-        <h2>
-          <IconCloud /> Cloud Compute
-        </h2>
-      </div>
-      <div class="goal" style="grid-column: 1/-1" @click="currentGoal = 2" :class="{ active: currentGoal == 2 }">
-        <h2>
-          <IconCode /> Software Development
-        </h2>
-      </div>
-      <div class="goal" @click="currentGoal = 3" :class="{ active: currentGoal == 3 }">
-        <h2>
-          <IconGraph /> Data Analysis
-        </h2>
-      </div>
-      <div class="goal" @click="currentGoal = 4" :class="{ active: currentGoal == 4 }">
-        <h2>
-          <IconGears /> Script Automation
-        </h2>
-      </div>
-    </div>
-  </section>
-  <div style="overflow: hidden">
-    <div style="background-color: #121212; position: relative">
-      <div class="wavy"></div>
-    </div>
-    <footer>
-      <img src="/monitors.png" class="desk" />
-      <div class="lamp">
-        <img src="/lamp.png" />
-      </div>
-      <h1 style="margin-top: 6rem; color: #5dade2">Open to work</h1>
-      <h3>I'd be happy to talk shop or share more about my projects!</h3>
-      <a href="mailto:anthonyg2803@protonmail.com" class="no-highlight" style="margin-right: 5px">
-        <button id="mail" style="margin-bottom: 4rem">
-          <IconMail /> Email Me
-        </button>
-      </a>
-      <a href="/Resume.pdf" target="_blank" rel="noreferrer" class="no-highlight">
-        <button>
-          <IconCase /> Resume/CV
-        </button>
-      </a>
-      <div class="socials" style="justify-content: left; margin: 0">
-        <SocialButton social-link="https://www.linkedin.com/in/anthony-gutierrez-854600225/">
-          <template #icon>
-            <IconLinkedIn />
-          </template>
-        </SocialButton>
-        <SocialButton social-link="https://github.com/Tearrex">
-          <template #icon>
-            <IconGitHub />
-          </template>
-        </SocialButton>
-        <SocialButton social-link="https://www.youtube.com/@ant-dev">
-          <template #icon>
-            <IconYoutube />
-          </template>
-        </SocialButton>
-      </div>
-    </footer>
-  </div>
+						<a
+							href="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad"
+							target="_blank"
+							>Read my blog about it.</a
+						>
+					</p>
+				</template>
+			</Employer>
+		</div>
+	</section>
+	<div style="position: relative" class="ocean" id="skills">
+		<div class="wavy"></div>
+	</div>
+	<section>
+		<h2 style="margin-bottom: 0.5rem; text-align: center">My Toolset</h2>
+		<p style="margin-bottom: 1rem; text-align: center">
+			I have working knowledge of the following
+		</p>
+		<div class="skillnest" style="margin-bottom: 1rem">
+			<div class="tooltip">
+				<img src="/stacks/html.png" />
+				<span class="tooltext top center">HTML</span>
+			</div>
+			<div class="tooltip">
+				<img src="/stacks/css.png" />
+				<span class="tooltext top center">CSS</span>
+			</div>
+			<div class="tooltip">
+				<img src="/stacks/javascript.png" />
+				<span class="tooltext top center">JavaScript</span>
+			</div>
+			<div class="tooltip">
+				<img src="/stacks/typescript.png" />
+				<span class="tooltext top center">TypeScript</span>
+			</div>
+			<div class="tooltip">
+				<img src="/stacks/react.png" />
+				<span class="tooltext top center">React</span>
+			</div>
+			<div class="tooltip">
+				<img src="/stacks/vue.png" />
+				<span class="tooltext top center">Vue.js</span>
+			</div>
+			<div class="tooltip">
+				<img src="/stacks/python.png" />
+				<span class="tooltext top center">Python</span>
+			</div>
+			<div class="tooltip">
+				<img src="/stacks/php.png" />
+				<span class="tooltext top center">PHP</span>
+			</div>
+			<div class="tooltip">
+				<img src="/stacks/mysql.png" />
+				<span class="tooltext top center">MySQL</span>
+			</div>
+			<div class="tooltip">
+				<img src="/stacks/mongo.png" />
+				<span class="tooltext top center">MongoDB</span>
+			</div>
+			<div class="tooltip">
+				<img src="/stacks/firebase.png" />
+				<span class="tooltext top center">Firebase</span>
+			</div>
+			<div class="tooltip">
+				<img src="/stacks/docker.png" />
+				<span class="tooltext top center">Docker</span>
+			</div>
+			<div class="tooltip">
+				<img src="/stacks/ubuntu.png" />
+				<span class="tooltext top center">Ubuntu</span>
+			</div>
+			<div class="tooltip">
+				<img src="/stacks/aws.png" />
+				<span class="tooltext top center">AWS</span>
+			</div>
+		</div>
+		<div style="text-align: center">
+			<a
+				href="https://www.credly.com/badges/733e9190-41c0-4328-86b9-b5eec9fd26b1/public_url"
+				target="_blank"
+				rel="noreferrer"
+				class="no-highlight"
+				><img src="/awsclf.png" width="100"
+			/></a>
+		</div>
+		<!-- <p style="margin-bottom: 1rem;">I'm always learning & eager to take on new challenges.</p> -->
+		<hr style="margin: 2rem 0" />
+		<h2>Career Goals</h2>
+		<div class="slides">
+			<button @click="currentGoal--" v-if="currentGoal > 0" class="last">
+				<IconDown />
+			</button>
+			<p v-if="currentGoal == 0">
+				I took an AP Computer Science course in highschool covering the history
+				of the Internet. The knowledge I gained about <b>TCP/IP</b> protocols
+				has stuck with me and has been paramount to the success of my early IT
+				career.
+			</p>
+			<p v-if="currentGoal == 1">
+				I am an AWS Certified Cloud Practitioner, further studying for the
+				SAA-C03 exam.
+				<a href="#projectView" v-on:click="currentFilter = 'Websites'"
+					>I've implemented serverless functions</a
+				>
+				into my frontend projects for handling API secrets and server-side image
+				processing.
+			</p>
+			<p v-if="currentGoal == 2">
+				With my toolset above I can assist in driving products and visions
+				forward. I strive to be a quick & savvy liaison between business
+				problems and the many facets of technology.
+			</p>
+			<p v-if="currentGoal == 3">
+				Making sense of data has been the most pleasurable duty of mine.
+				Specifically, working with frontend libraries like
+				<a href="https://www.chartjs.org/" target="_blank">Chart.js</a> to
+				filter and sort large datasets for the user experience. I have also used
+				<a href="https://pandas.pydata.org/" target="_blank">pandas</a> for
+				Python to manipulate data into digestible excel sheets for an internal
+				business website.
+			</p>
+			<p v-if="currentGoal == 4">
+				Saving time has never felt better before learning Python. I began by
+				automating my Zoom classes with PyAutoGUI during the pandemic, reading
+				my schedules from CSV files. Later I tried <b>webscraping</b> with
+				Selenium and BeautifulSoup to get around API costs. Eventually I took it
+				to a <a href="#experience">professional capacity</a> by implementing
+				<b>CI/CD</b> pipelines.
+			</p>
+			<button @click="currentGoal++" v-if="currentGoal < 4" class="next">
+				<IconDown />
+			</button>
+		</div>
+		<div class="goalnest">
+			<div
+				class="goal"
+				@click="currentGoal = 0"
+				:class="{ active: currentGoal == 0 }"
+			>
+				<h2><IconGlobe /> Networking</h2>
+			</div>
+			<div
+				class="goal"
+				@click="currentGoal = 1"
+				:class="{ active: currentGoal == 1 }"
+			>
+				<h2><IconCloud /> Cloud Compute</h2>
+			</div>
+			<div
+				class="goal"
+				style="grid-column: 1/-1"
+				@click="currentGoal = 2"
+				:class="{ active: currentGoal == 2 }"
+			>
+				<h2><IconCode /> Software Development</h2>
+			</div>
+			<div
+				class="goal"
+				@click="currentGoal = 3"
+				:class="{ active: currentGoal == 3 }"
+			>
+				<h2><IconGraph /> Data Analysis</h2>
+			</div>
+			<div
+				class="goal"
+				@click="currentGoal = 4"
+				:class="{ active: currentGoal == 4 }"
+			>
+				<h2><IconGears /> Script Automation</h2>
+			</div>
+		</div>
+	</section>
+	<div style="overflow: hidden">
+		<div style="background-color: #121212; position: relative">
+			<div class="wavy"></div>
+		</div>
+		<footer>
+			<img src="/monitors.png" class="desk" />
+			<div class="lamp">
+				<img src="/lamp.png" />
+			</div>
+			<h1 style="margin-top: 6rem; color: #5dade2">Open to work</h1>
+			<h3>I'd be happy to talk shop or share more about my projects!</h3>
+			<a
+				href="mailto:anthonyg2803@protonmail.com"
+				class="no-highlight"
+				style="margin-right: 5px"
+			>
+				<button id="mail" style="margin-bottom: 4rem">
+					<IconMail /> Email Me
+				</button>
+			</a>
+			<a
+				href="/Resume.pdf"
+				target="_blank"
+				rel="noreferrer"
+				class="no-highlight"
+			>
+				<button><IconCase /> Resume/CV</button>
+			</a>
+			<div class="socials" style="justify-content: left; margin: 0">
+				<SocialButton
+					social-link="https://www.linkedin.com/in/anthony-gutierrez-854600225/"
+				>
+					<template #icon>
+						<IconLinkedIn />
+					</template>
+				</SocialButton>
+				<SocialButton social-link="https://github.com/Tearrex">
+					<template #icon>
+						<IconGitHub />
+					</template>
+				</SocialButton>
+				<SocialButton social-link="https://www.youtube.com/@ant-dev">
+					<template #icon>
+						<IconYoutube />
+					</template>
+				</SocialButton>
+			</div>
+		</footer>
+	</div>
 </template>
 
 <style scoped>
 section:not(.intro) {
-  position: relative;
-  /* z-index: 2; */
-  background-color: #fff;
+	position: relative;
+	/* z-index: 2; */
+	background-color: #fff;
 }
 
 .slides {
-  display: flex;
-  flex-flow: row;
+	display: flex;
+	flex-flow: row;
 }
 
 .slides p {
-  flex: 90%;
+	flex: 90%;
 }
 
 .slides button {
-  background: none;
-  border: none;
-  padding: 0 1rem;
+	background: none;
+	border: none;
+	padding: 0 1rem;
 }
 
 .slides .last svg {
-  transform: rotate(90deg);
+	transform: rotate(90deg);
 }
 
 .slides .next svg {
-  transform: rotate(-90deg);
+	transform: rotate(-90deg);
 }
 
 .goalnest {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
-  margin-top: 1rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 1rem;
+	margin-top: 1rem;
 }
 
 .goalnest .goal {
-  flex: 50%;
-  min-height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #39a4ea;
-  transition: color 0.2s ease-in;
-  border-radius: 100vh;
+	flex: 50%;
+	min-height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #39a4ea;
+	transition: color 0.2s ease-in;
+	border-radius: 100vh;
 }
 
 .goal h2 {
-  transition: opacity 0.2s ease-in;
+	transition: opacity 0.2s ease-in;
 }
 
 .goalnest:hover .goal h2 {
-  opacity: 0.5;
+	opacity: 0.5;
 }
 
 .goal:hover h2,
 .goal.active h2 {
-  color: #fff;
-  fill: #fff;
-  opacity: 1 !important;
+	color: #fff;
+	fill: #fff;
+	opacity: 1 !important;
 }
 
 @media screen and (max-width: 700px) {
-  .goalnest {
-    grid-template-columns: 1fr;
-  }
+	.goalnest {
+		grid-template-columns: 1fr;
+	}
 }
 
 nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 0rem;
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  z-index: 5;
+	width: 100%;
+	font-size: 12px;
+	text-align: center;
+	margin-top: 0rem;
+	position: sticky;
+	top: 0;
+	background-color: #fff;
+	z-index: 5;
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+	color: var(--color-text);
 }
 
 nav a.router-link-exact-active:hover {
-  background-color: transparent;
+	background-color: transparent;
 }
 
 nav a {
-  display: inline-block;
-  padding: 1rem;
-  border-left: 1px solid var(--color-border);
+	display: inline-block;
+	padding: 1rem;
+	border-left: 1px solid var(--color-border);
 }
 
 nav a:first-of-type {
-  border: 0;
+	border: 0;
 }
 
 #introline {
-  margin: 0;
-  line-height: 0;
-  opacity: 0;
+	margin: 0;
+	line-height: 0;
+	opacity: 0;
 }
 
 .introtop,
 .introbottom {
-  width: 100%;
-  position: relative;
+	width: 100%;
+	position: relative;
 }
 
 .introbottom button {
-  position: absolute;
-  bottom: 100%;
-  margin-bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
+	position: absolute;
+	bottom: 100%;
+	margin-bottom: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 3;
 }
 
 .introbg::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: clamp(200px, 20vh, 500px);
-  background: linear-gradient(to bottom, #fff 25%, rgba(255, 255, 255, 0) 100%);
-  top: 0;
-  left: 0;
-  z-index: 2;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: clamp(200px, 20vh, 500px);
+	background: linear-gradient(to bottom, #fff 25%, rgba(255, 255, 255, 0) 100%);
+	top: 0;
+	left: 0;
+	z-index: 2;
 }
 
 .introbottom::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: clamp(200px, 20vh, 500px);
-  background: linear-gradient(to top, #fff 0%, rgba(255, 255, 255, 0) 100%);
-  bottom: 100%;
-  left: 0;
-  z-index: 2;
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: clamp(200px, 20vh, 500px);
+	background: linear-gradient(to top, #fff 0%, rgba(255, 255, 255, 0) 100%);
+	bottom: 100%;
+	left: 0;
+	z-index: 2;
 }
 
 .intro {
-  text-align: center;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  min-height: 100vh;
-  padding: 0;
-  background-color: #fff;
+	text-align: center;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	position: sticky;
+	top: 0;
+	min-height: 100vh;
+	padding: 0;
+	background-color: #fff;
 }
 
 .intro .body {
-  top: 50%;
-  left: 50%;
-  position: absolute;
-  width: 100%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-start;
-  align-items: center;
-  /* height: 100%; */
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	width: 100%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-flow: column;
+	justify-content: flex-start;
+	align-items: center;
+	/* height: 100%; */
 }
 
 @media screen and (max-height: 500px) {
-  /* .intro {
+	/* .intro {
     height: 50%;
   }
 
@@ -575,350 +661,352 @@ nav a:first-of-type {
     display: none;
   } */
 
-  .introbottom::before {
-    display: none;
-  }
+	.introbottom::before {
+		display: none;
+	}
 }
 
 .introbg {
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 100vh;
-  background: url("/shapes.png");
-  transition: background-position 0.8s ease-out;
-  /* background: linear-gradient(rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 7%,
+	/* position: absolute; */
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100vh;
+	background: url("/shapes.png");
+	transition: background-position 0.8s ease-out;
+	/* background: linear-gradient(rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 7%,
       rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.7) 70%, rgba(255, 255, 255, 1) 95%); */
 }
 
 .intro h2 {
-  color: #fff;
-  mix-blend-mode: difference;
-  font-size: 3.5rem;
+	color: #fff;
+	mix-blend-mode: difference;
+	font-size: 3.5rem;
 }
 
 @media screen and (min-width: 600px) {
-  .intro h2 {
-    font-size: 5rem;
-  }
+	.intro h2 {
+		font-size: 5rem;
+	}
 }
 
 @media screen and (max-width: 460px) {
-  .intro h2 {
-    font-size: 3rem !important;
-  }
+	.intro h2 {
+		font-size: 3rem !important;
+	}
 }
 
 .intro p {
-  padding: 0 2.5rem;
-  max-width: 500px;
-  background-color: #fff;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  border-radius: 100vh;
-  z-index: 2;
+	padding: 0 2.5rem;
+	max-width: 500px;
+	background-color: #fff;
+	padding: 1.5rem;
+	margin-bottom: 2rem;
+	border-radius: 100vh;
+	z-index: 2;
 }
 
 .intro p:last-of-type {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .sprout,
 .code,
 .stack {
-  position: relative;
+	position: relative;
 }
 
 .sprout::before {
-  position: absolute;
-  bottom: -15%;
-  left: -5%;
-  content: "";
-  width: 20%;
-  max-width: 70px;
-  aspect-ratio: 1/1;
-  background-image: url("/leaf.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  z-index: 0;
+	position: absolute;
+	bottom: -15%;
+	left: -5%;
+	content: "";
+	width: 20%;
+	max-width: 70px;
+	aspect-ratio: 1/1;
+	background-image: url("/leaf.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	z-index: 0;
 }
 
 .stack::before {
-  position: absolute;
-  bottom: -15%;
-  left: 0;
-  content: "";
-  width: 20%;
-  max-width: 70px;
-  aspect-ratio: 1/1;
-  background-image: url("/stack.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  z-index: 0;
+	position: absolute;
+	bottom: -15%;
+	left: 0;
+	content: "";
+	width: 20%;
+	max-width: 70px;
+	aspect-ratio: 1/1;
+	background-image: url("/stack.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	z-index: 0;
 }
 
 .code::before {
-  position: absolute;
-  bottom: -12%;
-  left: -2%;
-  content: "";
-  width: 20%;
-  max-width: 70px;
-  aspect-ratio: 1/1;
-  background-image: url("/code.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  /* transform: rotateZ(20deg); */
-  z-index: 0;
+	position: absolute;
+	bottom: -12%;
+	left: -2%;
+	content: "";
+	width: 20%;
+	max-width: 70px;
+	aspect-ratio: 1/1;
+	background-image: url("/code.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	/* transform: rotateZ(20deg); */
+	z-index: 0;
 }
 
 #projectView {
-  scroll-margin-top: 2rem;
+	scroll-margin-top: 2rem;
 }
 
 .expsec {
-  background-color: #295a8f;
-  padding: 2rem;
+	background-color: #295a8f;
+	padding: 2rem;
 }
 
 .expnest {
-  display: flex;
-  flex-flow: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-flow: column;
+	gap: 1rem;
+	margin-bottom: 2rem;
+	justify-content: center;
+	align-items: center;
 }
 
 .expsec h1 {
-  color: #fff;
-  text-align: center;
-  font-size: 2rem;
+	color: #fff;
+	text-align: center;
+	font-size: 2rem;
 }
 
-.expsec+div .wavy {
-  transform: scaleY(-1.01);
-  position: initial;
+.expsec + div .wavy {
+	transform: scaleY(-1.01);
+	position: initial;
 }
 
 .wavy {
-  width: 100%;
-  height: 100px;
-  background-color: #cecece;
-  background: url("/wave.svg");
-  position: absolute;
-  z-index: 2;
+	width: 100%;
+	height: 100px;
+	background-color: #cecece;
+	background: url("/wave.svg");
+	position: absolute;
+	z-index: 2;
 }
 
 .wavy.block {
-  position: initial;
+	position: initial;
 }
 
 section {
-  padding: 0 2rem;
+	padding: 0 2rem;
 }
 
 .ocean {
-  background-color: #295a8f !important;
-  /* background: linear-gradient(to right, #154360 0%, #1f618d 50%, #154360 100%) !important; */
+	background-color: #295a8f !important;
+	/* background: linear-gradient(to right, #154360 0%, #1f618d 50%, #154360 100%) !important; */
 }
 
 .skillnest {
-  display: flex;
-  flex-flow: row;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+	display: flex;
+	flex-flow: row;
+	gap: 0.5rem;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .skillnest .tooltip {
-  flex: 20%;
-  max-width: 40px;
-  filter: grayscale(1);
+	flex: 20%;
+	max-width: 40px;
+	filter: grayscale(1);
 }
 
 .skillnest .tooltip:hover {
-  filter: grayscale(0) !important;
+	filter: grayscale(0) !important;
 }
 
 .skillnest img {
-  width: 100%;
+	width: 100%;
 }
 </style>
 <style>
 hr {
-  margin-top: 4rem;
-  margin-bottom: 1rem;
-  opacity: 0.2;
+	margin-top: 4rem;
+	margin-bottom: 1rem;
+	opacity: 0.2;
 }
 
 #projects {
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-  scroll-margin-top: 2rem;
+	margin-top: 2rem;
+	margin-bottom: 0.5rem;
+	scroll-margin-top: 2rem;
 }
 
 .fancy svg path {
-  fill: #fff;
+	fill: #fff;
 }
 
 footer {
-  position: relative;
-  background-color: #295a8f;
-  padding: 2rem;
-  z-index: 1;
-  /* background: url("/pattern.jpg"); */
-  /* overflow: hidden; */
+	position: relative;
+	background-color: #295a8f;
+	padding: 2rem;
+	z-index: 1;
+	/* background: url("/pattern.jpg"); */
+	/* overflow: hidden; */
 }
 
 footer h3 {
-  color: #eee;
-  font-weight: normal;
+	color: #eee;
+	font-weight: normal;
 }
 
 footer .desk {
-  position: absolute;
-  bottom: 0;
-  right: 10%;
-  width: 30%;
-  min-width: 200px;
+	position: absolute;
+	bottom: 0;
+	right: 10%;
+	width: 30%;
+	min-width: 200px;
 }
 
 footer .lamp {
-  position: absolute;
-  right: 15%;
-  top: 30%;
-  width: 5%;
-  min-width: 40px;
-  z-index: 2;
+	position: absolute;
+	right: 15%;
+	top: 30%;
+	width: 5%;
+	min-width: 40px;
+	z-index: 2;
 }
 
 .lamp img {
-  width: 100%;
+	width: 100%;
 }
 
 footer .lamp::before {
-  content: "";
-  width: 7px;
-  height: 100%;
-  padding-top: 100vh;
-  background-color: #404040;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 100%;
-  /* attach to ceiling */
+	content: "";
+	width: 7px;
+	height: 100%;
+	padding-top: 100vh;
+	background-color: #404040;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 100%;
+	/* attach to ceiling */
 }
 
 @keyframes warm {
-  0% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 1;
+	}
 
-  30% {
-    opacity: 0.6;
-  }
+	30% {
+		opacity: 0.6;
+	}
 
-  /* 70% {
+	/* 70% {
     opacity: 0.8;
   } */
 
-  100% {
-    opacity: 1;
-  }
+	100% {
+		opacity: 1;
+	}
 }
 
 footer .lamp::after {
-  content: "";
-  position: absolute;
-  background: linear-gradient(rgba(245, 228, 157, 0.5) 0%,
-      rgba(0, 0, 0, 0) 70%);
-  aspect-ratio: 1/2;
-  width: 300%;
-  /* top: 50%; */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-  clip-path: polygon(50% 0, 0% 80%, 100% 80%);
-  animation: warm 3s ease infinite;
+	content: "";
+	position: absolute;
+	background: linear-gradient(
+		rgba(245, 228, 157, 0.5) 0%,
+		rgba(0, 0, 0, 0) 70%
+	);
+	aspect-ratio: 1/2;
+	width: 300%;
+	/* top: 50%; */
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: -1;
+	clip-path: polygon(50% 0, 0% 80%, 100% 80%);
+	animation: warm 3s ease infinite;
 }
 
 footer button,
 .fancy {
-  border: 2px solid #0e0e0e;
-  outline: none;
-  background: #0e0e0e;
-  color: #fff;
-  font-size: 1.4rem;
-  padding: 5px 15px;
-  display: inline-block;
-  margin-top: 1rem;
-  border-radius: 100vh;
-  transition: all 0.3s ease-in;
-  z-index: 1;
+	border: 2px solid #0e0e0e;
+	outline: none;
+	background: #0e0e0e;
+	color: #fff;
+	font-size: 1.4rem;
+	padding: 5px 15px;
+	display: inline-block;
+	margin-top: 1rem;
+	border-radius: 100vh;
+	transition: all 0.3s ease-in;
+	z-index: 1;
 }
 
 footer button {
-  opacity: 0.8;
-  border: none;
-  background: none;
+	opacity: 0.8;
+	border: none;
+	background: none;
 }
 
-footer button>* {
-  vertical-align: middle;
+footer button > * {
+	vertical-align: middle;
 }
 
 footer button svg path {
-  fill: #fff;
-  transition: all 0.3s ease-in;
+	fill: #fff;
+	transition: all 0.3s ease-in;
 }
 
 footer button:hover {
-  color: #3498db;
-  opacity: 1;
+	color: #3498db;
+	opacity: 1;
 }
 
 footer button:hover svg path {
-  fill: #3498db;
+	fill: #3498db;
 }
 
 .switchNest {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-  margin: 1rem 0;
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: 1fr;
+	margin: 1rem 0;
 }
 
-.switchNest>button {
-  padding: 10px 15px;
-  flex: 100%;
-  border: none;
-  background-color: #eeeeee;
+.switchNest > button {
+	padding: 10px 15px;
+	flex: 100%;
+	border: none;
+	background-color: #eeeeee;
 }
 
-.switchNest>button.active {
-  background-color: #39a4ea;
-  color: #fff;
+.switchNest > button.active {
+	background-color: #39a4ea;
+	color: #fff;
 }
 
-.switchNest>button:first-of-type {
-  border-radius: 100vmin 0 0 100vmin;
+.switchNest > button:first-of-type {
+	border-radius: 100vmin 0 0 100vmin;
 }
 
-.switchNest>button:last-of-type {
-  border-radius: 0 100vmin 100vmin 0;
+.switchNest > button:last-of-type {
+	border-radius: 0 100vmin 100vmin 0;
 }
 
 .flexy {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
 }
 
 /* @media (min-width: 1024px) {
@@ -928,8 +1016,8 @@ footer button:hover svg path {
 } */
 
 .projnest {
-  display: flex;
-  flex-flow: column;
-  gap: 1.5rem;
+	display: flex;
+	flex-flow: column;
+	gap: 1.5rem;
 }
 </style>

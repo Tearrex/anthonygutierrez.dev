@@ -26,7 +26,7 @@ export default {
             <img :src="image" />
             <div class="text">
                 <h2>{{ employer }}</h2>
-                <h4>{{ jobTitle }} • {{ start }} - {{ end }}</h4>
+                <h4>{{ jobTitle }} • {{ start }} to {{ end }}</h4>
                 <!-- <div class="roles" v-if="roles">
                     <span v-for="i in roles" :key="i">{{ i }}</span>
                 </div> -->
