@@ -215,11 +215,9 @@ function mousemove(e) {
 							>The tech gadget was a Raspberry Pi Zero microcontroller with
 							on-board WiFi/Bluetooth and a memory stick for MP3 files.</a
 						>
-						The best part? It all fit snug inside of an Altoids tin. So security
-						had no suspicion of me bringing in a pack of mints and an
-						inconspicuous USB power bank. <br />Perhaps I was still
+						The best part? It all fit snug inside of an Altoids tin. Perhaps I was still
 						circumventing the rules—But alas, it was a fun project that helped
-						me learn a lot about myself, headless systems and Python scripts.
+						me learn a lot about headless systems and Python scripts.
 					</p>
 				</template>
 			</Employer>
