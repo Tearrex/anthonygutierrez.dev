@@ -20,8 +20,8 @@ import IconGlobe from "./icons/IconGlobe.vue";
 export default {
 	data() {
 		return {
-			chattea: ["React", "Firebase", "BaaS", "FaaS"],
-			portal: ["React", "MongoDB", "MSSQL", "Python", "Flask", "pandas"],
+			chattea: ["React", "Firebase"],
+			portal: ["React", "MongoDB", "MSSQL", "Python"],
 			gonz9: ["React"],
 			hero: ["JavaScript"],
 			aqua: ["HTML/CSS/JS", "Python", "Flask", "SQLite", "RaspberryPi"],
@@ -129,9 +129,8 @@ function mousemove(e) {
 		</div>
 		<div class="projnest">
 			<ProjectItem
-				title="⭐ Chattea"
-				description="Social media webapp that allows interactions
-  in public and private feeds. Integrates Spotify's web API for sharing music. Offers guest view."
+				title="Chattea"
+				description="Social media website with end-to-end encrypted messaging, private pages and guest view."
 				image-name="/chattea.png"
 				url="https://chattea.netlify.app/"
 				:stack="chattea"
@@ -142,15 +141,15 @@ function mousemove(e) {
 				title="Gonz9Training.com"
 				description="Freelance website for a professional fitness trainer to coordinate sessions with athletes and client prospects."
 				image-name="/gonz9.jpg"
-				url="https://gonz9training.com/"
+				url="https://gonz9training.netlify.app/"
 				github="https://github.com/Tearrex/G9training"
 				:stack="gonz9"
 				v-if="currentFilter == 'Websites'"
 			/>
 			<ProjectItem
 				title="Customer Portal"
-				description="SaaS product leveraging microservice architecture
-      to generate excel reports of procured wire harnesses for automotive customers, calculating associated labor hours and production costs."
+				description="Customer-facing business application
+      aggregating data into excel reports of procured materials. MERN stack with microservice architecture."
 				image-name="/portal2.jpg"
 				:stack="portal"
 				v-if="currentFilter == 'Websites'"
@@ -164,8 +163,8 @@ function mousemove(e) {
 				v-if="currentFilter == 'Other'"
 			/>
 			<ProjectItem
-				title="⭐ MP3 Player"
-				description="Low-profile Bluetooth controller for music streaming. Includes a HAT OLED display with object-oriented menu controls."
+				title="MP3 Player"
+				description="Low-profile Bluetooth controller for music streaming. Includes an OLED HAT display with object-oriented menu navigation."
 				image-name="/music.jpg"
 				:stack="mp3"
 				v-if="currentFilter == 'Embedded'"
@@ -200,24 +199,23 @@ function mousemove(e) {
             https://gsassembly.com/website/#about-us
           </a> -->
 					<p>
-						My humble beginnings as a developer started outside of the tech
-						field as a Package Handler at FedEx.
+						My humble beginnings as a developer started as a Package Handler at
+						FedEx.
 					</p>
 					<br />
 					<p>
-						No phones were allowed inside; Yet they had speakers around the
-						warehouse for the luxury of smart watch users. Frankly, they had
-						terrible taste in music—And so I took it upon myself to build my own
-						tech gadget that could pair to the speakers without paying for a
-						gimmicky wristband...
+						Scattered around the warehouse were bluetooth speakers for the
+						luxury of smart watch users (No phones allowed). Frankly, they had
+						terrible taste in music. And so I took it upon myself to build my
+						own tech gadget that could link to the speakers.
 						<br />
 						<a href="#projectView" v-on:click="currentFilter = 'Embedded'"
-							>The tech gadget was a Raspberry Pi Zero microcontroller with
-							on-board WiFi/Bluetooth and a memory stick for MP3 files.</a
+							>The tech gadget was a Raspberry Pi with a display and a memory
+							stick for MP3 files.</a
 						>
-						The best part? It all fit snug inside of an Altoids tin. Perhaps I was still
-						circumventing the rules—But alas, it was a fun project that helped
-						me learn a lot about headless systems and Python scripts.
+						<br />Perhaps I was still circumventing the rules—But alas, it was a
+						fun project that helped me learn a lot about headless computing and
+						Python scripts.
 					</p>
 				</template>
 			</Employer>
@@ -227,7 +225,6 @@ function mousemove(e) {
 				image="/gsa.jpg"
 				start="4/2022"
 				end="8/2023"
-				:roles="['Helpdesk', 'Azure DevOps', 'PHP', 'Python', 'React']"
 				bg="#26378f"
 			>
 				<template #content>
@@ -235,25 +232,23 @@ function mousemove(e) {
             https://gsassembly.com/website/#about-us
           </a> -->
 					<p>GSA is a manufacturer of electrical wire harnesses.</p>
-          <br/>
+					<br />
 					<p>
-						<u>I began as a Tier 1 support technician</u> for IT-related issues
-						throughout the warehouse. Having a development background, I soon pivoted to more
-						sophisticated tasks involving the business infrastructure.<br />
+						I was hired as a Tier 1 support technician for IT-related tickets
+						throughout the warehouse. Having prior developer knowledge, I soon
+						pivoted to more sophisticated tasks involving the business
+						infrastructure.<br />
 
-						In short months I jumped to aid the software development practices
-						of a two-man IT operation by uploading PHP source code to
+						I improved the software development practices by uploading PHP
+						source code to
 						<b>Azure Repos</b> and configuring <b>Azure Pipelines</b> for
-						on-premises deployment automation. I saved tremendous time for the
-						lead developer to innovate and recruit more hands for collaboration
-						through <b>code reviews and pull requests</b> instead of manual,
-						drag-and-drop file replacements...<br />
-						I also introduced <b>Docker</b> containerization to the devteam and
-						trained them on using microservice architecture in their apps for
-						seamlessly spinning up instances.<br /><br />
-						My latest achievement was migrating their old data servers to a
-						<b>storage area network</b> for performance gains and redundancy
-						measures.
+						on-premises deployment automation. This allowed the lead developer
+						to focus on innovation and recruit more hands, collaborating through
+						code reviews and PRs. Later on I introduced <b>Docker</b> to the
+						growing team for building microservice-driven applications.<br /><br />
+						My latest achievement was migrating their old file servers to a
+						<b>storage area network</b> for performance gains and data
+						redundancy measures.
 
 						<a
 							href="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad"
@@ -363,26 +358,25 @@ function mousemove(e) {
 				processing.
 			</p>
 			<p v-if="currentGoal == 2">
-				With my toolset above I can assist in driving products and visions
+				With my toolset above I can assist in driving products and services
 				forward. I strive to be a quick & savvy liaison between business
-				problems and the many facets of technology.
+				problems and the many facets of technology, bringing intuitive solutions
+				for the end user while meeting compliance requirements.
 			</p>
 			<p v-if="currentGoal == 3">
-				Making sense of data has been the most pleasurable duty of mine.
+				Visualizing data has been the most pleasurable duty of mine.
 				Specifically, working with frontend libraries like
-				<a href="https://www.chartjs.org/" target="_blank">Chart.js</a> to
-				filter and sort large datasets for the user experience. I have also used
-				<a href="https://pandas.pydata.org/" target="_blank">pandas</a> for
-				Python to manipulate data into digestible excel sheets for an internal
-				business website.
+				<b>Chart.js</b> to filter and sort large datasets for the user
+				experience. I have also used <b>pandas</b> for Python to manipulate data
+				into digestible excel reports for an internal business website.
 			</p>
 			<p v-if="currentGoal == 4">
-				Saving time has never felt better before learning Python. I began by
-				automating my Zoom classes with PyAutoGUI during the pandemic, reading
-				my schedules from CSV files. Later I tried <b>webscraping</b> with
-				Selenium and BeautifulSoup to get around API costs. Eventually I took it
-				to a <a href="#experience">professional capacity</a> by implementing
-				<b>CI/CD</b> pipelines.
+				During the pandemic I tinkered with Python scripting by automating my
+				Zoom classes with PyAutoGUI. Later on I webscraped movie info from
+				physical media barcodes for a digital catalogue of my home theatre
+				collection. Eventually I took it to a
+				<a href="#experience">professional capacity</a> by implementing
+				<b>CI/CD</b> pipelines for business applications.
 			</p>
 			<button @click="currentGoal++" v-if="currentGoal < 4" class="next">
 				<IconDown />
@@ -695,13 +689,13 @@ nav a:first-of-type {
 }
 
 .content .lorem {
-  display: flex;
-  align-items: center;
-  flex-flow: column;
+	display: flex;
+	align-items: center;
+	flex-flow: column;
 }
 .intro p {
 	padding: 0 2.5rem;
-  width: clamp(200px, 80%, 500px);
+	width: clamp(200px, 80%, 500px);
 	background-color: #fff;
 	padding: 1.5rem;
 	margin-bottom: 2rem;
