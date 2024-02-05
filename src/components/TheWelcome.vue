@@ -20,7 +20,7 @@ import IconGlobe from "./icons/IconGlobe.vue";
 export default {
 	data() {
 		return {
-			chattea: ["React", "Firebase"],
+			chattea: ["React", "Firebase", "Spotify Web API"],
 			portal: ["React", "MongoDB", "MSSQL", "Python"],
 			gonz9: ["React"],
 			hero: ["JavaScript"],
@@ -195,33 +195,29 @@ function mousemove(e) {
 				bg="#4e148c"
 			>
 				<template #content>
-					<!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
-            https://gsassembly.com/website/#about-us
-          </a> -->
 					<p>
-						My humble beginnings as a developer started as a Package Handler at
-						FedEx.
+						My interest in software development peaked outside of the tech field
+						as a Package Handler at FedEx.
 					</p>
 					<br />
 					<p>
-						Scattered around the warehouse were bluetooth speakers for the
-						luxury of smart watch users (No phones allowed). Frankly, they had
-						terrible taste in music. And so I took it upon myself to build my
-						own tech gadget that could link to the speakers.
-						<br />
+						The warehouse had bluetooth speakers for the luxury of smart watch
+						users. Frankly, they had terrible taste in music. Given no phones
+						were allowed, I took it upon myself to build my own tech gadget that
+						could pair with the speakers.
 						<a href="#projectView" v-on:click="currentFilter = 'Embedded'"
-							>The tech gadget was a Raspberry Pi with a display and a memory
-							stick for MP3 files.</a
+							>This gadget was a Raspberry Pi with a mini display for music
+							controls.</a
 						>
-						<br />Perhaps I was still circumventing the rules—But alas, it was a
-						fun project that helped me learn a lot about headless computing and
-						Python scripts.
+						<br /><br />Perhaps I was still circumventing the rules—But alas, it
+						was a fun project that helped me learn a lot about headless
+						computers and Python scripts.
 					</p>
 				</template>
 			</Employer>
 			<Employer
 				employer="Golden State Assembly"
-				job-title="IT System Administrator"
+				job-title="IT SysAdmin"
 				image="/gsa.jpg"
 				start="4/2022"
 				end="8/2023"
@@ -231,7 +227,9 @@ function mousemove(e) {
 					<!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
             https://gsassembly.com/website/#about-us
           </a> -->
-					<p>GSA is a manufacturer of electrical wire harnesses.</p>
+					<p>
+						GSA is a manufacturer of electrical wire harnesses for automobiles.
+					</p>
 					<br />
 					<p>
 						I was hired as a Tier 1 support technician for IT-related tickets
@@ -239,13 +237,11 @@ function mousemove(e) {
 						pivoted to more sophisticated tasks involving the business
 						infrastructure.<br />
 
-						I improved the software development practices by uploading PHP
-						source code to
+						I introduced DevOps practices by uploading PHP source code to
 						<b>Azure Repos</b> and configuring <b>Azure Pipelines</b> for
-						on-premises deployment automation. This allowed the lead developer
-						to focus on innovation and recruit more hands, collaborating through
-						code reviews and PRs. Later on I introduced <b>Docker</b> to the
-						growing team for building microservice-driven applications.<br /><br />
+						on-premises deployment automation. Later on I introduced
+						<b>Docker</b> to the growing developer team for building microservice-driven
+						applications.<br /><br />
 						My latest achievement was migrating their old file servers to a
 						<b>storage area network</b> for performance gains and data
 						redundancy measures.
