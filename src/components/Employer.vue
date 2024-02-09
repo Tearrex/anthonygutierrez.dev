@@ -86,7 +86,8 @@ export default {
 }
 
 .expandable {
-    background-color: #f2f2f2;
+    background-color: #1f2223;
+    color: #eee;
     height: 0;
     overflow: hidden;
 }
