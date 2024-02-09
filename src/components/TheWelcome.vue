@@ -166,6 +166,7 @@ function mousemove(e) {
 				title="MP3 Player"
 				description="Low-profile Bluetooth controller for music streaming. Includes an OLED HAT display with object-oriented menu navigation."
 				image-name="/music.jpg"
+				github="https://github.com/Tearrex/pimusicpod"
 				:stack="mp3"
 				v-if="currentFilter == 'Embedded'"
 			/>
@@ -209,7 +210,8 @@ function mousemove(e) {
 							>This gadget was a Raspberry Pi with a mini display for music
 							controls.</a
 						>
-						<br /><br />Perhaps I was still circumventing the rules—But alas, it
+						<img src="/piplayer.jpg" style="width: 100%;"/>
+						<br />Perhaps I was still circumventing the rules—But alas, it
 						was a fun project that helped me learn a lot about headless
 						computers and Python scripts.
 					</p>
