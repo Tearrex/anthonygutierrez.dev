@@ -4,20 +4,7 @@ import PageHead from './components/PageHead.vue'
 </script>
 
 <template>
-  <header>
-    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
-
-    <div class="wrapper">
-      <PageHead msg="> Hello" />
-    </div>
-  </header>
-
   <RouterView />
-
-  <!-- <footer>
-    <h3>Let's network!
-    </h3>
-  </footer> -->
 </template>
 
 <style>

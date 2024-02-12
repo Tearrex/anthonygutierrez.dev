@@ -21,15 +21,17 @@ export default {
 	data() {
 		return {
 			chattea: ["React", "Firebase", "Spotify Web API"],
-			portal: ["React", "MongoDB", "MSSQL", "Python"],
+			portal: ["MongoDB", "React", "Node", "MSSQL", "Python", "Docker"],
 			gonz9: ["React"],
 			hero: ["JavaScript"],
-			aqua: ["HTML/CSS/JS", "Python", "Flask", "SQLite", "RaspberryPi"],
-			mp3: ["Python", "RaspberryPi"],
+			aqua: ["Python", "Raspberry Pi"],
+			mp3: ["Python", "Raspberry Pi"],
 			san: ["iSCSI", "DRBD", "Heartbeat"],
 			filters: ["Websites", "Embedded", "Other"],
 			currentFilter: "Websites",
 			currentGoal: 2,
+			resumeURL:
+				"https://docs.google.com/document/d/1jcOFIsdUWH7dEWFBQH02AvIeRrCnUZLNvrYWw2d5sHA/edit?usp=sharing",
 		};
 	},
 };
@@ -68,12 +70,6 @@ function mousemove(e) {
 // document.addEventListener("mousemove", mousemove)
 </script>
 <template>
-	<nav style="text-align: center">
-		<a href="#introline">Intro</a>
-		<a href="#experience">Experience</a>
-		<a href="#skills">Skills</a>
-		<!-- <a href="https://medium.com/@anthonydev" target="_blank" rel="noreferrer">Blog</a> -->
-	</nav>
 	<hr id="introline" />
 	<!-- <div class="introtop" /> -->
 	<section
@@ -98,8 +94,8 @@ function mousemove(e) {
 						</p>
 						<p class="code">
 							Since then, I have been nurturing my webdev niche by exploring
-							JavaScript frameworks and acquiring industry experience designing
-							customer-facing apps among other IT specialties.
+							JavaScript frameworks and designing customer-facing apps among
+							other IT specialties.
 						</p>
 					</div>
 				</div>
@@ -109,7 +105,12 @@ function mousemove(e) {
 	<div class="introbottom">
 		<button v-on:click="projects()" class="fancy"><IconDown /> Projects</button>
 	</div>
-
+	<nav style="text-align: center">
+		<a href="#introline">Intro</a>
+		<a href="#experience">Experience</a>
+		<a href="#skills">Skills</a>
+		<!-- <a href="https://medium.com/@anthonydev" target="_blank" rel="noreferrer">Blog</a> -->
+	</nav>
 	<section class="flexy" id="projectView">
 		<div>
 			<h2 id="projects">My Projects</h2>
@@ -129,17 +130,17 @@ function mousemove(e) {
 		</div>
 		<div class="projnest">
 			<ProjectItem
-				title="Chattea"
-				description="Social media website with end-to-end encrypted messaging, private pages and guest view."
+				title="Chattea.app"
+				description="Social media website with encrypted messaging, private pages and guest view."
 				image-name="/chattea.png"
-				url="https://chattea.netlify.app/"
+				url="https://chattea.app/"
 				:stack="chattea"
 				github="https://github.com/Tearrex/Chattea"
 				v-if="currentFilter == 'Websites'"
 			/>
 			<ProjectItem
 				title="Gonz9Training.com"
-				description="Freelance website for a professional fitness trainer to coordinate sessions with athletes and client prospects."
+				description="Professional fitness training website to coordinate sessions and consultations."
 				image-name="/gonz9.jpg"
 				url="https://gonz9training.netlify.app/"
 				github="https://github.com/Tearrex/G9training"
@@ -148,12 +149,17 @@ function mousemove(e) {
 			/>
 			<ProjectItem
 				title="Customer Portal"
-				description="Customer-facing business application
-      aggregating data into excel reports of procured materials. MERN stack with microservice architecture."
-				image-name="/portal2.jpg"
+				image-name="/portal1.jpg"
 				:stack="portal"
 				v-if="currentFilter == 'Websites'"
-			/>
+			>
+				<template #description>
+					Business website for
+					<a href="#experience">Golden State Assembly</a> offering visibility
+					and downloadable excel reports of manufacture services being provided
+					to clients.
+				</template>
+			</ProjectItem>
 			<ProjectItem
 				title="School Project"
 				description="Point and click browser game with goal to protect tanks from rounds of bomb strikes. Try it out!"
@@ -164,7 +170,7 @@ function mousemove(e) {
 			/>
 			<ProjectItem
 				title="MP3 Player"
-				description="Low-profile Bluetooth controller for music streaming. Includes an OLED HAT display with object-oriented menu navigation."
+				description="Low-profile Bluetooth controller for offline music streaming."
 				image-name="/music.jpg"
 				github="https://github.com/Tearrex/pimusicpod"
 				:stack="mp3"
@@ -172,7 +178,7 @@ function mousemove(e) {
 			/>
 			<ProjectItem
 				title="Smart Aquarium"
-				description="Webserver that monitors temperature probe parameters and controls aquarium lights remotely. Basic user authentication."
+				description="Webapp for monitoring my aquarium remotely."
 				image-name="/aqua.jpg"
 				video="https://www.youtube.com/watch?v=Ijvt4syre6s"
 				github="https://github.com/Tearrex/AquaControl"
@@ -185,14 +191,14 @@ function mousemove(e) {
 		<div class="wavy block"></div>
 	</div>
 	<section class="expsec ocean">
-		<h1 style="margin-bottom: 2rem">Professional Experience</h1>
+		<h1 style="margin-bottom: 1rem">Professional Experience</h1>
 		<div class="expnest">
 			<Employer
 				employer="FedEx Ground"
 				job-title="Package Handler"
 				image="/fedex.jpg"
 				start="4/2021"
-				end="12/2021"
+				end="1/2022"
 				bg="#4e148c"
 			>
 				<template #content>
@@ -209,53 +215,72 @@ function mousemove(e) {
 						<a href="#projectView" v-on:click="currentFilter = 'Embedded'"
 							>This gadget was a Raspberry Pi with a mini display for music
 							controls.</a
-						>
-						<img src="/piplayer.jpg" style="width: 100%;"/>
-						<br />Perhaps I was still circumventing the rules—But alas, it
-						was a fun project that helped me learn a lot about headless
-						computers and Python scripts.
+						><br /><br />
+						<img src="/piplayer.jpg" style="width: 100%" />
 					</p>
 				</template>
 			</Employer>
 			<Employer
 				employer="Golden State Assembly"
-				job-title="IT SysAdmin"
+				job-title="IT System Admin"
 				image="/gsa.jpg"
 				start="4/2022"
 				end="8/2023"
 				bg="#26378f"
 			>
 				<template #content>
-					<!-- <a href="https://gsassembly.com/website/#about-us" target="_blank" rel="noreferrer">
-            https://gsassembly.com/website/#about-us
-          </a> -->
 					<p>
 						GSA is a manufacturer of electrical wire harnesses for automobiles.
 					</p>
 					<br />
 					<p>
-						I was hired as a Tier 1 support technician for IT-related tickets
-						throughout the warehouse. Having prior developer knowledge, I soon
-						pivoted to more sophisticated tasks involving the business
-						infrastructure.<br />
-
-						I introduced DevOps practices by uploading PHP source code to
-						<b>Azure Repos</b> and configuring <b>Azure Pipelines</b> for
-						on-premises deployment automation. Later on I introduced
-						<b>Docker</b> to the growing developer team for building microservice-driven
-						applications.<br /><br />
-						My latest achievement was migrating their old file servers to a
-						<b>storage area network</b> for performance gains and data
-						redundancy measures.
-
-						<a
-							href="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad"
-							target="_blank"
-							>Read my blog about it.</a
-						>
+						Starting as a Tier 1 support technician, I tended to IT-related
+						tickets ensuring troublefree workflows for Spanish-speaking
+						warehouse employees. I soon pivoted to more sophisticated tasks
+						involving the business infrastructure.
 					</p>
+					<ul>
+						<li>
+							I brought the company's SDLC up to standards with
+							<b>Azure DevOps</b>, uploading source code to Azure Repos and
+							configuring pipeline agents for CI/CD automations.
+						</li>
+						<li>
+							I expanded upon a large PHP codebase for their ERP software by
+							creating digital tracking modules for the QA/QC team's manual
+							workflows.
+						</li>
+						<li>
+							I was the lead developer of
+							<a href="#projects" v-on:click="currentFilter = 'Websites'"
+								>a new business website</a
+							>
+							for the company, collecting requirements from stakeholders and
+							cross-functional departments to allow customers to request & view
+							progress of material procurement on-demand through ERP
+							integrations.
+						</li>
+						<li>
+							My greatest achievement was migrating their old file servers to a
+							<b>storage area network</b> for performance gains and data
+							redundancy measures.
+							<a
+								href="https://medium.com/@anthonydev/storage-area-networks-d9281703c1ad"
+								target="_blank"
+								>Read my blog about it.</a
+							>
+						</li>
+					</ul>
 				</template>
 			</Employer>
+			<a
+				:href="resumeURL"
+				target="_blank"
+				rel="noreferrer"
+				style="text-decoration: underline; background: none"
+			>
+				Download Resume
+			</a>
 		</div>
 	</section>
 	<div style="position: relative" class="ocean" id="skills">
@@ -333,8 +358,6 @@ function mousemove(e) {
 				><img src="/awsclf.png" width="100"
 			/></a>
 		</div>
-		<!-- <p style="margin-bottom: 1rem;">I'm always learning & eager to take on new challenges.</p> -->
-		<hr style="margin: 2rem 0" />
 		<h2>Career Goals</h2>
 		<div class="slides">
 			<button @click="currentGoal--" v-if="currentGoal > 0" class="last">
@@ -348,18 +371,19 @@ function mousemove(e) {
 			</p>
 			<p v-if="currentGoal == 1">
 				I am an AWS Certified Cloud Practitioner, further studying for the
-				SAA-C03 exam.
+				SAA-C03 exam. I have implemented <b>serverless functions</b> into
 				<a href="#projectView" v-on:click="currentFilter = 'Websites'"
-					>I've implemented serverless functions</a
+					>my frontend projects</a
 				>
-				into my frontend projects for handling API secrets and server-side image
-				processing.
+				and I am greatly interested in supporting public, private and
+				multi-cloud enviroments towards my longterm goal of providing
+				cost-effective and well-architected solutions to clients.
 			</p>
 			<p v-if="currentGoal == 2">
-				With my toolset above I can assist in driving products and services
-				forward. I strive to be a quick & savvy liaison between business
-				problems and the many facets of technology, bringing intuitive solutions
-				for the end user while meeting compliance requirements.
+				With my toolset above I can propel the innovation of products and
+				services as part of a team. I strive to be a quick & savvy liaison
+				between business problems and the many facets of technology, bringing
+				customer-centric solutions while meeting compliance requirements.
 			</p>
 			<p v-if="currentGoal == 3">
 				Visualizing data has been the most pleasurable duty of mine.
@@ -369,10 +393,13 @@ function mousemove(e) {
 				into digestible excel reports for an internal business website.
 			</p>
 			<p v-if="currentGoal == 4">
-				During the pandemic I tinkered with Python scripting by automating my
-				Zoom classes with PyAutoGUI. Later on I webscraped movie info from
-				physical media barcodes for a digital catalogue of my home theatre
-				collection. Eventually I took it to a
+				From previous work experience I have observed that businesses tend to
+				have a lot of manual processes in their operations that consume
+				significant time and effort—which could be better expelled onto more
+				productive duties. As an IT specialist, I want to make these tasks more
+				efficient while delivering consistent results and mitigating the
+				friction between a user's technical aptitude and the software at hand. I
+				recently took this goal to a
 				<a href="#experience">professional capacity</a> by implementing
 				<b>CI/CD</b> pipelines for business applications.
 			</p>
@@ -431,7 +458,7 @@ function mousemove(e) {
 			<h1 style="margin-top: 6rem; color: #5dade2">Open to work</h1>
 			<h3>I'd be happy to talk shop or share more about my projects!</h3>
 			<a
-				href="mailto:anthonyg2803@protonmail.com"
+				href="mailto:anthonygutierrezdev@gmail.com"
 				class="no-highlight"
 				style="margin-right: 5px"
 			>
@@ -440,12 +467,12 @@ function mousemove(e) {
 				</button>
 			</a>
 			<a
-				href="/Resume.pdf"
+				:href="resumeURL"
 				target="_blank"
 				rel="noreferrer"
 				class="no-highlight"
 			>
-				<button><IconCase /> Resume/CV</button>
+				<button><IconCase /> Resume</button>
 			</a>
 			<div class="socials" style="justify-content: left; margin: 0">
 				<SocialButton
@@ -458,11 +485,6 @@ function mousemove(e) {
 				<SocialButton social-link="https://github.com/Tearrex">
 					<template #icon>
 						<IconGitHub />
-					</template>
-				</SocialButton>
-				<SocialButton social-link="https://www.youtube.com/@ant-dev">
-					<template #icon>
-						<IconYoutube />
 					</template>
 				</SocialButton>
 			</div>
@@ -770,7 +792,6 @@ nav a:first-of-type {
 	display: flex;
 	flex-flow: column;
 	gap: 1rem;
-	margin-bottom: 2rem;
 	justify-content: center;
 	align-items: center;
 }
